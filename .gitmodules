@@ -1,1 +1,4 @@
 
+[submodule "cgap-pipeline-utils"]
+	path = cgap-pipeline-utils
+	url = https://github.com/dbmi-bgm/cgap-pipeline-utils
