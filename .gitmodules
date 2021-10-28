@@ -5,3 +5,6 @@
 [submodule "cgap-pipeline-upstream-sentieon"]
 	path = cgap-pipeline-upstream-sentieon
 	url = https://github.com/dbmi-bgm/cgap-pipeline-upstream-sentieon
+[submodule "cgap-pipeline-SV-germline"]
+	path = cgap-pipeline-SV-germline
+	url = https://github.com/dbmi-bgm/cgap-pipeline-SV-germline
