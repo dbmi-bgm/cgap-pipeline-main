@@ -8,3 +8,6 @@
 [submodule "cgap-pipeline-SV-germline"]
 	path = cgap-pipeline-SV-germline
 	url = https://github.com/dbmi-bgm/cgap-pipeline-SV-germline
+[submodule "cgap-pipeline-base"]
+	path = cgap-pipeline-base
+	url = https://github.com/dbmi-bgm/cgap-pipeline-base
