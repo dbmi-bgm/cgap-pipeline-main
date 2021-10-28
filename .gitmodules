@@ -2,3 +2,6 @@
 [submodule "cgap-pipeline-utils"]
 	path = cgap-pipeline-utils
 	url = https://github.com/dbmi-bgm/cgap-pipeline-utils
+[submodule "cgap-pipeline-upstream-sentieon"]
+	path = cgap-pipeline-upstream-sentieon
+	url = https://github.com/dbmi-bgm/cgap-pipeline-upstream-sentieon
