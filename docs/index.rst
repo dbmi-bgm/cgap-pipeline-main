@@ -3,12 +3,13 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Overview
-============================================
 
-This is a documentation for CGAP Pipeline Master
+CGAP Pipeline Master Overview
+=============================
 
-(https://github.com/dbmi-bgm/cgap-pipeline-master)
+This is documentation for the Clinical Genome Analysis Platform (CGAP) Pipeline Master GitHub repository.
+
+The CGAP Pipeline Master repo (https://github.com/dbmi-bgm/cgap-pipeline-master) contains the latest production versions of all CGAP Bioinformatics Pipelines!
 
 Contents
 ########
@@ -21,7 +22,7 @@ Contents
 .. toctree::
  :maxdepth: 3
 
- Upstream pipelines
- Downstream pipelines
- Other pipelines
- News
+ Upstream_pipelines
+ Downstream_pipelines
+ Other_pipelines
+ news-master

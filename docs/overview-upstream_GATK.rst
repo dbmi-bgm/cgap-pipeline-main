@@ -1,6 +1,6 @@
-==========================
-CGAP WGS and WES pipelines
-==========================
+======================================
+Overview - CGAP Pipeline Upstream GATK
+======================================
 
 CGAP WGS pipeline processes Whole Genome Sequencing (WGS) data starting from ``fastq`` files and produces ``bam``, ``g.vcf`` and ``vcf`` files as output. Optionally, the pipeline can take a ``cram`` file and convert it to ``fastq`` files to go through the rest of the pipeline.
 

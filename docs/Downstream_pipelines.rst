@@ -23,9 +23,9 @@ Contents
 .. toctree::
    :maxdepth: 1
 
-   wgs
-   SNV qc
-   SNV news
+   overview-SNV_germline
+   qc-SNV_germline
+   news-SNV_germline
    utils
 
 Structural variant (SV)
@@ -47,5 +47,5 @@ Contents
   :maxdepth: 1
 
   SV
-  SV qc
-  SV news
+  SV_qc
+  news-SV_germline

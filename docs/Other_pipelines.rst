@@ -5,5 +5,5 @@ Other pipelines
 Sentieon Joint Calling
 ++++++++++++++++++++++
 
-Subheading
-----------
+Coming Soon
+-----------
