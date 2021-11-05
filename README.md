@@ -2,6 +2,11 @@
 
 This is the master repository for cgap pipeline.
 
+## Documentation
+
+Documentation for all CGAP Pipelines can now be found here:
+https://cgap-pipeline-master.readthedocs.io/en/latest/
+
 ## Initialize the repository
 
 Clone the repository.
