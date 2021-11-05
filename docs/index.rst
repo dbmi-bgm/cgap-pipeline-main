@@ -24,3 +24,4 @@ Contents
  Upstream pipelines
  Downstream pipelines
  Other pipelines
+ News
