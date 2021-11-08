@@ -52,7 +52,7 @@ Pipeline Flow
 
 The overall flow of the pipeline looks as below:
 
-.. image:: images/bioinfo-snv-indel-flow-v22-20210526.png
+.. image:: ../../../images/bioinfo-snv-indel-flow-v22-20210526.png
 
 
 Pipeline Parts and Runtimes
@@ -65,7 +65,7 @@ Largely, the pipeline consists of two parts:
 
 The run time of the different steps are summarized in the following diagram:
 
-.. image:: images/SNV_germline.png
+.. image:: ../../../images/SNV_germline.png
 
 
 Pipeline Steps

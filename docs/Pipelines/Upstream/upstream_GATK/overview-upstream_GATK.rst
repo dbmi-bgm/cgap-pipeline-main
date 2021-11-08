@@ -36,7 +36,7 @@ Pipeline Flow
 
 The overall flow of the pipeline looks as below:
 
-.. image:: images/bioinfo-snv-indel-flow-v22-20210526.png
+.. image:: ../../../images/bioinfo-snv-indel-flow-v22-20210526.png
 
 
 Pipeline Parts and Runtimes
@@ -46,7 +46,7 @@ The CGAP Pipeline Upstream GATK is primarily used for read mapping from raw sequ
 
 The run time of the different steps are summarized in the following diagram:
 
-.. image:: images/upstream_GATK.png
+.. image:: ../../../images/upstream_GATK.png
 
 
 Pipeline Steps

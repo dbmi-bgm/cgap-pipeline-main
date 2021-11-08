@@ -20,10 +20,10 @@ Contents
   self
 
 .. toctree::
- :maxdepth: 3
+ :maxdepth: 4
 
- Pipeline_base
- Upstream_pipelines
- Downstream_pipelines
- Other_pipelines
+ Pipelines/Base/Pipeline_base
+ Pipelines/Upstream/Upstream_pipelines
+ Pipelines/Downstream/Downstream_pipelines
+ Pipelines/Other/Other_pipelines
  news-master

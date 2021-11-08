@@ -24,6 +24,6 @@ This process follows the following rules:
 
 An example of how these rules are followed with various inputs is found below:
 
-.. image:: images/dbSNP_reference_table.png
+.. image:: ../../../images/dbSNP_reference_table.png
 
 For more details, see https://cgap-annotations.readthedocs.io/en/latest/variants_sources.html#dbsnp

@@ -25,7 +25,7 @@ To determine compound heterozygous pairs, variants must be first assigned to gen
   2. Since we do not include variants in an upstream/downstream region of a gene/transcript, we also do not assign variants to a gene/transcript if the variant is in an upstream/downstream region of the gene/transcript, except if the variant is a ClinVar variant.
 
 
-.. image:: images/gene_assignment_v14.png
+.. image:: ../../../images/gene_assignment_v14.png
 
 
 This gene assignment is ensured by first 'cleaning' the pre-existing VEP annotation according to spliceAI and ClinVar annotations. This VEP cleaning is performed during the Filtering step of the pipeline. The Compound Het calling step assumes that VEP annotation in the input ``vcf`` already reflects the above rules.
@@ -68,7 +68,7 @@ Phase
 A compound het pair is either phased or unphased.
 
 
-.. image:: images/comphet_phase.png
+.. image:: ../../../images/comphet_phase.png
 
 
 Impact

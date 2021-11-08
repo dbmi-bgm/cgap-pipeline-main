@@ -20,9 +20,9 @@ Contents
 .. toctree::
    :maxdepth: 1
 
-   overview-upstream_GATK
-   qc-upstream_GATK
-   news-upstream_GATK
+   upstream_GATK/overview-upstream_GATK
+   upstream_GATK/qc-upstream_GATK
+   upstream_GATK/news-upstream_GATK
 
 CGAP Pipeline Upstream Sentieon
 +++++++++++++++++++++++++++++++
@@ -45,4 +45,4 @@ Contents
 .. toctree::
    :maxdepth: 1
 
-   news-upstream_sentieon
+   upstream_sentieon/news-upstream_sentieon

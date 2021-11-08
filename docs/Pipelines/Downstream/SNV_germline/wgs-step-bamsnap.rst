@@ -11,4 +11,4 @@ Output
 
 An example output ``png`` file looks as below:
 
-.. image:: images/bamsnap_example_chr12_49053606.png
+.. image:: ../../../images/bamsnap_example_chr12_49053606.png

@@ -31,5 +31,5 @@ Pipeline Parts and Runtimes
 
 Below are the current runtimes for components of CGAP Pipeline Base.
 
-.. image:: images/base_cram2fastq.png
+.. image:: ../../images/base_cram2fastq.png
   :width: 400

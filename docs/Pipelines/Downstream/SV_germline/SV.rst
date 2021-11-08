@@ -42,8 +42,7 @@ SV Pipeline Flow and Runtimes
 
 The overall flow and duration of the CGAP SV Pipeline is shown below:
 
-.. image:: images/cgap-SV-pipeline-v2.png
-  :target: _images/cgap-SV-pipeline-v2.png
+.. image:: ../../../images/cgap-SV-pipeline-v2.png
 
 SV Pipeline Parts and Runtimes
 ##############################
