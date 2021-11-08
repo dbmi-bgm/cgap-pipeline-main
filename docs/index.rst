@@ -22,8 +22,8 @@ Contents
 .. toctree::
  :maxdepth: 4
 
- Pipelines/Upstream/Upstream_pipelines
  Pipelines/Base/Pipeline_base
+ Pipelines/Upstream/Upstream_pipelines
  Pipelines/Downstream/Downstream_pipelines
  Pipelines/Other/Other_pipelines
  news-master
