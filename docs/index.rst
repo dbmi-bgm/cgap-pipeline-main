@@ -26,4 +26,5 @@ Contents
  Pipelines/Upstream/Upstream_pipelines
  Pipelines/Downstream/Downstream_pipelines
  Pipelines/Other/Other_pipelines
+ Linkout-cgap-pipeline-utils
  news-master
