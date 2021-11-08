@@ -22,7 +22,7 @@ Variant types distribution
 Total number of variants classified by type as:
 
   - **DEL**\ etion  (SVTYPE=DEL)
-  - **DUP**\ ertion  (SVTYPE=DUP)
+  - **DUP**\ lication  (SVTYPE=DUP)
   - Total variants (SVTYPE=DEL + SVTYPE=DUP)
 
 Variants are only counted if the sample has a non-reference genotype (0/1 or 1/1)

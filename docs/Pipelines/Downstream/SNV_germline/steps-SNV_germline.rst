@@ -1,6 +1,6 @@
-========================================
-Part 2. Variant Annotation and Filtering
-========================================
+==========================
+CGAP Pipeline SNV Germline
+==========================
 
 .. toctree::
    :maxdepth: 4
