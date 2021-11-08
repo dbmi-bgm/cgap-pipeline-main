@@ -65,8 +65,7 @@ Largely, the pipeline consists of two parts:
 
 The run time of the different steps are summarized in the following diagram:
 
-.. image:: images/bioinfo-snv-indel-flow-2parts-v25-20211006.png
-  :target: _images/bioinfo-snv-indel-flow-2parts-v25-20211006.png
+.. image:: images/SNV_germline.png
 
 
 Pipeline Steps
@@ -75,6 +74,5 @@ Pipeline Steps
 .. toctree::
    :maxdepth: 2
 
-   wgs-part1
    wgs-part2
    validation

@@ -22,6 +22,7 @@ Contents
 .. toctree::
  :maxdepth: 3
 
+ Pipeline_base
  Upstream_pipelines
  Downstream_pipelines
  Other_pipelines
