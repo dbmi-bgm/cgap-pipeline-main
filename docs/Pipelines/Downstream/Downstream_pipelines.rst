@@ -45,6 +45,6 @@ Contents
 .. toctree::
   :maxdepth: 1
 
-  SV_germline/SV
-  SV_germline/SV_qc
+  SV_germline/overview-SV_germline
+  SV_germline/qc-SV_germline
   SV_germline/news-SV_germline

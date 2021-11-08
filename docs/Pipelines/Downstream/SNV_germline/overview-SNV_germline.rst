@@ -57,4 +57,11 @@ Pipeline Steps
    :maxdepth: 2
 
    steps-SNV_germline
-   validation-SNV_germline
+
+Pipeline Validation
+###################
+
+.. toctree::
+  :maxdepth: 2
+
+  validation-SNV_germline
