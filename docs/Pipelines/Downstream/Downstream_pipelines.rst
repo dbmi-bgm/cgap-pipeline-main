@@ -5,8 +5,8 @@ Downstream pipelines
 Germline
 ++++++++
 
-Short nucleotide variant (SNV)
-------------------------------
+CGAP Pipeline SNV Germline
+--------------------------
 
 This is a documentation for CGAP pipelines ``v26`` (https://github.com/dbmi-bgm/cgap-pipeline/tree/v26)
 
@@ -26,10 +26,9 @@ Contents
    SNV_germline/overview-SNV_germline
    SNV_germline/qc-SNV_germline
    SNV_germline/news-SNV_germline
-   SNV_germline/utils
 
-Structural variant (SV)
------------------------
+CGAP Pipeline SV Germline
+-------------------------
 
 This is a documentation for CGAP Structural Variant (SV) pipeline ``v2``
 

@@ -10,4 +10,4 @@ Controls
 .. toctree::
    :maxdepth: 4
 
-   SNV_germline-qc-qcvcf
+   Pages/SNV_germline-qc-qcvcf

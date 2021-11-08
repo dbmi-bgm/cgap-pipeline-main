@@ -10,4 +10,4 @@ Controls
 .. toctree::
    :maxdepth: 4
 
-   upstream_GATK-qcbam
+   Pages/upstream_GATK-qc-qcbam

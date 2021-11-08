@@ -2,8 +2,8 @@
 Other pipelines
 ===============
 
-Sentieon Joint Calling
-++++++++++++++++++++++
+CGAP Pipeline Sentieon Joint Calling
+++++++++++++++++++++++++++++++++++++
 
 Coming Soon
 -----------

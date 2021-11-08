@@ -15,16 +15,23 @@ Contents
 ########
 
 .. toctree::
-  :hidden:
-
-  self
-
-.. toctree::
- :maxdepth: 4
+ :maxdepth: 1
 
  Pipelines/Base/Pipeline_base
+
+.. toctree::
+ :maxdepth: 2
+
  Pipelines/Upstream/Upstream_pipelines
+
+.. toctree::
+ :maxdepth: 3
+
  Pipelines/Downstream/Downstream_pipelines
+
+.. toctree::
+ :maxdepth: 2
+
  Pipelines/Other/Other_pipelines
  Linkout-cgap-pipeline-utils
  news-master
