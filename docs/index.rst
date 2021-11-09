@@ -33,5 +33,5 @@ Contents
  :maxdepth: 2
 
  Pipelines/Other/Other_pipelines
- Linkout-cgap-pipeline-utils
+ Pipelines/Support/Support_repos
  news-master
