@@ -2,7 +2,7 @@
 CGAP Pipeline SNV Germline
 ==========================
 
-This is a documentation for CGAP pipelines ``v26`` (https://github.com/dbmi-bgm/cgap-pipeline/tree/v26)
+This the documentation for CGAP Pipeline SNV Germline (https://github.com/dbmi-bgm/cgap-pipeline-SNV-germline).
 
 .. toctree::
    :maxdepth: 2

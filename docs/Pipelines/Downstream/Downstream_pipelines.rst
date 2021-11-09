@@ -1,5 +1,5 @@
 ====================
-Downstream pipelines
+Downstream Pipelines
 ====================
 
 Downstream pipelines begin from ``bam`` files (containing reads mapped back to the reference genome) and end with filtered lists of variants.

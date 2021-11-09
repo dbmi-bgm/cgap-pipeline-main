@@ -1,5 +1,5 @@
 ===============
-Other pipelines
+Other Pipelines
 ===============
 
 CGAP Pipeline Sentieon Joint Calling

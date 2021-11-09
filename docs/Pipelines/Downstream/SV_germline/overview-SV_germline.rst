@@ -2,7 +2,7 @@
 Overview - CGAP Pipeline SV Germline
 ====================================
 
-CGAP Pipeline SV Germline identifies, annotates, and filters structural variants (SVs) starting from short read sequencing alignment files (``bam``) and produces ``vcf`` files as output.  SVs are a class of large genomic variants that includes deletions, duplications, translocations, inversions and other complex events, generally with a size of 50 bp or longer.
+CGAP Pipeline SV Germline (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) identifies, annotates, and filters structural variants (SVs) starting from short read sequencing alignment files (``bam``) and produces ``vcf`` files as output.  SVs are a class of large genomic variants that includes deletions, duplications, translocations, inversions and other complex events, generally with a size of 50 bp or longer.
 
 The pipeline is mostly based on ``Manta`` (https://github.com/Illumina/manta), ``ensembl-vep`` (https://github.com/Ensembl/ensembl-vep), ``sansa`` (https://github.com/dellytools/sansa), and ``granite`` (https://github.com/dbmi-bgm/granite).
 
