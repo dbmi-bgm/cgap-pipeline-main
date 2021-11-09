@@ -6,17 +6,9 @@ This is a documentation for CGAP Structural Variant (SV) pipeline ``v2``
 
 (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline)
 
-Contents
-########
-
 .. toctree::
-   :hidden:
+   :maxdepth: 2
 
-   self
-
-.. toctree::
-  :maxdepth: 1
-
-  overview-SV_germline
-  qc-SV_germline
-  news-SV_germline
+   overview-SV_germline
+   qc-SV_germline
+   news-SV_germline

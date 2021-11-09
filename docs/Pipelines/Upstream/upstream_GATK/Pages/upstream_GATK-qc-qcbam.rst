@@ -37,4 +37,4 @@ Coverage (=Depth of Coverage) is calculated as below:
     { (number of reads w/ both mates mapped) * (read length) * 2 + (number of reads w/ one mate mapped) * (read length) } / (effective genome size)
 
 
-where effective genome size is the number of non-N bases in the genome.
+Here, the effective genome size is the number of non-N bases in the genome.

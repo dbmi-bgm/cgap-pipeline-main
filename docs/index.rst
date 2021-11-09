@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-
+=============================
 CGAP Pipeline Master Overview
 =============================
 
@@ -17,7 +17,7 @@ Contents
 .. toctree::
  :maxdepth: 1
 
- Pipelines/Base/Pipeline_base
+ Pipelines/Base/index-base
 
 .. toctree::
  :maxdepth: 2

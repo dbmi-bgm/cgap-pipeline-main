@@ -35,15 +35,15 @@ The ``sv_germline`` image is for **annotation and filtering of SVs**. This image
 - sansa (0.0.8)
 - vcftools (0.1.17)
 
-SV Pipeline Flow and Runtimes
-#############################
+Pipeline Flow and Runtimes
+##########################
 
 The overall flow and duration of the CGAP SV Pipeline is shown below:
 
 .. image:: ../../../images/cgap-SV-pipeline-v2.png
 
-SV Pipeline Parts and Runtimes
-##############################
+Pipeline Parts and Runtimes
+###########################
 
 Largely, the pipeline consists of three parts:
 
@@ -51,8 +51,8 @@ Largely, the pipeline consists of three parts:
   | Part 2. Annotation of SVs with ``VEP`` for transcripts and ``sansa`` for gnomAD-SV allele frequencies
   | Part 3. Filtering of SVs to remove non-relevant variants, false positives, common variants, and very long variants
 
-SV Pipeline Steps
-#################
+Pipeline Steps
+##############
 
 .. toctree::
    :maxdepth: 4
