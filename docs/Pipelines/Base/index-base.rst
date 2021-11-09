@@ -1,8 +1,8 @@
-==================
-CGAP Pipeline Base
-==================
+====================
+CGAP Pipeline - Base
+====================
 
-This is the documentation for CGAP Pipeline Base ``v1`` (https://github.com/dbmi-bgm/cgap-pipeline-base)
+This is the documentation for the CGAP Pipeline Base module (https://github.com/dbmi-bgm/cgap-pipeline-base)
 
 .. toctree::
    :maxdepth: 2

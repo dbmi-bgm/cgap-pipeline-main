@@ -1,6 +1,6 @@
-==================
-Variant annotation
-==================
+======================
+VEP variant annotation
+======================
 
 This step splits multialleic variants, realigns indels, removes variants that do not meet a threshold read depth (DP) of 3 in at least one sample, and annotates variants for the input ``vcf`` file. ``bcftools`` is used for split and realignment, ``depth_filter.py`` (https://github.com/dbmi-bgm/cgap-annotations) is used to filter variants based on depth, and ``VEP`` (Variant Effect Predictor - https://useast.ensembl.org/info/docs/tools/vep/index.html) from the Ensemble v101 release is used for annotation along with several plug-ins.
 

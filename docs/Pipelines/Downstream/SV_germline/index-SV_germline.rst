@@ -1,8 +1,8 @@
-=========================
-CGAP Pipeline SV Germline
-=========================
+===========================
+CGAP Pipeline - SV Germline
+===========================
 
-This is the documentation for CGAP Pipeline SV Germline (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline).
+This is the documentation for the CGAP Pipeline for Germline Structural Variants (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline)
 
 .. toctree::
    :maxdepth: 2

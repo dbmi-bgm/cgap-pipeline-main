@@ -1,6 +1,6 @@
-=======================================
-Calling compound heterozygous mutations
-=======================================
+================================================
+Calling compound heterozygous mutations (ComHet)
+================================================
 
 This step uses ``granite comHet`` to call compound heterozygous mutations by genes and transcripts, assigning the associate risk based on available annotations. The output ``vcf`` file is checked for integrity to ensure the format is correct and the file is not truncated.
 

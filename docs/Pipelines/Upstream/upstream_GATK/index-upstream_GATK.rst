@@ -1,8 +1,8 @@
-===========================
-CGAP Pipeline Upstream GATK
-===========================
+=============================
+CGAP Pipeline - Upstream GATK
+=============================
 
-This is the documentation for CGAP Pipeline Upstream GATK (https://github.com/dbmi-bgm/cgap-pipeline-upstream-GATK).
+This is the documentation for CGAP Upstream GATK Pipeline  (https://github.com/dbmi-bgm/cgap-pipeline-upstream-GATK).
 
 .. toctree::
    :maxdepth: 2
