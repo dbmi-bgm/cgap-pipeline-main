@@ -11,3 +11,9 @@
 [submodule "cgap-pipeline-base"]
 	path = cgap-pipeline-base
 	url = https://github.com/dbmi-bgm/cgap-pipeline-base
+[submodule "cgap-pipeline-upstream-GATK"]
+	path = cgap-pipeline-upstream-GATK
+	url = https://github.com/dbmi-bgm/cgap-pipeline-upstream-GATK
+[submodule "cgap-pipeline-SNV-germline"]
+	path = cgap-pipeline-SNV-germline
+	url = https://github.com/dbmi-bgm/cgap-pipeline-SNV-germline
