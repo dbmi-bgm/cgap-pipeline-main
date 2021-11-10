@@ -2,7 +2,7 @@
 Upstream Pipelines
 ==================
 
-Upstream pipelines are designed to take raw sequencing data in ``fastq`` format, map it to the reference genome and prepare the resulting ``bam`` file for use in variant calling.
+Upstream pipelines are designed to take raw sequencing data in paired ``fastq`` format, map it to the reference genome and prepare the resulting ``bam`` file for use in variant calling.
 
 .. toctree::
    :maxdepth: 2

@@ -24,16 +24,20 @@ The ``cram2fastq`` image contains (but is not limited to) the following software
 - pigz (2.4)
 - pbgzip (2b09f97)
 
-Pipeline Flow
-#############
-
-Coming soon ...
-
-
 Pipeline Parts and Runtimes
 ###########################
 
-Below are the current runtimes for components of CGAP Pipeline Base.
+Below are the current runtimes for components of the CGAP Pipeline - Base Module.
 
 .. image:: ../../images/base.png
-  :width: 400
+  :width: 500
+
+Pipeline Steps
+##############
+
+.. toctree::
+   :maxdepth: 1
+
+   Pages/md5
+   Pages/fastqc
+   Pages/cram2fastq

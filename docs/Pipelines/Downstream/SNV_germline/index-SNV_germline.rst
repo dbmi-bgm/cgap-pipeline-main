@@ -2,7 +2,7 @@
 CGAP Pipeline - SNV Germline
 ============================
 
-This is the documentation the CGAP Pipeline for Germline Single Nucleotide Variants (https://github.com/dbmi-bgm/cgap-pipeline-SNV-germline)
+This is the documentation for the CGAP Pipeline for Germline Single Nucleotide Variants (https://github.com/dbmi-bgm/cgap-pipeline-SNV-germline)
 
 .. toctree::
    :maxdepth: 2
