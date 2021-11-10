@@ -20,18 +20,9 @@ The ``fastqc`` image contains (but is not limited to) the following software pac
 
 The ``cram2fastq`` image contains (but is not limited to) the following software packages:
 
-- bwa (0.7.17)
-- gatk4 (4.1.2.0)
-- picard (2.20.2)
-- granite (0.1.12)
-- bamsnap (0.2.19)
 - samtools (1.9)
-- bcftools (1.11)
-- cramtools (0b5c9ec)
 - pigz (2.4)
 - pbgzip (2b09f97)
-- vep (101)
-- peddy (0.4.7)
 
 Pipeline Flow
 #############
