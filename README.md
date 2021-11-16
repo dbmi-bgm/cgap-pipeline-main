@@ -1,4 +1,4 @@
-# cgap-pipeline-master
+# CGAP Pipeline Master
 
 This is the master repository for cgap pipeline.
 
@@ -7,7 +7,7 @@ This is the master repository for cgap pipeline.
 Documentation for all CGAP Pipelines can now be found here:
 https://cgap-pipeline-master.readthedocs.io/en/latest/
 
-## Initialize the repository
+## Initialize the Repository
 
 Clone the repository.
 

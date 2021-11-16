@@ -2,6 +2,7 @@
 Part 3. Structural Variant Filtering
 ====================================
 
+
 Initial Annotation Filtering
 ++++++++++++++++++++++++++++
 
@@ -27,12 +28,12 @@ The whitelist steps use ``granite whiteList`` to filter-in exonic and functional
 Blacklist
 ---------
 
-The blacklist step uses ``granite blackList`` to filter-out common variants based on gnomAD SV population allele frequency (AF <= 0.01 retained). Variants without gnomAD SV annotations are also retained.
+The blacklist step uses ``granite blackList`` to filter-out common variants based on gnomAD SV population allele frequency (AF > 0.01). Variants without gnomAD SV annotations are retained.
 
 SV Type Selection
 -----------------
 
-This step uses ``SV_type_selector.py`` (https://github.com/dbmi-bgm/cgap-annotations) to filter out unwanted SV types.  Currently only DEL and DUP are retained.
+This step uses ``SV_type_selector.py`` (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) to filter out unwanted SV types. Currently only DEL and DUP are retained.
 
 Output
 ------
@@ -45,7 +46,7 @@ The output is a filtered ``vcf`` file containing a lot fewer entries compared to
 20 Unrelated Filtering
 ++++++++++++++++++++++
 
-This step uses ``20_unrelated_SV_filter.py`` (https://github.com/dbmi-bgm/cgap-annotations) to assess common and artefactual SVs in 20 unrelated samples and allows us to filter them from our sample ``vcf`` file. The 20 unrelated reference files (SV ``vcf`` files) were each generated using Manta for a single diploid individual as described in ``Part 1`` of the CGAP SV Pipeline.
+This step uses ``20_unrelated_SV_filter.py`` (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) to assess common and artefactual SVs in 20 unrelated samples and allows us to filter them from our sample ``vcf`` file. The 20 unrelated reference files (SV ``vcf`` files) were each generated using Manta for a single diploid individual as described in ``Part 1`` of the CGAP SV Pipeline.
 
 Currently, the 20 unrelated samples are from UGRP and have been run through ``v24`` of the ``CGAP Pipeline`` to generate the input ``bam`` files, before being run through ``Manta`` in ``v2`` of the ``CGAP SV Pipeline``.
 
@@ -70,7 +71,7 @@ The matching step is carried out as follows:
   2. This results in 20 "matched" SV ``vcf`` files, where each file contains the subset of SVs from the sample file that overlapped a single individual from the 20 unrelated references.
   3. The "matched" SV ``vcf`` files are read into a dictionary that counts the number of times each sample SV is found (max of 1 time per 20 files = 20 matches).
 
-The filtering step reads through the sample SV ``vcf`` file a final time and writes a filtered SV ``vcf`` file that only contains SVs that matched a maximum of n individuals.  The default is currently n = 1, such that sample SVs that match 2 or more of the 20 unrelated individuals are filtered out.
+The filtering step reads through the sample SV ``vcf`` file a final time and writes a filtered SV ``vcf`` file that only contains SVs that matched a maximum of n individuals. The default is currently n = 1, such that sample SVs that match 2 or more of the 20 unrelated individuals are filtered out.
 
 Output
 ------
@@ -83,7 +84,7 @@ The output is a filtered ``vcf`` file containing a lot fewer entries compared to
 Cytoband Annotation
 +++++++++++++++++++
 
-This step uses ``SV_cytoband.py`` (https://github.com/dbmi-bgm/cgap-annotations) to generate two new annotations, ``Cyto1`` and ``Cyto2``, which correspond to the cytoband(s) at breakpoint 1 and breakpoint 2 for the SV.
+This step uses ``SV_cytoband.py`` (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) to generate two new annotations, ``Cyto1`` and ``Cyto2``, which correspond to the cytoband(s) at breakpoint 1 and breakpoint 2 for the SV.
 
 Requirements
 ------------
@@ -106,7 +107,7 @@ The output is an annotated SV ``vcf`` file.  No variants are removed, but all va
 Length Filtering
 ++++++++++++++++
 
-This step uses ``SV_length_filter.py`` (https://github.com/dbmi-bgm/cgap-annotations) to remove the longest SVs from the sample SV ``vcf`` file. The resulting ``vcf`` file is checked for integrity.
+This step uses ``SV_length_filter.py`` (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) to remove the longest SVs from the sample SV ``vcf`` file. The resulting ``vcf`` file is checked for integrity.
 
 Requirements
 ------------
@@ -129,7 +130,7 @@ The output is a filtered ``vcf`` file containing slightly fewer entries.  No add
 VCF Annotation Cleaning
 +++++++++++++++++++++++
 
-This step uses ``SV_annotation_VCF_cleaner.py`` (https://github.com/dbmi-bgm/cgap-annotations) to remove ``VEP`` annotations from the **Full Annotated VCF** to create the **Higlass SV VCF**.  These annotations are removed to improve loading speed in the ``Higlass`` genome browser.  The resulting ``vcf`` file is checked for integrity.
+This step uses ``SV_annotation_VCF_cleaner.py`` (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) to remove ``VEP`` annotations from the **Full Annotated VCF** to create the **Higlass SV VCF**.  These annotations are removed to improve loading speed in the ``Higlass`` genome browser. The resulting ``vcf`` file is checked for integrity.
 
 Requirements
 ------------

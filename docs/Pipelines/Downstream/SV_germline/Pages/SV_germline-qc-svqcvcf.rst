@@ -1,6 +1,7 @@
 ======================
-SV VCF quality control
+SV VCF Quality Control
 ======================
+
 
 Overview
 ++++++++

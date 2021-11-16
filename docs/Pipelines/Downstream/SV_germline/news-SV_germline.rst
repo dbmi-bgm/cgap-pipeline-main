@@ -2,9 +2,10 @@
 News and Updates - SV Germline
 ==============================
 
-Version updates
+
+Version Updates
 +++++++++++++++
 
-**Sept 23, 2021** CGAP (SV) Germline pipeline v2 is released!
+  **Sept 23, 2021** CGAP (SV) Germline pipeline v2 is released!
 
-**Sept 1, 2021**  CGAP (SV) Germline pipeline v1 is released!
+  **Sept 1, 2021**  CGAP (SV) Germline pipeline v1 is released!

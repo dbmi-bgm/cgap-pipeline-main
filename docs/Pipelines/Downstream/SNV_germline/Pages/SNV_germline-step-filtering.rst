@@ -1,8 +1,8 @@
 ==================
-Filtering variants
+Variants Filtering
 ==================
 
-This step performs filtering of the variants.
+This step performs an annotation-based filtering of the variants in the input ``vcf``.
 
 * CWL: workflow_granite-filtering_plus_vcf-integrity-check.cwl
 
@@ -10,51 +10,52 @@ This step performs filtering of the variants.
 Requirements
 ++++++++++++
 
-A single, annotated ``vcf`` file is an input. The annotation should include annotation of VEP, ClinVar and SpliceAI.
+The input is a single, annotated ``vcf`` file. Annotation must include VEP, ClinVar and SpliceAI.
 
-This step can optionally take in a panel of unrelated samples in the ``.big`` format for blacklisting variants with reads appearing in unrelated samples, but this option is not used for the current pipeline.
+This step can optionally use a panel of unrelated samples in ``.big`` format to blacklist variants with reads supporting an ALTernate allele in the panel. This option is currently not used in the pipeline.
 
 
 Steps
 +++++
 
-The filtering step is composed of multiple steps and the output ``vcf`` file is checked for integrity to ensure the format is correct and the file is not truncated.
+The filtering step is composed of multiple intermediate steps and the output ``vcf`` file is checked for integrity to ensure the format is correct and the file is not truncated.
 
 .. image:: ../../../../images/cgap_filtering_v20.png
-
 
 Genelist
 ---------
 
-The genelist step uses ``granite geneList`` to clean VEP annotations for transcripts that are not mapping to any gene of interest (the current CGAP gene list is available `here`_). It is similar to VEP cleaning (below) but applies to genes rather than consequences. This step does not remove any variants, but only modifies the VEP annotation.
+This intermediate step uses ``granite geneList`` to clean VEP annotations for transcripts that are not mapping to any gene of interest (the current CGAP gene list is available `here`_). It is similar to VEP cleaning (below) but applies to genes rather than consequences. This step does not remove any variant and only modifies the VEP annotations.
 
 .. _here: https://cgap-reference-file-registry.s3.amazonaws.com/84f2bb24-edd7-459b-ab89-0a21866d7826/GAPFI5MKCART.txt
 
 Whitelist
 ---------
 
-The whitelist steps use ``granite whiteList`` to filter-in exonic and functionally relevant variant based on VEP, ClinVar (Pathogenic, Likely Pathogenic, Conflicting Interpretation of Pathogenicity, and Risk Factor) and SpliceAI (SpliceAI >= 0.2) annotations. The ClinVar whitelist is performed separately so that the result does not undergo VEP cleaning and filtering by blacklist.
+These intermediate steps use ``granite whiteList`` to filter-in exonic and functionally relevant variants based on VEP, ClinVar, and SpliceAI annotations. The ClinVar whitelist is done separately and the variants are not cleaned and filtered further by VEP cleaning and blacklist.
 
+Criteria for whitelist:
+
+  - VEP: exonic and functionally relevant consequences, plus splice regions
+  - ClinVar: Pathogenic, Likely Pathogenic, Conflicting Interpretation of Pathogenicity, and Risk Factor
+  - SpliceAI: max delta score >= 0.2
 
 VEP cleaning
 ------------
 
-This step uses ``granite cleanVCF`` to clean VEP annotations, to remove consequences that we do not want to include, such as introns. This step removes variants that remain with no VEP annotations after the cleaning.
-
+This intermediate step uses ``granite cleanVCF`` to clean VEP annotations and remove non relevant consequences. The step eventually discards variants that remain with no VEP annotations.
 
 Blacklist
 ---------
 
-The blacklist step uses ``granite blackList`` to filter-out common and shared variant based on gnomAD population allele frequency (AF <= 0.01) and a panel of unrelated samples. The panel of unrelated samples is in the .big format that contains the binary data (1: to be filtered, 0: not to be filtered) for every genomic position.
-
+This intermediate step uses ``granite blackList`` to filter-out common and shared variants based on gnomAD population allele frequency (AF > 0.01) and/or a panel of unrelated samples (optional, not used currently).
 
 Merging
 -------
 
-The ClinVar whitelist result is merged with the rest of the filtering result. For variants that overlap between the two, the ClinVar entry is chosen to preserve the entry without VEP cleaning for ClinVar variants.
-
+This intermediate step merges the set of variants from ClinVar whitelist with the other set of fully-filtered variants. For variants that overlap between the two sets, the ClinVar whitelist variant is maintained to preserve the most complete set of annotations.
 
 Output
 ++++++
 
-The output is a filtered ``vcf`` file containing a lot fewer entries compared to the input ``vcf``. The content of the remaining entries are identical to the input (no additional information added) except the VEP annotation has been cleaned up to remove irrelevant consequences.
+The final output is a filtered ``vcf`` file containing a subset of variants from the initial ``vcf`` file. The information attached to filtered variants is the same as in the original variants, with the exception of VEP annotations that have been cleaned to remove non relevant transcripts and consequences.

@@ -2,13 +2,13 @@
 Overview - Upstream GATK
 ========================
 
-CGAP Pipeline Upstream GATK (https://github.com/dbmi-bgm/cgap-pipeline-upstream-GATK) is our open source option for processing Whole Genome Sequencing (WGS) and Whole Exome Sequencing (WES) datasets.  This pipeline begins with paired ``fastq`` files and produces ``bam`` files (mapped reads) which can be supplied to numerous CGAP downstream pipelines, including the SNV Germline and SV Germline Pipelines. We use **hg38** as the reference genome for read mapping. If the user wishes to provide ``cram`` files as input, these can first be converted to ``fastq`` files using the CGAP Pipeline Base module.
+CGAP Pipeline Upstream GATK (https://github.com/dbmi-bgm/cgap-pipeline-upstream-GATK) is our open source option for processing Whole Genome Sequencing (WGS) and Whole Exome Sequencing (WES) datasets. The pipeline begins with paired ``fastq`` files and produces analysis ready ``bam`` files (mapped reads) which can be supplied to numerous CGAP downstream pipelines, including the SNV Germline and SV Germline Pipelines. We use **hg38** as the reference genome for read mapping. If the user wishes to provide ``cram`` files as input, these can first be converted to ``fastq`` files using the CGAP Pipeline Base module.
 
-The CGAP Pipeline Upstream GATK supports both WGS and WES input files. The WGS configuration is designed for a trio analysis with proband diagnosed with a likely monogenic disease. It is optimized for data with 30x coverage and has been tested with data up to 80-90x coverage. It can also be run in proband-only, and family modes using appropriate metaworkflows.
-
+The CGAP Pipeline Upstream GATK supports both WGS and WES input files. The WGS configuration is optimized for data with 30x coverage and has been tested with data up to 80-90x coverage.
 The WES configuration is a recent extension of the WGS pipeline, which allows for the processing of WES data. We are currently optimizing for 90x coverage and testing from 20x-200x.
 
-Both the WES and WGS configurations of the CGAP Pipeline Upstream GATK are mostly based on ``bwa`` and ``gatk4``. Users can select the correct pipeline configuration for their input data through the use of the corresponding metaworkflows (e.g., ``WES_upstream_gatk_proband.json`` for a single sample of WES data or ``WGS_upstream_gatk.json`` for a trio (mother, father, and proband) with WGS library preparation).
+Both the WES and WGS configurations of the CGAP Pipeline Upstream GATK are mostly based on ``bwa`` and ``gatk4``. Users can select the correct pipeline configuration for their input data through the use of the corresponding *MetaWorkflow* (e.g., ``WES_upstream_gatk_proband.json`` for a single sample of WES data or ``WGS_upstream_gatk.json`` for a trio (mother, father, and proband) with WGS library preparation).
+
 
 Docker Image
 ############
@@ -20,15 +20,9 @@ The image contains (but is not limited to) the following software packages:
 - bwa (0.7.17)
 - gatk4 (4.1.2.0)
 - picard (2.20.2)
-- granite (0.1.12)
-- bamsnap (0.2.19)
 - samtools (1.9)
-- bcftools (1.11)
-- cramtools (0b5c9ec)
 - pigz (2.4)
 - pbgzip (2b09f97)
-- vep (101)
-- peddy (0.4.7)
 
 
 Pipeline Flow

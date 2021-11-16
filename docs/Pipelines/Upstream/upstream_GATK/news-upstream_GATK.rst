@@ -2,8 +2,10 @@
 News and Updates - Upstream GATK
 ================================
 
-Version updates
+
+Version Updates
 +++++++++++++++
+
   **Nov 3, 2021** CGAP SNV (WGS/WES) pipeline v26 is released!
 
   **Oct 14, 2021**  CGAP (WGS) pipeline v25 is released!

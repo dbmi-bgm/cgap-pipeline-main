@@ -2,6 +2,7 @@
 VCF quality control
 ===================
 
+
 Overview
 ++++++++
 
@@ -24,10 +25,11 @@ The metrics currently available for family are:
 For each sample, ancestry and sex are also predicted using ``peddy`` [1]_.
 The predicted values allow to identify errors in sample labeling, contaminations events, and other errors that can occur during handling and processing of the sample.
 
+
 Definitions
 +++++++++++
 
-Variant types distribution
+Variant Types Distribution
 --------------------------
 
 Total number of variants classified by type as:
@@ -38,25 +40,25 @@ Total number of variants classified by type as:
   - **M**\ ulti-\ **A**\ llelic **V**\ ariant  (*A>T,C*)
   - **M**\ ulti-\ **N**\ ucleotide **V**\ ariant  (*AA>TT*)
 
-Base substitutions
+Base Substitutions
 ------------------
 
 Total number of SNVs classified by the type of substitution (e.g. C>T).
 
-Transition-transversion ratio
+Transition-Transversion Ratio
 -----------------------------
 
 Ratio of transitions to transversions in SNVs.
 It is expected to be [2, 2.20] for WGS and [2.6, 3.3] for WES.
 
-Heterozygosity ratio
+Heterozygosity Ratio
 --------------------
 
 Ratio of heterozygous to alternate homozygous variants.
 It is expected to be [1.5, 2.5] for WGS analysis.
 Heterozygous and alternate homozygous sites are counted by variant type.
 
-Depth of coverage
+Depth of Coverage
 -----------------
 
 Average depth of all variant sites called in the sample.
@@ -64,7 +66,7 @@ Average depth of all variant sites called in the sample.
 Depth of coverage (GATK) is calculated based on DP values as assigned by GATK.
 Depth of coverage (raw) is calculated based on raw read counts calculated directly from the bam file.
 
-Mendelian errors in trio
+Mendelian Errors in Trio
 ------------------------
 
 Variant sites in proband that are not consistent with mendelian inheritance rules based on parent genotypes.
@@ -86,7 +88,7 @@ Mendelian errors are counted by variant type and classified based on genotype co
 | 1/1 \| 0/1 | (any)      | ./.       | missing in parent   |
 +------------+------------+-----------+---------------------+
 
-Ancestry and sex prediction
+Ancestry and Sex Prediction
 ---------------------------
 
 Ancestry prediction is based on projection onto the thousand genomes principal components.

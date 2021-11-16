@@ -2,7 +2,7 @@
 Overview - Base Module
 ======================
 
-The CGAP Pipeline Base Module (https://github.com/dbmi-bgm/cgap-pipeline-base) contains the CWL files, workflows, metaworkflows, Dockerfiles and CGAP Portal objects necessary to run ``md5``, ``fastqc``, and format conversion from ``cram`` to ``fastq``. This module is necessary for general CGAP Portal functionality and should always be included when deploying a new CGAP account.
+The CGAP Pipeline Base Module (https://github.com/dbmi-bgm/cgap-pipeline-base) contains the CWL files, workflows, metaworkflows, Dockerfiles and CGAP Portal objects necessary to run ``md5``, ``FastQC``, and format conversion from ``cram`` to ``fastq``. This module is necessary for general CGAP Portal functionality and should always be included when deploying a new CGAP account.
 
 
 Docker Images
@@ -21,6 +21,7 @@ The ``fastqc`` image contains (but is not limited to) the following software pac
 The ``cram2fastq`` image contains (but is not limited to) the following software packages:
 
 - samtools (1.9)
+- cramtools (0b5c9ec)
 - pigz (2.4)
 - pbgzip (2b09f97)
 

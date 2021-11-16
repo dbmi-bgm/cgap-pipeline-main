@@ -1,6 +1,6 @@
-===============
-Call validation
-===============
+==========
+Validation
+==========
 
 For validation we are using a 3 generation family with children (C), parents (P), and grand-parents (GP).
 The statistics are calculated using ``granite validateVCF`` command. Samples for all family members are necessary.
@@ -15,7 +15,7 @@ The statistics are calculated using ``granite validateVCF`` command. Samples for
     C1  C2  C3  C4  C5  C6  ..
 
 
-GATK heterozygous calls
+GATK Heterozygous Calls
 +++++++++++++++++++++++
 
 Requirements:
@@ -63,7 +63,7 @@ Example
   het_stat.sh GAPFIR4IUBTH.vcf.gz GAPFII2XMRF5.vcf.gz pedigree.UGRP1.json UGRP1_ind_5 UGRP1_ind_6
 
 
-novoCaller *de novo* calls (one child)
+novoCaller *de novo* Calls (one child)
 ++++++++++++++++++++++++++++++++++++++
 *note: a parent can be used instead of a child as well, same procedure*
 

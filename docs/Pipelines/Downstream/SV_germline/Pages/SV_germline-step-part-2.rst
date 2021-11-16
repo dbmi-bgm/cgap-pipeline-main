@@ -11,7 +11,7 @@ This step uses ``sansa`` and ``VEP`` to annotate the structural variants identif
 sansa
 -----
 
-First, ``sansa`` is run using ``sansa.sh`` (https://github.com/dbmi-bgm/cgap-sv-pipeline/) to identify SVs that match the GRCh38 liftover of the gnomAD v2 structural variant database (https://gnomad.broadinstitute.org/downloads#v2-liftover-structural-variants). SVs in this database have allele frequencies from several human populations. ``sansa.sh`` sorts the input ``vcf`` file and then runs the following command for ``sansa``:
+First, ``sansa`` is run using ``sansa.sh`` (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) to identify SVs that match the GRCh38 liftover of the gnomAD v2 structural variant database (https://gnomad.broadinstitute.org/downloads#v2-liftover-structural-variants). SVs in this database have allele frequencies from several human populations. ``sansa.sh`` sorts the input ``vcf`` file and then runs the following command for ``sansa``:
 
 ``sansa annotate -m -n -b 50 -r 0.8 -s all -d $gnomAD $vcf``
 
@@ -28,12 +28,12 @@ Some additional bash commands convert the ``sansa`` output into ``txt`` format f
 VEP
 ---
 
-Next, ``VEP`` is run using ``vep-annot_SV.sh`` (https://github.com/dbmi-bgm/cgap-sv-pipeline/) to annotate the SVs with genes and transcripts. A maximum SV size slightly larger than chr1 in the hg38 genome ``--max_sv_size 250000000`` is used in the ``VEP`` command in order to avoid unwanted filtering of large SVs at this step. The ``--overlaps`` option is also included to provide the bp overlap between the ``VEP`` feature and the SV (reported in bp and percentage). The ``--canonical`` option is included so that canonical transcripts are flagged. ``VEP`` outputs an annotated ``vcf`` containing all variants.
+Next, ``VEP`` is run using ``vep-annot_SV.sh`` (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) to annotate the SVs with genes and transcripts. A maximum SV size slightly larger than chr1 in the hg38 genome ``--max_sv_size 250000000`` is used in the ``VEP`` command in order to avoid unwanted filtering of large SVs at this step. The ``--overlaps`` option is also included to provide the bp overlap between the ``VEP`` feature and the SV (reported in bp and percentage). The ``--canonical`` option is included so that canonical transcripts are flagged. ``VEP`` outputs an annotated ``vcf`` containing all variants.
 
 Combine sansa and VEP
 ---------------------
 
-Finally, the outputs from ``sansa`` and ``VEP`` are combined using ``combine_sansa_and_VEP_vcf.py`` (https://github.com/dbmi-bgm/cgap-annotations). The ``VEP`` ``vcf`` file is used as a scaffold, and gnomAD SV annotations from ``sansa`` are added. The current goal is to select the most appropriate (and rarest) match using the following rules when multiple matches are identified in the gnomAD SV database:
+Finally, the outputs from ``sansa`` and ``VEP`` are combined using ``combine_sansa_and_VEP_vcf.py`` (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline). The ``VEP`` ``vcf`` file is used as a scaffold, and gnomAD SV annotations from ``sansa`` are added. The current goal is to select the most appropriate (and rarest) match using the following rules when multiple matches are identified in the gnomAD SV database:
 
 1. Select a type-matched SV (if possible), and the rarest type-matched variant from gnomAD SV (using AF) if there are multiple that match.
 

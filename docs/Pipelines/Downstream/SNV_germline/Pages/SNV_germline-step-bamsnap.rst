@@ -6,6 +6,7 @@ This step uses ``bamsnap`` (reference: https://academic.oup.com/bioinformatics/a
 
 * CWL: bamsnap.cwl
 
+
 Output
 ++++++
 

@@ -1,6 +1,7 @@
 ===================
-BAM quality control
+BAM Quality Control
 ===================
+
 
 Overview
 ++++++++
