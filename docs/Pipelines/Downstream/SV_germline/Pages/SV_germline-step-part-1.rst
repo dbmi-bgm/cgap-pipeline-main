@@ -9,7 +9,7 @@ Manta
 Input
 -----
 
-Input files are sequence alignment files in ``bam`` format, generated from either of the `WGS Upstream pipelines <https://cgap-pipeline-master.readthedocs.io/en/latest/Pipelines/Upstream/Upstream_pipelines.html>`_.
+Input files are sequence alignment files in ``bam`` format, generated from either of the `WGS Upstream pipelines <https://cgap-pipeline-master.readthedocs.io/en/latest/Pipelines/Upstream/Upstream_pipelines.html>`_. Analysis ready ``bam`` files can also be provided by the user. 
 
 Running Manta
 -------------

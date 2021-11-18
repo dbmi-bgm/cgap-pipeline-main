@@ -22,7 +22,7 @@ Gene Assignments
 To determine compound heterozygous pairs, variants must be first assigned to genes and transcripts. For consistent and inclusive gene assignment, the rules are as follow:
 
   1. Intronic variants are not assigned to the corresponding gene or transcript, with the exception of variants predicted as potential splice sites (SpliceAI) or ClinVar variants.
-  2. Variants that are upstream or downstream of the coding region are not assigned to the corresponding gene or a transcript, withe the exception of ClinVar variants.
+  2. Variants that are upstream or downstream of the coding region are not assigned to the corresponding gene or a transcript, with the exception of ClinVar variants.
 
 .. image:: ../../../../images/gene_assignment_v14.png
 
@@ -57,7 +57,7 @@ Gene vs Transcript
 
 A compound heterozygous pair is defined for each pair of variants and for each gene.
 If a variant forms a compound heterozygous pair on two or more genes, the output will have a corresponding number of ``cmpHet`` entries.
-Compound heterozygous pairs not always share transcripts, and shared transcript for each pair are listed as additional information in the ``transcript`` field.
+Compound heterozygous pairs do not always share transcripts, and shared transcript for each pair are listed as additional information in the ``transcript`` field.
 
 Phase
 -----
@@ -69,7 +69,7 @@ A compound heterozygous pair is either classified as Phased or Unphased.
 Impact
 ------
 
-The predicted impact of a compound heterozygous pair is calculated as follow:
+The predicted impact of a compound heterozygous pair is calculated as follows:
 
 
     1. If VEP impact for both variants is HIGH ('H') or MODERATE ('M'), SpliceAI score >=0.8 ('S') or ClinVar Pathogenic or Likely Pathogenic ('C'), the pair is called a STRONG_PAIR.

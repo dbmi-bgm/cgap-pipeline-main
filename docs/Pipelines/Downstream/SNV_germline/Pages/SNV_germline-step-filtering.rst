@@ -1,6 +1,6 @@
-==================
-Variants Filtering
-==================
+=================
+Variant Filtering
+=================
 
 This step performs an annotation-based filtering of the variants in the input ``vcf``.
 
@@ -43,7 +43,7 @@ Criteria for whitelist:
 VEP cleaning
 ------------
 
-This intermediate step uses ``granite cleanVCF`` to clean VEP annotations and remove non relevant consequences. The step eventually discards variants that remain with no VEP annotations.
+This intermediate step uses ``granite cleanVCF`` to clean VEP annotations and remove non-relevant consequences. The step eventually discards variants that remain with no VEP annotations.
 
 Blacklist
 ---------
@@ -58,4 +58,4 @@ This intermediate step merges the set of variants from ClinVar whitelist with th
 Output
 ++++++
 
-The final output is a filtered ``vcf`` file containing a subset of variants from the initial ``vcf`` file. The information attached to filtered variants is the same as in the original variants, with the exception of VEP annotations that have been cleaned to remove non relevant transcripts and consequences.
+The final output is a filtered ``vcf`` file containing a subset of variants from the initial ``vcf`` file. The information attached to filtered variants is the same as in the original variants, with the exception of VEP annotations that have been cleaned to remove non-relevant transcripts and consequences.
