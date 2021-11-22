@@ -36,7 +36,7 @@ The overall flow of the pipeline looks as below:
 Pipeline Parts and Runtimes
 ###########################
 
-The CGAP Pipeline Upstream GATK is primarily used for read mapping from raw sequencing data, following GATK Best Practice.
+The CGAP Upstream GATK Pipeline is primarily used for read mapping from raw sequencing data, following GATK Best Practice.
 
 The run time of the different steps are summarized in the following diagram:
 

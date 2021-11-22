@@ -39,7 +39,7 @@ The ``sv_germline`` image is for **annotation and filtering of SVs**. This image
 Pipeline Flow and Runtimes
 ##########################
 
-The overall flow and duration of the CGAP SV Pipeline is shown below:
+The overall flow and duration of the CGAP SV Germline Pipeline is shown below:
 
 .. image:: ../../../images/cgap-SV-pipeline-v2.png
 
