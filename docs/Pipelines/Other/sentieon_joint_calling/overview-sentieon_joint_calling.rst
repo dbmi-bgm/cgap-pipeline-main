@@ -16,12 +16,14 @@ The image contains (but is not limited to) the following software packages:
 
 - sentieon (202010.02)
 
+
 Pipeline Parts and Runtimes
 ###########################
 
 The CGAP Sentieon Joint Calling Pipeline is primarily used for variant calling following GATK (Genome Analysis Toolkit) Best Practice using the Sentieon ``GVCFtyper`` algorithm.
 
 This single-step pipeline runs for under an hour with WES data from around 75 individuals.
+
 
 Pipeline Steps
 ##############

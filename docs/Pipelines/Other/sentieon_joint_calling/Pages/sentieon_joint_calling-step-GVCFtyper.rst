@@ -12,14 +12,16 @@ Requirements
 
 Must be run on input ``g.vcf`` files generated through ``HaplotypeCaller``.
 
+
 Parameters
 ++++++++++
 
 To mirror our SNV Germline Pipeline, which uses a GATK Best Practices ``--standard-min-confidence-threshold-for-calling`` default of ``10`` in the ``GenotypeGVCF`` step, we set the following parameters for Sentieon ``GVCFtyper``.
 
 1. ``--call_conf`` is set to ``10``
-2. ``--call_conf`` is set to ``10``
+2. ``--emit_conf`` is set to ``10``
 3. ``--emit_mode`` is set to ``variant``
+
 
 Output
 ++++++

@@ -2,11 +2,10 @@
 CGAP Pipeline - Upstream Sentieon
 =================================
 
-**Coming Soon**
-
-This will be documentation for the CGAP Upstream Sentieon Pipeline (https://github.com/dbmi-bgm/cgap-pipeline-upstream-sentieon)
+This is the documentation for CGAP Upstream Sentieon Pipeline (https://github.com/dbmi-bgm/cgap-pipeline-upstream-sentieon)
 
 .. toctree::
    :maxdepth: 2
 
+   overview-upstream_sentieon
    news-upstream_sentieon
