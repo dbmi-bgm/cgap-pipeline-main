@@ -17,5 +17,10 @@ Clone the repository.
 
 Populate the submodules.
 
-    git submodule init
-    git submodule update
+    make pull
+
+Install the repository.
+
+    make configure && make build
+
+See ``make info`` for more info on make targets.
