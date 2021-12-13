@@ -32,3 +32,4 @@ Pipeline Steps
    :maxdepth: 1
 
    Pages/sentieon_joint_calling-step-GVCFtyper
+   Pages/sentieon_joint_calling-step-annotation-Fisher

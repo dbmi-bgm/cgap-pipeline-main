@@ -1,12 +1,14 @@
-====================================
-Part 3. Structural Variant Filtering
-====================================
+==============================================================
+Part 3. Structural Variant Filtering and Secondary Annotations
+==============================================================
 
 
 Initial Annotation Filtering
 ++++++++++++++++++++++++++++
 
 The multi-step workflow carries out ``granite`` filtering, coding filtering, gnomAD SV allele frequency filtering and SV type selection.
+
+* CWL: workflow_granite-filtering_SV_selector_plus_vcf-integrity-check.cwl
 
 Requirements
 ------------
@@ -40,8 +42,6 @@ Output
 
 The output is a filtered ``vcf`` file containing a lot fewer entries compared to the input ``vcf``. The content of the remaining entries are identical to the input (no additional information added or removed). The resulting ``vcf`` file is checked for integrity.
 
-* CWL: workflow_granite-filtering_SV_selector_plus_vcf-integrity-check.cwl
-
 
 20 Unrelated Filtering
 ++++++++++++++++++++++
@@ -49,6 +49,8 @@ The output is a filtered ``vcf`` file containing a lot fewer entries compared to
 This step uses ``20_unrelated_SV_filter.py`` (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) to assess common and artefactual SVs in 20 unrelated samples and allows us to filter them from our sample ``vcf`` file. The 20 unrelated reference files (SV ``vcf`` files) were each generated using Manta for a single diploid individual as described in ``Part 1`` of the CGAP SV Pipeline.
 
 Currently, the 20 unrelated samples are from UGRP and have been run through ``v24`` of the ``CGAP Pipeline`` to generate the input ``bam`` files, before being run through ``Manta`` in ``v2`` of the ``CGAP SV Pipeline``.
+
+* CWL: workflow_20_unrelated_SV_filter_plus_vcf-integrity-check.cwl
 
 Requirements
 ------------
@@ -78,36 +80,65 @@ Output
 
 The output is a filtered ``vcf`` file containing a lot fewer entries compared to the input ``vcf``.  The variants that remain after filtering will receive an additional annotation, ``UNRELATED=n``, where n is the number of matches found within the 20 unrelated SV ``vcf`` files.
 
-* CWL: workflow_20_unrelated_SV_filter_plus_vcf-integrity-check.cwl
 
+Secondary Annotation
+++++++++++++++++++++
 
-Cytoband Annotation
-+++++++++++++++++++
+This workflow contains a series of short steps that add additional annotations to the existing ``vcf`` file, before the output ``vcf`` file is checked for integrity. This workflow makes use of ``liftover_hg19.py`` (https://github.com/dbmi-bgm/cgap-pipeline-utils) alongside ``SV_worst_and_locations.py`` and ``SV_cytoband.py`` (both from https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) to create annotations pertaining to the breakpoint locations in hg19, the breakpoint locations relative to the transcript they impact (e.g., Exonic, Intronic, etc.), and the cytoband(s) the breakpoints overlap with.
 
-This step uses ``SV_cytoband.py`` (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) to generate two new annotations, ``Cyto1`` and ``Cyto2``, which correspond to the cytoband(s) at breakpoint 1 and breakpoint 2 for the SV.
+* CWL: workflow_SV_secondary_annotation_plus_vcf-integrity-check.cwl
 
 Requirements
 ------------
 
-Although not technically a filtering step, this step is present in Part 3 because the ``SV_cytoband.py`` script is not currently designed to run on variants that do not have an ``END`` tag in their ``INFO`` field, namely INV and BND. This step requires a single SV ``vcf`` file that has undergone **Initial Annotation Filtering Step** (which selects for DELs and DUPs) and the hg38 cytoband reference file from UCSC (http://hgdownload.cse.ucsc.edu/goldenpath/hg38/database/cytoBand.txt.gz).
+This annotation step is present in Part 3 because the three python scripts used are designed to work only on DELs and DUPs (no INV, BND, INS). Both the cytoband annotation step and the liftover step also require the END field in the INFO block. This workflow requires a single SV ``vcf`` file that has undergone **Initial Annotation Filtering Step** (which selects for DELs and DUPs), the hg38 to hg19 chain file for liftover (http://hgdownload.cse.ucsc.edu/goldenpath/hg38/liftOver/hg38ToHg19.over.chain.gz), and the hg38 cytoband reference file from UCSC (http://hgdownload.cse.ucsc.edu/goldenpath/hg38/database/cytoBand.txt.gz).
 
 Annotation
 ----------
 
-Each variant in the ``vcf`` file will receive a ``Cyto1`` annotation which corresponds to the cytoband position of breakpoint 1 (which is ``POS`` in the ``vcf``), and a ``Cyto2`` annotation which corresponds to the cytoband position of breakpoint 2 (which is ``END`` in the ``INFO`` field).
+1. For ``liftover_hg19.py``, three lines are added to the header:
+
+::
+
+  ##INFO=<ID=hgvsg,Number=.,Type=String,Description="hgvsg created from variant following best practices - http://varnomen.hgvs.org/recommendations/DNA/">
+  ##INFO=<ID=hg19_chr,Number=.,Type=String,Description="CHROM in hg19 using LiftOver from pyliftover">
+  ##INFO=<ID=hg19_pos,Number=.,Type=Integer,Description="POS in hg19 using LiftOver from pyliftover (converted back to 1-based)">
+  ##INFO=<ID=hg19_end,Number=1,Type=Integer,Description="END in hg19 using LiftOver from pyliftover (converted back to 1-based)">
+
+The data associated with these tags are also added to the INFO field of the ``vcf`` for qualifying variants using the following criteria.
+
+* For the hg19 LiftOver, all variants with successful conversions at both breakpoints will include data for the ``hg19_chr`` and both the ``hg19_pos`` (breakpoint 1) and ``hg19_end`` (breakpoint 2) tags in the INFO field. A failed conversion (e.g., coordinates that do not have a corresponding location in hg19) will not print the tags or any LiftOver data, but each breakpoint is treated separately, such that a variant can contain data for ``hg19_chr`` and ``hg19_pos``, but no ``hg19_end``, or ``hg19_chr`` and ``hg19_end``, but no ``hg19_pos``. If both breakpoints lift over successfully, ``hg19_chr`` is only present once with both ``hg19_pos`` and ``hg19_end``.
+* Given that pyliftover does not convert ranges, the single-point coordinate in hg38 corresponding to each variant's CHROM and POS (or END) are used as query, and the hg19 coordinate (result) will also be a single-point coordinate.
+
+2. For ``SV_worst_and_locations.py``, three new fields are added to the ``CSQ`` INFO field initially created by ``VEP``. These are:
+* ``Most_severe``, which will have a value of ``1`` if the transcript is the most severe, will otherwise be blank.
+* ``Variant_5_prime_location``, which gives the location for breakpoint 1 relative to the transcript (options below)
+* ``Variant_3_prime_location``, which gives the location for breakpoint 2 relative to the transcript (options below)
+
+Options for the location fields include:
+``Indeterminate``, ``Upstream``, ``Downstream``, ``Intronic``, ``Exonic``, ``5_UTR``, ``3_UTR``, ``Upstream_or_5_UTR``, ``3_UTR_or_Downstream``, or ``Within_miRNA``.
+
+3. For ``SV_cytoband.py``, the following two lines are added to the header, three lines are added to the header:
+
+::
+
+  ##INFO=<ID=Cyto1,Number=1,Type=String,Description="Cytoband for SV start (POS) from hg38 cytoBand.txt.gz from UCSC">
+  ##INFO=<ID=Cyto2,Number=1,Type=String,Description="Cytoband for SV end (INFO END) from hg38 cytoBand.txt.gz from UCSC">
+
+Each variant will receive a ``Cyto1`` annotation which corresponds to the cytoband position of breakpoint 1 (which is ``POS`` in the ``vcf``), and a ``Cyto2`` annotation which corresponds to the cytoband position of breakpoint 2 (which is ``END`` in the ``INFO`` field).
 
 Output
 ------
 
-The output is an annotated SV ``vcf`` file.  No variants are removed, but all variants should receive the ``Cyto1`` and ``Cyto2`` annotations.
-
-* CWL: workflow_SV_cytoband_plus_vcf-integrity-check.cwl
+The output is an annotated SV ``vcf`` file.  No variants are removed, but secondary annotations are added to qualifying variants as described above.
 
 
 Length Filtering
 ++++++++++++++++
 
 This step uses ``SV_length_filter.py`` (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) to remove the longest SVs from the sample SV ``vcf`` file. The resulting ``vcf`` file is checked for integrity.
+
+* CWL: workflow_SV_length_filter_plus_vcf-integrity-check.cwl
 
 Requirements
 ------------
@@ -124,13 +155,13 @@ Output
 
 The output is a filtered ``vcf`` file containing slightly fewer entries.  No additional information is added or removed for remaining variants. The resulting ``vcf`` file is checked for integrity.  This is the **Full Annotated VCF** that is ingested into the CGAP Portal.
 
-* CWL: workflow_SV_length_filter_plus_vcf-integrity-check.cwl
-
 
 VCF Annotation Cleaning
 +++++++++++++++++++++++
 
-This step uses ``SV_annotation_VCF_cleaner.py`` (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) to remove ``VEP`` annotations from the **Full Annotated VCF** to create the **Higlass SV VCF**.  These annotations are removed to improve loading speed in the ``Higlass`` genome browser. The resulting ``vcf`` file is checked for integrity.
+This step uses ``SV_annotation_VCF_cleaner.py`` (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) to remove ``VEP`` annotations from the **Full Annotated VCF** to create the **HiGlass SV VCF**.  These annotations are removed to improve loading speed in the ``HiGlass`` genome browser. The resulting ``vcf`` file is checked for integrity.
+
+* CWL: workflow_SV_annotation_VCF_cleaner_plus_vcf-integrity-check.cwl
 
 Requirements
 ------------
@@ -140,11 +171,9 @@ The final **Full Annotated VCF**.
 Cleaning
 --------
 
-To improve loading speed in the ``Higlass`` genome browser, ``VEP`` annotations are removed from the **Full Annotated VCF** and the ``REF`` and ``ALT`` fields are simplified using the ``SV_annotation_VCF_cleaner.py`` script.
+To improve loading speed in the ``HiGlass`` genome browser, ``VEP`` annotations are removed from the **Full Annotated VCF** and the ``REF`` and ``ALT`` fields are simplified using the ``SV_annotation_VCF_cleaner.py`` script.
 
 Output
 ------
 
-The output is a modified version of the **Full Annotated VCF** that has been cleaned for the ``Higlass`` genome browser.  This is ingested into the CGAP Portal as the **Higlass SV VCF** and is only used for visualization. The resulting ``vcf`` file is checked for integrity.
-
-* CWL: workflow_SV_annotation_VCF_cleaner_plus_vcf-integrity-check.cwl
+The output is a modified version of the **Full Annotated VCF** that has been cleaned for the ``HiGlass`` genome browser.  This is ingested into the CGAP Portal as the **Higlass SV VCF** and is only used for visualization. The resulting ``vcf`` file is checked for integrity.

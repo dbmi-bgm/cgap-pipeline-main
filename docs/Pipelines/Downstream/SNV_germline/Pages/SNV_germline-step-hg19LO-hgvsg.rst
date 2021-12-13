@@ -2,7 +2,7 @@
 hg19 LiftOver and HGVSG
 =======================
 
-This step uses ``liftover_hg19.py`` and ``hgvsg_creator.py`` to add hg19 coordinates and hgvsg entries to qualifying variants from a filtered input ``vcf`` file. The output ``vcf`` file is checked for integrity.
+This step uses ``liftover_hg19.py`` (https://github.com/dbmi-bgm/cgap-pipeline-utils) and ``hgvsg_creator.py`` to add hg19 coordinates and hgvsg entries to qualifying variants from a filtered input ``vcf`` file. The output ``vcf`` file is checked for integrity.
 
 * CWL: workflow_hg19lo_hgvsg_plus_vcf-integrity-check.cwl
 
@@ -23,8 +23,9 @@ This step creates an output ``vcf`` file that has the same entries from the inpu
   ##INFO=<ID=hgvsg,Number=.,Type=String,Description="hgvsg created from variant following best practices - http://varnomen.hgvs.org/recommendations/DNA/">
   ##INFO=<ID=hg19_chr,Number=.,Type=String,Description="CHROM in hg19 using LiftOver from pyliftover">
   ##INFO=<ID=hg19_pos,Number=.,Type=Integer,Description="POS in hg19 using LiftOver from pyliftover (converted back to 1-based)">
+  ##INFO=<ID=hg19_end,Number=1,Type=Integer,Description="END in hg19 using LiftOver from pyliftover (converted back to 1-based)">
 
-The data associated with these tags are also added to the INFO field of the ``vcf`` for qualifying variants using the following criteria.
+The data associated with these tags are also added to the INFO field of the ``vcf`` for qualifying variants using the following criteria. Note that although hg19_end is written into the header of all ``vcf`` files, this tag should only appear in the INFO field of structural variants (SVs) and CNVs (CNVs) given the requirement for an END coordinate in the INFO block (which is not present in SNVs).
 
 For hg19 LiftOver:
 
