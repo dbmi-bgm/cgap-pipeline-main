@@ -51,15 +51,15 @@ The output ``bam`` file is checked for integrity to ensure the file has a header
 
 
 Base Recalibration Report (BQSR)
-+++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++
 
 This step uses ``GATK BaseRecalibrator`` to create a base quality score recalibration report for the input ``bam`` file.
 
 * CWL: gatk-BaseRecalibrator.cwl
 
 
-Apply BQSR & indexing
-+++++++++++++++++++++
+Apply BQSR and Indexing
++++++++++++++++++++++++
 
 This step uses ``GATK ApplyBQSR`` to apply a base quality score recalibration report to the input ```bam``` file.
 This step creates a recalibrated ``bam`` file and its index.

@@ -1,5 +1,5 @@
 ===================
-VCF quality control
+VCF Quality Control
 ===================
 
 

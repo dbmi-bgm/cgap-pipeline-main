@@ -17,7 +17,7 @@ The metrics currently available are:
 Definitions
 +++++++++++
 
-Variant types distribution
+Variant Types Distribution
 --------------------------
 
 Total number of variants classified by type as:

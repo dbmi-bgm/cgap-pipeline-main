@@ -52,8 +52,8 @@ A corresponding header is added to the output ``vcf`` file.
 
     ##INFO=<ID=comHet,Number=.,Type=String,Description="Putative compound heterozygous pairs. Subembedded:'cmpHet':Format:'phase|gene|transcript|impact_gene|impact_transcript|mate_variant'">
 
-Gene vs Transcript
-------------------
+Gene Versus Transcript
+----------------------
 
 A compound heterozygous pair is defined for each pair of variants and for each gene.
 If a variant forms a compound heterozygous pair on two or more genes, the output will have a corresponding number of ``cmpHet`` entries.
@@ -86,7 +86,7 @@ Report
 
 This step also generates a report that provides additional information on the compound heterozygous pairs that are called. The report contains statistics on the total number of pairs and their distribution by genes, transcripts, and predicted impact.
 
-By genes
+By Genes
 --------
 
 For each gene, the program reports the number of compound heterozygous pairs called for the gene (``name``), together with the number of transcripts and variants involved.
@@ -113,7 +113,7 @@ In each category, it is reported the total number of elements that are involved 
       ...
     ]
 
-By transcripts
+By Transcripts
 --------------
 
 For each transcript, the program reports the number of compound heterozygous pairs called for the transcript (``name``), together with the number of variants involved and the gene to which the transcript belongs.
@@ -137,7 +137,7 @@ In each category, it is reported the total number of elements that are involved 
       ...
     ]
 
-By impact
+By Impact
 ---------
 
 For each impact, the program reports the number of compound heterozygous pairs predicted with that impact (``name``) as the worst possible impact, together with the number of genes, transcripts and variants involved.

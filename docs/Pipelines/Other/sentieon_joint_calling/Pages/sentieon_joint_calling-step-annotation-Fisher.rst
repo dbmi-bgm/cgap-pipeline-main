@@ -26,8 +26,8 @@ This step takes the jointly called ``vcf`` file and splits multiallelic variants
 
 * CWL: workflow_vep-annot_plus_vcf-integrity-check.cwl
 
-VCF Reformatting, Proband Calculations and Fisher Exact Test
-------------------------------------------------------------
+VCF Reformatting, Proband Calculations and Fisher's Exact Test
+--------------------------------------------------------------
 
 This step uses ``portal_reformat_vcf.py`` from https://github.com/dbmi-bgm/cgap-scripts/ alongside ``higlass_joint_parser.py`` from https://github.com/dbmi-bgm/cgap-pipeline-snv-germline/ to determine the worst consequence transcript for each variant, score the consequence as ``HIGH``, ``MODERATE``, ``LOW`` or ``MODIFIER`` impact, determine allele frequency in the probands (cases), and calculate a Fisher's Exact test for each variant comparing the probands to gnomAD.
 

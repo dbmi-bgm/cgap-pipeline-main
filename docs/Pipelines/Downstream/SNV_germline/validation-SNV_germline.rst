@@ -63,7 +63,7 @@ Example
   het_stat.sh GAPFIR4IUBTH.vcf.gz GAPFII2XMRF5.vcf.gz pedigree.UGRP1.json UGRP1_ind_5 UGRP1_ind_6
 
 
-novoCaller *de novo* Calls (one child)
+novoCaller *de novo* Calls (One Child)
 ++++++++++++++++++++++++++++++++++++++
 *note: a parent can be used instead of a child as well, same procedure*
 

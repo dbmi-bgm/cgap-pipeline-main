@@ -30,7 +30,7 @@ Sample text.
 Section 2 - Text formatting
 ===========================
 
-1. When a program or file format is mentioned, place it in double backquotes \`\`Program\`\` which will appear like this ``Program``.
+1. When a program, parameter, or file format is mentioned, place it in double backquotes \`\`Program\`\` which will appear like this ``Program``.
 
 2. When mentioning the pipeline by name, use capital letters, e.g., CGAP Pipeline SNV Germline or CGAP SNV Germline Pipeline. When referring to "a pipeline", "this pipeline",   "this pipeline", etc. feel free to use lowercase. Try to stick to either the short version (e.g., this pipeline) or the full version ("the CGAP SNV Germline Pipeline") instead of something in between (e.g., do not say the SV pipeline). As we expand our offerings, there will likely be multiple SV pipelines, and this will introduce confusion for the person reading the docs and also likely result in inconsistency with capitalization.
 
@@ -40,7 +40,7 @@ Section 2 - Text formatting
 
 5. For pipeline steps, after a short description, the CWL line should be placed above all subsequent sections (i.e., Input, Requirements, etc.)
 
-6. Section titles always begin with a capital letter. All subsequent words in the section title should also be capitalized, except: a, an, the, at, by, for, in, of, on, to, up, and, as, but, or, and nor. If any of these words start a title, they should be capitalized.
+6. Section titles always begin with a capital letter (unless you are matching style for a program name, e.g., ``sansa``). All subsequent words in the section title should also be capitalized, except: a, an, the, at, by, for, in, of, on, to, up, and, as, but, or, and nor. If any of these words start a title, they should be capitalized.
 
 7. Links between docs pages (e.g., for pipelines that use steps from multiple repos like CGAP Sentieon Joint Calling Pipeline) should be done using ``:doc:`` followed immediately by the custom name for the link and the link out, e.g., ```VEP step </Pipelines/Downstream/SNV_germline/Pages/SNV_germline-step-vep>`.`` See the CGAP Sentieon Joint Calling Pipeline pages for examples.
 

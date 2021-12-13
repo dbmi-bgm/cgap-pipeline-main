@@ -3,7 +3,7 @@ Part 2. Structural Variant Annotation
 =====================================
 
 
-Sansa and VEP
+sansa and VEP
 +++++++++++++
 
 This step uses ``sansa`` and ``VEP`` to annotate the structural variants identified and combines the outputs into a single ``vcf`` file. The resulting ``vcf`` file is checked for integrity.
