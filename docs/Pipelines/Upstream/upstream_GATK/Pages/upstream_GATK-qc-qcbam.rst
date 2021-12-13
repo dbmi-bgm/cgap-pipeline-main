@@ -22,7 +22,7 @@ The metrics currently available are:
 Definitions
 +++++++++++
 
-Mapping statistics
+Mapping Statistics
 ------------------
 
 The number of reads (not alignments) are counted as number unique read pairs, i.e. if a read pair is mapped to multiple locations, it is counted once.
