@@ -49,12 +49,12 @@
         "instance_type": "c5n.9xlarge",
         "ebs_size": "6.3x",
         "EBS_optimized": true,
-        "spot_instance": false,
+        "spot_instance": true,
         "run_name": "run_workflow_sentieon_bwa-mem",
         "behavior_on_capacity_limit": "wait_and_retry"
       },
       "custom_pf_fields": {
-          "sorted_bam": {
+          "raw_bam": {
               "file_type": "intermediate file",
               "description": "Intermediate alignment file"
           }
@@ -99,7 +99,7 @@
           "argument_name": "input_bam",
           "argument_type": "file",
           "source": "workflow_sentieon_bwa-mem",
-          "source_argument_name": "sorted_bam"
+          "source_argument_name": "raw_bam"
         },
         {
           "argument_name": "sample",
@@ -131,7 +131,7 @@
           "argument_name": "input_bam",
           "argument_type": "file",
           "source": "workflow_sentieon_bwa-mem",
-          "source_argument_name": "sorted_bam"
+          "source_argument_name": "raw_bam"
         },
         {
           "argument_name": "sample_name",
@@ -225,9 +225,9 @@
       "workflow": "1b34192a-8daf-47cc-9f53-e010579fb17b",
       "config": {
         "instance_type": "c5n.9xlarge",
-        "ebs_size": "2x",
+        "ebs_size": "5x",
         "EBS_optimized": true,
-        "spot_instance": false,
+        "spot_instance": true,
         "run_name": "run_workflow_sentieon_dedup-recal",
         "behavior_on_capacity_limit": "wait_and_retry"
       },

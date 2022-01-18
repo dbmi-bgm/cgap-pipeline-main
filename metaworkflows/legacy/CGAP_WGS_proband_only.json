@@ -2,12 +2,12 @@
   "name": "WGS_proband_only",
   "title": "WGS Proband-only VERSION",
   "version": "VERSION",
-  "accession": "GAPMWFX98V4K",
-  "uuid": "09ac593e-cada-4e72-970b-860115800d79",
-  "project": "12a92962-8265-4fc0-b2f8-cf14f05db58b",
-  "institution": "828cd4fe-ebb0-4b36-a94a-d2e3a36cc989",
-  "previous_version": ["d414f11b-17cb-494d-9c66-36ab0920bc73"],
-  "version_upgrade_log": "depth filter for VEP and added accession",
+  "accession": "GAPMWFZ98VL1",
+  "uuid": "cb63055b-6786-429d-8bef-942be60e2ffc",
+  "project": "PROJECT_UUID",
+  "institution": "INSTITUTION_UUID",
+  "previous_version": ["09ac593e-cada-4e72-970b-860115800d79"],
+  "version_upgrade_log": "updated workflow_hg19lo_hgvsg to annotate hgvsg for hg19 as well",
   "input": [
     {
       "argument_name": "fastqs_R1",
@@ -1201,7 +1201,7 @@
     },
     {
       "name": "workflow_hg19lo_hgvsg-check",
-      "workflow": "66434019-65c5-498f-a986-9e791eeff0ad",
+      "workflow": "dab2dca8-0dd1-4703-b899-37363f85dd09",
       "config": {
         "instance_type": "t3.micro",
         "ebs_size": "3x",

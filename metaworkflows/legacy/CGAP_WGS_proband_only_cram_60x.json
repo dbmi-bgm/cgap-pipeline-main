@@ -2,12 +2,12 @@
   "name": "WGS_proband_only_cram_60x",
   "title": "WGS Proband-only Cram VERSION, 60x",
   "version": "VERSION",
-  "accession": "GAPMWFPJ22C7",
-  "uuid": "7df4fec4-47b4-4451-aab8-6a11983677ec",
-  "project": "12a92962-8265-4fc0-b2f8-cf14f05db58b",
-  "institution": "828cd4fe-ebb0-4b36-a94a-d2e3a36cc989",
-  "previous_version": ["5dd0393b-c124-4263-8066-97e98659e36e"],
-  "version_upgrade_log": "depth filter for VEP and added accession",
+  "accession": "GAPMW12L22C7",
+  "uuid": "c9a94c28-22b6-43d4-9ad8-1db46407ea93",
+  "project": "PROJECT_UUID",
+  "institution": "INSTITUTION_UUID",
+  "previous_version": ["7df4fec4-47b4-4451-aab8-6a11983677ec"],
+  "version_upgrade_log": "updated workflow_hg19lo_hgvsg to annotate hgvsg for hg19 as well",
   "input": [
     {
       "argument_name": "crams",
@@ -1243,7 +1243,7 @@
     },
     {
       "name": "workflow_hg19lo_hgvsg-check",
-      "workflow": "66434019-65c5-498f-a986-9e791eeff0ad",
+      "workflow": "dab2dca8-0dd1-4703-b899-37363f85dd09",
       "config": {
         "instance_type": "t3.micro",
         "ebs_size": "3x",

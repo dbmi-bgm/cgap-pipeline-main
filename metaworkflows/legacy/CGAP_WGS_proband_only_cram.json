@@ -2,12 +2,12 @@
   "name": "WGS_proband_only_cram",
   "title": "WGS Proband-only Cram VERSION",
   "version": "VERSION",
-  "accession": "GAPMWFC9JSS2",
-  "uuid": "0e569396-d80d-436e-ba51-787378ba49df",
-  "project": "12a92962-8265-4fc0-b2f8-cf14f05db58b",
-  "institution": "828cd4fe-ebb0-4b36-a94a-d2e3a36cc989",
-  "previous_version": ["4fa5fd3b-22f2-4d15-89ab-f18bb94064f3"],
-  "version_upgrade_log": "depth filter for VEP and added accession",
+  "accession": "GAPMWFC9JJH1",
+  "uuid": "e701e634-2dfd-49b5-92e1-c326da992ff9",
+  "project": "PROJECT_UUID",
+  "institution": "INSTITUTION_UUID",
+  "previous_version": ["0e569396-d80d-436e-ba51-787378ba49df"],
+  "version_upgrade_log": "updated workflow_hg19lo_hgvsg to annotate hgvsg for hg19 as well",
   "input": [
     {
       "argument_name": "crams",
@@ -163,7 +163,8 @@
         "EBS_optimized": true,
         "spot_instance": true,
         "run_name": "run_workflow_cram2fastq",
-        "behavior_on_capacity_limit": "wait_and_retry"
+        "behavior_on_capacity_limit": "wait_and_retry",
+        "subnet": "subnet-061d3c2121b4be9ef"
       },
       "custom_pf_fields": {
           "fastq1": {
@@ -1243,7 +1244,7 @@
     },
     {
       "name": "workflow_hg19lo_hgvsg-check",
-      "workflow": "66434019-65c5-498f-a986-9e791eeff0ad",
+      "workflow": "dab2dca8-0dd1-4703-b899-37363f85dd09",
       "config": {
         "instance_type": "t3.micro",
         "ebs_size": "3x",
