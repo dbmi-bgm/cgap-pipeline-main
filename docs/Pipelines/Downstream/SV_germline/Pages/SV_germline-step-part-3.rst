@@ -84,7 +84,7 @@ The output is a filtered ``vcf`` file containing a lot fewer entries compared to
 Secondary Annotation
 ++++++++++++++++++++
 
-This workflow contains a series of short steps that add additional annotations to the existing ``vcf`` file, before the output ``vcf`` file is checked for integrity. This workflow makes use of ``liftover_hg19.py`` (https://github.com/dbmi-bgm/cgap-pipeline-utils) alongside ``SV_worst_and_locations.py`` and ``SV_cytoband.py`` (both from https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) to create annotations pertaining to the breakpoint locations in hg19, the breakpoint locations relative to the transcript they impact (e.g., Exonic, Intronic, etc.), and the cytoband(s) the breakpoints overlap with.
+This workflow contains a series of short steps that add additional annotations to the existing ``vcf`` file, before the output ``vcf`` file is checked for integrity. This workflow makes use of ``liftover_hg19.py`` (https://github.com/dbmi-bgm/cgap-scripts) alongside ``SV_worst_and_locations.py`` and ``SV_cytoband.py`` (both from https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) to create annotations pertaining to the breakpoint locations in hg19, the breakpoint locations relative to the transcript they impact (e.g., Exonic, Intronic, etc.), the most severe consequence from ``VEP`` annotation, and the cytoband(s) the breakpoints overlap with.
 
 * CWL: workflow_SV_secondary_annotation_plus_vcf-integrity-check.cwl
 
@@ -100,7 +100,6 @@ Annotation
 
 ::
 
-  ##INFO=<ID=hgvsg,Number=.,Type=String,Description="hgvsg created from variant following best practices - http://varnomen.hgvs.org/recommendations/DNA/">
   ##INFO=<ID=hg19_chr,Number=.,Type=String,Description="CHROM in hg19 using LiftOver from pyliftover">
   ##INFO=<ID=hg19_pos,Number=.,Type=Integer,Description="POS in hg19 using LiftOver from pyliftover (converted back to 1-based)">
   ##INFO=<ID=hg19_end,Number=1,Type=Integer,Description="END in hg19 using LiftOver from pyliftover (converted back to 1-based)">
@@ -118,7 +117,7 @@ The data associated with these tags are also added to the INFO field of the ``vc
 Options for the location fields include:
 ``Indeterminate``, ``Upstream``, ``Downstream``, ``Intronic``, ``Exonic``, ``5_UTR``, ``3_UTR``, ``Upstream_or_5_UTR``, ``3_UTR_or_Downstream``, or ``Within_miRNA``.
 
-3. For ``SV_cytoband.py``, the following two lines are added to the header, three lines are added to the header:
+3. For ``SV_cytoband.py``, the following two lines are added to the header:
 
 ::
 
