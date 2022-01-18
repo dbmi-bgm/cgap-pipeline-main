@@ -32,7 +32,7 @@ This intermediate step uses ``granite geneList`` to clean VEP annotations for tr
 Inclusion list
 --------------
 
-These intermediate steps use ``granite`` function to filter-in exonic and functionally relevant variants based on VEP, ClinVar, and SpliceAI annotations. The ClinVar Inclusion list is applied separately and the variants are not cleaned and filtered further by VEP cleaning and Exclusion list.
+These intermediate steps use a ``granite`` function to filter-in exonic and functionally relevant variants based on VEP, ClinVar, and SpliceAI annotations. The ClinVar Inclusion list is applied separately and the variants are not cleaned and filtered further by VEP cleaning and Exclusion list.
 
 Criteria for Inclusion list:
 
@@ -48,7 +48,7 @@ This intermediate step uses ``granite cleanVCF`` to clean VEP annotations and re
 Exclusion list
 --------------
 
-This intermediate step uses ``granite`` function to filter-out common and shared variants based on gnomAD population allele frequency (AF > 0.01) and/or a panel of unrelated samples (optional, not used currently).
+This intermediate step uses a ``granite`` function to filter-out common and shared variants based on gnomAD population allele frequency (AF > 0.01) and/or a panel of unrelated samples (optional, not used currently).
 
 Merging
 -------
