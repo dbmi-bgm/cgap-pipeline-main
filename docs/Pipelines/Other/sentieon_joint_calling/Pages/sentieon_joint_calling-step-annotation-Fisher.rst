@@ -63,7 +63,7 @@ In ``higlass_joint_parser.py``, ``AC_proband``, ``AN_proband``, and ``AF_proband
 
 ``pvalue`` is then converted to ``-log10p`` and attached to the variant.
 
-The code above is simplified from ``higlass_joint_parser.py`` given that there are a few edge cases that needed to be accounted for in gnomAD v2. The gnomAD v2 database was originally called on ``hg19`` and has been lifted over to ``hg38``, resulting in a small number of variants that have multiple values in the gnomAD v2 field. This is due to liftover assigning two positions in ``hg19`` to the same position in ``hg38``. We account for this by parsing for the *most rare* allele given both the ``AC`` and ``AN`` in gnomAD v2 at that position in attempts to avoid a false negative at that position.
+The code above is simplified from ``higlass_joint_parser.py`` given that there are a few edge cases that needed to be accounted for in gnomAD v2. The gnomAD v2 database was originally called on **hg19** and has been lifted over to **hg38**, resulting in a small number of variants that have multiple values in the gnomAD v2 field. This is due to liftover assigning two positions in **hg19** to the same position in **hg38**. We account for this by parsing for the *most rare* allele given both the ``AC`` and ``AN`` in gnomAD v2 at that position in attempts to avoid a false negative at that position.
 
 For a variant with gnomAD v2 values of ``AC=4&24``, ``AN=1000&10000``, we calculate ``AF`` as 4/1000 = 0.004 and 24/10000 = 0.0024 and we assign this variant the gnomAD v2 values of ``AC=24,AN=10000`` given that the ``AF`` of 0.0024 is more rare than 0.004.
 

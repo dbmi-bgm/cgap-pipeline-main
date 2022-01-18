@@ -44,6 +44,8 @@ Section 2 - Text formatting
 
 7. Links between docs pages (e.g., for pipelines that use steps from multiple repos like CGAP Sentieon Joint Calling Pipeline) should be done using ``:doc:`` followed immediately by the custom name for the link and the link out, e.g., ```VEP step </Pipelines/Downstream/SNV_germline/Pages/SNV_germline-step-vep>`.`` See the CGAP Sentieon Joint Calling Pipeline pages for examples.
 
+8. Genome builds should be formatted with bold. For example, **hg19** and **hg38**.
+
 ====================================================================
 Section 3 - Pipeline folder organization and file naming conventions
 ====================================================================
