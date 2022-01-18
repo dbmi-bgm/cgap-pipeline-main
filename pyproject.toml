@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "cgap-pipeline-master"
+name = "cgap-pipeline-main"
 version = "0.0.1"
-description = "Master repository for deploying pipelines that impelement the CGAP-pipeline specification."
+description = "Main repository for deploying pipelines that impelement the CGAP-pipeline specification."
 authors = ["CGAP Team"]
 
 [tool.poetry.dependencies]
