@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'cgap-pipeline-master'
+project = 'cgap-pipeline-main'
 copyright = '2021, Michele Berselli, Phil Grayson, CGAP team, HMS DBMI'
 author = 'Michele Berselli, Phil Grayson, CGAP team, HMS DBMI'
 

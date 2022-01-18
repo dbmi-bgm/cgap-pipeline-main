@@ -2,7 +2,7 @@
 Style Guide CGAP Docs
 =====================
 
-This is internal documentation for adding new pages or editing pages within the CGAP Pipeline Master documentation and other repositories linked to CGAP Pipeline (e.g., Support Repos).
+This is internal documentation for adding new pages or editing pages within the CGAP Pipeline Main documentation and other repositories linked to CGAP Pipeline (e.g., Support Repos).
 
 ===============================
 Section 1 - Page layout example

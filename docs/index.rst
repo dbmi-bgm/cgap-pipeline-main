@@ -1,4 +1,4 @@
-.. cgap-pipeline-master documentation master file, created by
+.. cgap-pipeline-main documentation main file, created by
    sphinx-quickstart on Thu Nov  4 15:17:12 2021.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
@@ -9,7 +9,7 @@ CGAP Pipelines Overview
 
 This is the documentation for the Clinical Genome Analysis Platform (CGAP) Pipelines.
 
-The CGAP Pipeline Master repo (https://github.com/dbmi-bgm/cgap-pipeline-master) contains the latest production versions of all CGAP bioinformatics pipelines!
+The CGAP Pipeline Main repo (https://github.com/dbmi-bgm/cgap-pipeline-main) contains the latest production versions of all CGAP bioinformatics pipelines!
 
 Contents
 ########
@@ -34,4 +34,4 @@ Contents
 
  Pipelines/Other/Other_pipelines
  Pipelines/Support/Support_repos
- news-master
+ news-main
