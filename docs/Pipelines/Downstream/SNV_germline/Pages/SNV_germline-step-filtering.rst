@@ -12,7 +12,7 @@ Requirements
 
 The input is a single, annotated ``vcf`` file. Annotation must include VEP, ClinVar and SpliceAI.
 
-This step can optionally use a panel of unrelated samples in ``.big`` format to blacklist variants with reads supporting an ALTernate allele in the panel. This option is currently not used in the pipeline.
+This step can optionally use a panel of unrelated samples in ``.big`` format to filter-out variants with reads supporting an ALTernate allele in the panel. This option is currently not used in the pipeline.
 
 
 Steps
@@ -29,12 +29,12 @@ This intermediate step uses ``granite geneList`` to clean VEP annotations for tr
 
 .. _here: https://cgap-reference-file-registry.s3.amazonaws.com/84f2bb24-edd7-459b-ab89-0a21866d7826/GAPFI5MKCART.txt
 
-Whitelist
----------
+Inclusion list
+--------------
 
-These intermediate steps use ``granite whiteList`` to filter-in exonic and functionally relevant variants based on VEP, ClinVar, and SpliceAI annotations. The ClinVar whitelist is done separately and the variants are not cleaned and filtered further by VEP cleaning and blacklist.
+These intermediate steps use ``granite`` function to filter-in exonic and functionally relevant variants based on VEP, ClinVar, and SpliceAI annotations. The ClinVar Inclusion list is applied separately and the variants are not cleaned and filtered further by VEP cleaning and Exclusion list.
 
-Criteria for whitelist:
+Criteria for Inclusion list:
 
   - VEP: exonic and functionally relevant consequences, plus splice regions
   - ClinVar: Pathogenic, Likely Pathogenic, Conflicting Interpretation of Pathogenicity, and Risk Factor
@@ -45,15 +45,15 @@ VEP cleaning
 
 This intermediate step uses ``granite cleanVCF`` to clean VEP annotations and remove non-relevant consequences. The step eventually discards variants that remain with no VEP annotations.
 
-Blacklist
----------
+Exclusion list
+--------------
 
-This intermediate step uses ``granite blackList`` to filter-out common and shared variants based on gnomAD population allele frequency (AF > 0.01) and/or a panel of unrelated samples (optional, not used currently).
+This intermediate step uses ``granite`` function to filter-out common and shared variants based on gnomAD population allele frequency (AF > 0.01) and/or a panel of unrelated samples (optional, not used currently).
 
 Merging
 -------
 
-This intermediate step merges the set of variants from ClinVar whitelist with the other set of fully-filtered variants. For variants that overlap between the two sets, the ClinVar whitelist variant is maintained to preserve the most complete set of annotations.
+This intermediate step merges the set of variants from ClinVar Inclusion list with the other set of fully-filtered variants. For variants that overlap between the two sets, the ClinVar Inclusion list variant is maintained to preserve the most complete set of annotations.
 
 Output
 ++++++

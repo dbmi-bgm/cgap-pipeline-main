@@ -22,15 +22,15 @@ Genelist
 
 The genelist step uses ``granite geneList`` to clean VEP annotations for transcripts that are not mapping to any gene of interest (not present on the CGAP Portal). This step does not remove any variants, but only modifies the VEP annotation.
 
-Whitelist
+Inclusion list
 ---------
 
-The whitelist steps use ``granite whiteList`` to filter-in exonic and functionally relevant variant based on VEP annotations. This step removes a large number of SVs from the initial call set.
+The Inclusion list steps use ``granite`` function to filter-in exonic and functionally relevant variant based on VEP annotations. This step removes a large number of SVs from the initial call set.
 
-Blacklist
+Exclusion list
 ---------
 
-The blacklist step uses ``granite blackList`` to filter-out common variants based on gnomAD SV population allele frequency (AF > 0.01). Variants without gnomAD SV annotations are retained.
+The Exclusion list step uses ``granite`` function to filter-out common variants based on gnomAD SV population allele frequency (AF > 0.01). Variants without gnomAD SV annotations are retained.
 
 SV Type Selection
 -----------------
