@@ -91,7 +91,7 @@ This workflow contains a series of short steps that add additional annotations t
 Requirements
 ------------
 
-This annotation step is present in Part 3 because the three python scripts used are designed to work only on DELs and DUPs (no INV, BND, INS). Both the cytoband annotation step and the liftover step also require the END field in the INFO block. This workflow requires a single SV ``vcf`` file that has undergone **Initial Annotation Filtering Step** (which selects for DELs and DUPs), the **hg38** to **hg19** chain file for liftover (http://hgdownload.cse.ucsc.edu/goldenpath/hg38/liftOver/hg38ToHg19.over.chain.gz), and the **hg38** cytoband reference file from UCSC (http://hgdownload.cse.ucsc.edu/goldenpath/hg38/database/cytoBand.txt.gz).
+This annotation step is present in Part 3 because the three python scripts used are designed to work only on DELs and DUPs (no INV, BND, INS) and because there is a possibility of filtering out a small number of variants using during ``SV_worst_and_locations.py``. Both the cytoband annotation step and the liftover step also require the END field in the INFO block. This workflow requires a single SV ``vcf`` file that has undergone **Initial Annotation Filtering Step** (which selects for DELs and DUPs), the **hg38** to **hg19** chain file for liftover (http://hgdownload.cse.ucsc.edu/goldenpath/hg38/liftOver/hg38ToHg19.over.chain.gz), and the **hg38** cytoband reference file from UCSC (http://hgdownload.cse.ucsc.edu/goldenpath/hg38/database/cytoBand.txt.gz).
 
 Annotation and Possible Filtering
 ---------------------------------
