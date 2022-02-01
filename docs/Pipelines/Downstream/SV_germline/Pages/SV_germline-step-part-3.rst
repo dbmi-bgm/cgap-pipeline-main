@@ -84,7 +84,7 @@ The output is a filtered ``vcf`` file containing a lot fewer entries compared to
 Secondary Annotation
 ++++++++++++++++++++
 
-This workflow contains a series of short steps that add additional annotations to the existing ``vcf`` file, before the output ``vcf`` file is checked for integrity. This workflow makes use of ``liftover_hg19.py`` (https://github.com/dbmi-bgm/cgap-scripts) alongside ``SV_worst_and_locations.py`` and ``SV_cytoband.py`` (both from https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) to create annotations pertaining to the breakpoint locations in **hg19**, the breakpoint locations relative to the transcript they impact (e.g., Exonic, Intronic, etc.), the most severe consequence from ``VEP`` annotation, and the cytoband(s) the breakpoints overlap with.
+This workflow contains a series of short steps that add additional annotations to the existing ``vcf`` file, before the output ``vcf`` file is checked for integrity. This workflow makes use of ``liftover_hg19.py`` (https://github.com/dbmi-bgm/cgap-scripts) alongside ``SV_worst_and_locations.py`` and ``SV_cytoband.py`` (both from https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) to create annotations pertaining to the breakpoint locations in **hg19**, the breakpoint locations relative to the transcript they impact (e.g., Exonic, Intronic, etc.), the most severe consequence from ``VEP`` annotation, and the cytoband(s) the breakpoints overlap with. The resulting ``vcf`` file might include slighlty fewer variants given a filtration step conducted in ``SV_worst_and_locations.py``.
 
 * CWL: workflow_SV_secondary_annotation_plus_vcf-integrity-check.cwl
 
@@ -93,8 +93,8 @@ Requirements
 
 This annotation step is present in Part 3 because the three python scripts used are designed to work only on DELs and DUPs (no INV, BND, INS). Both the cytoband annotation step and the liftover step also require the END field in the INFO block. This workflow requires a single SV ``vcf`` file that has undergone **Initial Annotation Filtering Step** (which selects for DELs and DUPs), the **hg38** to **hg19** chain file for liftover (http://hgdownload.cse.ucsc.edu/goldenpath/hg38/liftOver/hg38ToHg19.over.chain.gz), and the **hg38** cytoband reference file from UCSC (http://hgdownload.cse.ucsc.edu/goldenpath/hg38/database/cytoBand.txt.gz).
 
-Annotation
-----------
+Annotation and Possible Filtering
+---------------------------------
 
 1. For ``liftover_hg19.py``, three lines are added to the header:
 
@@ -110,12 +110,15 @@ The data associated with these tags are also added to the INFO field of the ``vc
 * Given that pyliftover does not convert ranges, the single-point coordinate in **hg38** corresponding to each variant's CHROM and POS (or END) are used as query, and the **hg19** coordinate (result) will also be a single-point coordinate.
 
 2. For ``SV_worst_and_locations.py``, three new fields are added to the ``CSQ`` INFO field initially created by ``VEP``. These are:
-* ``Most_severe``, which will have a value of ``1`` if the transcript is the most severe, will otherwise be blank.
+
+* ``Most_severe``, which will have a value of ``1`` if the transcript is the most severe, and will otherwise be blank.
 * ``Variant_5_prime_location``, which gives the location for breakpoint 1 relative to the transcript (options below)
 * ``Variant_3_prime_location``, which gives the location for breakpoint 2 relative to the transcript (options below)
 
 Options for the location fields include:
 ``Indeterminate``, ``Upstream``, ``Downstream``, ``Intronic``, ``Exonic``, ``5_UTR``, ``3_UTR``, ``Upstream_or_5_UTR``, ``3_UTR_or_Downstream``, or ``Within_miRNA``.
+
+Additionally, for each variant this step removes annotated transcripts that do not possess one of the following biotypes: ``protein_coding``, ``miRNA``, or ``polymorphic_pseudogene``.  Following this filtration, if a variant no longer has any annotated transcripts, that variant is also filtered out of the ``vcf`` file.
 
 3. For ``SV_cytoband.py``, the following two lines are added to the header:
 
