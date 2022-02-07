@@ -15,9 +15,6 @@ Clone the repository.
 
     # This will set the submodules in detached state on the current commit
     git clone https://github.com/dbmi-bgm/cgap-pipeline-main.git
-    
-    # This will bring all of the submodules in and set them to main
-    git clone --recurse-submodules https://github.com/dbmi-bgm/cgap-pipeline-main.git
 
 Populate the submodules.
 
