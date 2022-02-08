@@ -13,11 +13,18 @@ https://cgap-pipeline-main.readthedocs.io/en/latest/
 
 Clone the repository.
 
-    # This will set the submodules in detached state on the current commit
+    # Clone the repository
+    # The submodules will be empty and set to the current commit
     git clone https://github.com/dbmi-bgm/cgap-pipeline-main.git
+    
+    # Check out the desired version
+    # This will set the submodules to the commit saved for that version
+    git checkout <version>
 
 Populate the submodules.
 
+    # Download the content for each submodule
+    # The submodules will be set in detached state on their current commit
     make pull
 
 Install the repository.
