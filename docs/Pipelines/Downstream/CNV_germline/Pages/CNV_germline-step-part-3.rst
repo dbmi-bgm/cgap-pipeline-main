@@ -1,6 +1,6 @@
-==============================================================
-Part 3. Structural Variant Filtering and Secondary Annotations
-==============================================================
+===============================================================
+Part 3. Copy Number Variant Filtering and Secondary Annotations
+===============================================================
 
 
 Initial Annotation Filtering

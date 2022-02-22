@@ -2,9 +2,11 @@
 Overview - SV Germline
 ======================
 
-The CGAP Pipeline for Germline Structural Variants (SVs) (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) identifies, annotates, and filters SVs starting from short read sequencing alignment files (``bam``) and produces ``vcf`` files as output. SVs are a class of large genomic variants that includes deletions, duplications, translocations, inversions and other complex events, generally with a size of 50 bp or longer.
+The CGAP Pipeline for Germline Structural Variants (SVs) (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) identifies, annotates, and filters SVs starting from short read sequencing alignment files (``bam``) and produces ``vcf`` files as output.
 
-The pipeline is mostly based on ``Manta`` (https://github.com/Illumina/manta), ``ensembl-vep`` (https://github.com/Ensembl/ensembl-vep), ``sansa`` (https://github.com/dellytools/sansa), and ``granite`` (https://github.com/dbmi-bgm/granite).
+SVs are a class of large genomic variants that includes deletions, duplications, translocations, inversions and other complex events, generally with a size of 50 bp or longer. SVs are identified by algorithms that seek out aberrantly mapping reads, including read pairs with unexpected fragment sizes, mapping orientations, and hard or soft clipping (e.g., split reads). SVs are related to another class of large genomic variants, Copy Number Variants (CNVs). CNVs include deletions (also referred to as losses) and duplications (also referred to as gains), which always results in a change in copy number (e.g., a heterozygous deletion would result in a single copy loss). CNVs are identified by algorithms that seek out aberrant difference in sequencing coverage. This which makes CNV algorithms better at identifying larger variants (e.g., trisomy of a chromosome) since they do not rely on information specific to read pairs, but less powerful for the smaller events due to lack of precise information, like split read locations. Many SVs are CNVs and vice versa, but there are also SVs that are not CNVs, and CNVs that are not SVs. Given this division, CGAP has implemented both an SV and CNV algorithm for identification of large-scale deletions and duplications in the germline genome.
+
+The CGAP Germline SV Pipeline is mostly based on an SV calling algorithm: ``Manta`` (https://github.com/Illumina/manta), annotation programs:  ``ensembl-vep`` (https://github.com/Ensembl/ensembl-vep) and  ``sansa`` (https://github.com/dellytools/sansa), and a ``vcf`` filtering program: ``granite`` (https://github.com/dbmi-bgm/granite).
 
 The CGAP Pipeline SV Germline is designed for proband-only or trio analysis, with the proband diagnosed with a likely monogenic disease. It can receive the initial analysis ready ``bam`` file(s) from either of the `WGS Upstream pipelines <https://cgap-pipeline-main.readthedocs.io/en/latest/Pipelines/Upstream/Upstream_pipelines.html>`_.
 
@@ -41,7 +43,7 @@ Pipeline Flow and Runtimes
 
 The overall flow and duration of the CGAP SV Germline Pipeline is shown below:
 
-.. image:: ../../../images/cgap-SV-pipeline-v2.png
+.. image:: ../../../images/cgap-SV-pipeline-v3.png
 
 
 Pipeline Parts

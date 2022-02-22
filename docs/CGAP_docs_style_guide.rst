@@ -32,9 +32,9 @@ Section 2 - Text formatting
 
 1. When a program, parameter, or file format is mentioned, place it in double backquotes \`\`Program\`\` which will appear like this ``Program``.
 
-2. When mentioning the pipeline by name, use capital letters, e.g., CGAP Pipeline SNV Germline or CGAP SNV Germline Pipeline. When referring to "a pipeline", "this pipeline",   "this pipeline", etc. feel free to use lowercase. Try to stick to either the short version (e.g., this pipeline) or the full version ("the CGAP SNV Germline Pipeline") instead of something in between (e.g., do not say the SV pipeline). As we expand our offerings, there will likely be multiple SV pipelines, and this will introduce confusion for the person reading the docs and also likely result in inconsistency with capitalization.
+2. When mentioning the pipeline by name, use capital letters, e.g., CGAP Pipeline SNV Germline or CGAP SNV Germline Pipeline. When referring to "a pipeline", "this pipeline", "the pipeline", etc. feel free to use lowercase. Try to stick to either the short version (e.g., this pipeline) or the full version ("the CGAP SNV Germline Pipeline") instead of something in between (e.g., do not say the SV pipeline). As we expand our offerings, there will likely be multiple SV pipelines, and this will introduce confusion for the person reading the docs and also likely result in inconsistency with capitalization.
 
-3. Links should be provided to the repo for all scripts, especially those that exist outside of the Docker folder for the repo in question. E.g., ``hg19_liftover.py`` (https://github.com/dbmi-bgm/cgap-scripts) in both the CGAP SV and SNV Germline Piplines.
+3. Links should be provided to the repo for all scripts, especially those that exist outside of the Docker folder for the repo in question. E.g., ``hg19_liftover.py`` (https://github.com/dbmi-bgm/cgap-scripts) in both the CGAP SV and SNV Germline Pipelines.
 
 4. Long links and external (non-CGAP) links can be hidden. E.g., `Fisher's exact test <https://en.wikipedia.org/wiki/Fisher%27s_exact_test#>`_). Try not to hide CGAP links to increase visibility for our repositories and scripts in the documentation.
 
