@@ -61,6 +61,6 @@ If a variant qualifies as a DEL or DUP above, it must next be genotyped. The fol
 
 If a DEL is valid, but displays a log2.copyRatio between ``log2_min_del`` and ``log2_min_hom_del``, it will be genotyped as heterozygous ``0/1``, otherwise it will be genotyped as homozygous ``1/1``.
 
-If a DUP is valid, but displays a log2.copyRatio between ``log2_min_dup`` and ``log2_min_hom_dup``, it will be genotyped as heterozygous ``0/1``, otherwise it will be genotyped as homozygous ``./.``.
+If a DUP is valid, but displays a log2.copyRatio between ``log2_min_dup`` and ``log2_min_hom_dup``, it will be genotyped as heterozygous ``0/1``, otherwise it will be genotyped as unknown ``./.``.
 
 We currently do not provide a true genotype for DUPs with log2.copyRatio > ``log2_min_hom_dup``, because unlike DELs, proband-only CNV analysis cannot conclude the phase of  duplications. For example, with two extra copies, each parent could provide one copy ``1/1`` or one parent could provide two copies ``2/0``.
