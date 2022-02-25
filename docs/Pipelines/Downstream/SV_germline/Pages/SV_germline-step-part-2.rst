@@ -13,7 +13,7 @@ This step uses ``sansa`` and ``VEP`` to annotate the structural variants identif
 sansa
 -----
 
-First, ``sansa`` is run using ``sansa.sh`` (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) to identify SVs that match the GRCh38 liftover of the gnomAD v2 structural variant database (https://gnomad.broadinstitute.org/downloads#v2-liftover-structural-variants). SVs in this database have allele frequencies from several human populations. ``sansa.sh`` sorts the input ``vcf`` file and then runs the following command for ``sansa``:
+First, ``sansa`` is run using ``sansa.sh`` (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) to identify SVs that match the GRCh38 liftover of the `gnomAD v2 structural variant database <https://gnomad.broadinstitute.org/downloads#v2-liftover-structural-variants>`_. SVs in this database have allele frequencies from several human populations. ``sansa.sh`` sorts the input ``vcf`` file and then runs the following command for ``sansa``:
 
 ``sansa annotate -m -n -b 50 -r 0.8 -s all -d $gnomAD $vcf``
 
