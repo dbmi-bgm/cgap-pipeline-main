@@ -33,8 +33,8 @@ Running BIC-seq2 Seg
 
 ``BIC-seq2 Seg`` carries out segmentation of the genome into regions based on the number of observed and expected reads following the normalization step above. The output of ``BIC-seq2 Seg`` is a ``txt`` table with genomic regions, the number of observed and expected reads with those regions, the log2.copyRatio between observed and expected reads, and pvalues that indicate how significant the log2.copyRatio change is from the expected null of 0.
 
-Reformatting BIC-seq2 Output to VCF
-+++++++++++++++++++++++++++++++++++
+Reformatting BIC-seq2 Output to ``vcf``
++++++++++++++++++++++++++++++++++++++++
 
 This workflow parses and filters the ``txt`` output table of genomic regions with coverage information from ``BIC-seq2`` and generates a basic ``vcf`` output file with SVTYPE of DEL or DUP and genotype for a single sample. The workflow makes use of ``bic-seq2_vcf_formatter.py`` to carry out the conversion. The resulting ``vcf`` file is checked for integrity.
 

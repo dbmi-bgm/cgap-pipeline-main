@@ -89,7 +89,7 @@ This workflow contains a series of short steps that add additional annotations t
 Requirements
 ------------
 
-This annotation step is present in Part 3 because the three python scripts used are designed to work only on DELs and DUPs (no INV, BND, INS) and because there is a possibility of filtering out a small number of variants during ``SV_worst_and_locations.py``. Both the cytoband annotation step and the liftover step also require the END field in the INFO block. This workflow requires a single CNV ``vcf`` file that has undergone **Initial Annotation Filtering Step** (which selects for DELs and DUPs), the **hg38** to **hg19** chain file for liftover (http://hgdownload.cse.ucsc.edu/goldenpath/hg38/liftOver/hg38ToHg19.over.chain.gz), and the **hg38** cytoband reference file from UCSC (http://hgdownload.cse.ucsc.edu/goldenpath/hg38/database/cytoBand.txt.gz).
+This annotation step is present in Part 3 because the three python scripts used are designed to work only on DELs and DUPs (no INV, BND, INS) and because there is a possibility of filtering out a small number of variants during ``SV_worst_and_locations.py``. Both the cytoband annotation step and the liftover step also require the END field in the INFO block. This workflow requires a single CNV ``vcf`` file that has undergone **Initial Annotation Filtering** step (which selects for DELs and DUPs), the **hg38** to **hg19** chain file for liftover (http://hgdownload.cse.ucsc.edu/goldenpath/hg38/liftOver/hg38ToHg19.over.chain.gz), and the **hg38** cytoband reference file from UCSC (http://hgdownload.cse.ucsc.edu/goldenpath/hg38/database/cytoBand.txt.gz).
 
 Annotation and Possible Filtering
 ---------------------------------
@@ -155,27 +155,27 @@ Currently none.
 Output
 ------
 
-The resulting ``vcf`` file is checked for integrity.  This is the **Full Annotated VCF** that is ingested into the CGAP Portal.
+The resulting ``vcf`` file is checked for integrity.  This is the **full-annotated vcf** that is ingested into the CGAP Portal.
 
 
 VCF Annotation Cleaning
 +++++++++++++++++++++++
 
-This step uses ``SV_annotation_VCF_cleaner.py`` (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) to remove ``VEP`` annotations from the **Full Annotated VCF** to create the **HiGlass SV VCF**.  These annotations are removed to improve loading speed in the ``HiGlass`` genome browser. The resulting ``vcf`` file is checked for integrity.
+This step uses ``SV_annotation_VCF_cleaner.py`` (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) to remove ``VEP`` annotations from the **full-annotated vcf** to create the **HiGlass vcf**.  These annotations are removed to improve loading speed in the ``HiGlass`` genome browser. The resulting ``vcf`` file is checked for integrity.
 
 * CWL: workflow_SV_annotation_VCF_cleaner_plus_vcf-integrity-check.cwl
 
 Requirements
 ------------
 
-The final **Full Annotated VCF**.
+The final **full-annotated vcf**.
 
 Cleaning
 --------
 
-To improve loading speed in the ``HiGlass`` genome browser, ``VEP`` annotations are removed from the **Full Annotated VCF** and the ``REF`` and ``ALT`` fields are simplified using the ``SV_annotation_VCF_cleaner.py`` script.
+To improve loading speed in the ``HiGlass`` genome browser, ``VEP`` annotations are removed from the **full-annotated vcf** and the ``REF`` and ``ALT`` fields are simplified using the ``SV_annotation_VCF_cleaner.py`` script.
 
 Output
 ------
 
-The output is a modified version of the **Full Annotated VCF** that has been cleaned for the ``HiGlass`` genome browser.  This is ingested into the CGAP Portal as the **Higlass SV VCF** and is only used for visualization. The resulting ``vcf`` file is checked for integrity.
+The output is a modified version of the **full-annotated vcf** that has been cleaned for the ``HiGlass`` genome browser.  This is ingested into the CGAP Portal as the **Higlass vcf** and is only used for visualization. The resulting ``vcf`` file is checked for integrity.
