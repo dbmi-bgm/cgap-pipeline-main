@@ -1,7 +1,7 @@
 {
   "accession": "GAPMWFMV8354",
   "name": "sentieon_joint-calling_gvcf_plus_annotation",
-  "title": "Sentieon Joint-Calling GVCF Plus Annotation VERSION",
+  "title": "Sentieon Joint-Calling g.vcf plus Annotation VERSION",
   "version": "VERSION",
   "uuid": "d1ea0036-ab61-4fdf-9802-40e0608166bf",
   "description": "Jointly call multiple g.vcf files using Sentieon and annotate for HiGlass viewing",
@@ -10,11 +10,13 @@
   "input": [
     {
       "argument_name": "input_gvcfs",
-      "argument_type": "file"
+      "argument_type": "file",
+      "dimensionality": 1
     },
     {
       "argument_name": "proband_list",
-      "argument_type": "file"
+      "argument_type": "file",
+      "dimensionality": 1
     },
     {
       "argument_name": "reference_fa",
@@ -123,9 +125,9 @@
       },
       "custom_pf_fields": {
           "vcf": {
-              "file_type": "jointly called VCF",
+              "file_type": "jointly-called vcf",
               "variant_type": "SNV",
-              "description": "Jointly called VCF file"
+              "description": "jointly-called output from GVCFtyper in vcf format"
           }
       },
       "input": [
@@ -158,9 +160,10 @@
       },
       "custom_pf_fields": {
           "annotated_jc_vcf": {
-              "file_type": "vep-annotated jointly called VCF",
+              "file_type": "vep-annotated vcf",
               "variant_type": "SNV",
-              "description": "vep-annotated jointly called VCF file"
+              "description": "output from VEP in vcf format",
+              "linkto_location": ["SampleProcessing"]
           }
       },
       "input": [
@@ -256,9 +259,10 @@
       },
       "custom_pf_fields": {
           "higlass_jc_vcf": {
-              "file_type": "Higlass jointly called VCF",
+              "file_type": "HiGlass vcf",
               "variant_type": "SNV",
-              "description": "Higlass jointly called VCF file"
+              "description": "output in vcf format with metrics for HiGlass",
+              "linkto_location": ["SampleProcessing"]
           }
       },
       "input": [

@@ -10,15 +10,18 @@
   "input": [
     {
       "argument_name": "fastqs_R1",
-      "argument_type": "file"
+      "argument_type": "file",
+      "dimensionality": 1
     },
     {
       "argument_name": "fastqs_R2",
-      "argument_type": "file"
+      "argument_type": "file",
+      "dimensionality": 1
     },
     {
       "argument_name": "sample_names",
-      "argument_type": "parameter"
+      "argument_type": "parameter",
+      "value_type": "json"
     },
     {
       "argument_name": "eff_genome_size",
@@ -61,8 +64,8 @@
       },
       "custom_pf_fields": {
           "raw_bam": {
-              "file_type": "intermediate file",
-              "description": "Intermediate alignment file"
+              "file_type": "raw bam",
+              "description": "aligned reads in bam format"
           }
       },
       "input": [
@@ -116,7 +119,7 @@
           "argument_name": "sample",
           "argument_type": "parameter",
           "source_argument_name": "sample_names",
-          "scatter": 1
+          "input_dimension": 1
         }
       ]
     },
@@ -133,8 +136,8 @@
       },
       "custom_pf_fields": {
           "bam_w_readgroups": {
-              "file_type": "intermediate file",
-              "description": "Intermediate alignment file"
+              "file_type": "readgroups bam",
+              "description": "intermediate file"
           }
       },
       "input": [
@@ -148,38 +151,7 @@
           "argument_name": "sample_name",
           "argument_type": "parameter",
           "source_argument_name": "sample_names",
-          "scatter": 1
-        }
-      ]
-    },
-    {
-      "name": "cgap-bamqc-1",
-      "workflow": "9ff0c046-9352-4ec4-9a34-bf3f547bde61",
-      "config": {
-        "instance_type": "c5a.2xlarge",
-        "ebs_size": "3.5x",
-        "EBS_optimized": true,
-        "spot_instance": true,
-        "run_name": "run_bamqc",
-        "behavior_on_capacity_limit": "wait_and_retry"
-      },
-      "input": [
-        {
-          "argument_name": "input_bam",
-          "argument_type": "file",
-          "source": "workflow_add-readgroups-check",
-          "source_argument_name": "bam_w_readgroups"
-        },
-        {
-          "argument_name": "eff_genome_size",
-          "argument_type": "parameter",
-          "source_argument_name": "eff_genome_size"
-        },
-        {
-          "argument_name": "sample",
-          "argument_type": "parameter",
-          "source_argument_name": "sample_names",
-          "scatter": 1
+          "input_dimension": 1
         }
       ]
     },
@@ -197,7 +169,7 @@
       "custom_pf_fields": {
           "merged_bam": {
               "file_type": "intermediate file",
-              "description": "Intermediate alignment file"
+              "description": "intermediate file"
           }
       },
       "input": [
@@ -207,37 +179,6 @@
           "gather": 1,
           "source": "workflow_add-readgroups-check",
           "source_argument_name": "bam_w_readgroups"
-        }
-      ]
-    },
-    {
-      "name": "cgap-bamqc-2",
-      "workflow": "9ff0c046-9352-4ec4-9a34-bf3f547bde61",
-      "config": {
-        "instance_type": "c5a.2xlarge",
-        "ebs_size": "3.5x",
-        "EBS_optimized": true,
-        "spot_instance": true,
-        "run_name": "run_bamqc",
-        "behavior_on_capacity_limit": "wait_and_retry"
-      },
-      "input": [
-        {
-          "argument_name": "input_bam",
-          "argument_type": "file",
-          "source": "workflow_merge-bam-check",
-          "source_argument_name": "merged_bam"
-        },
-        {
-          "argument_name": "eff_genome_size",
-          "argument_type": "parameter",
-          "source_argument_name": "eff_genome_size"
-        },
-        {
-          "argument_name": "sample",
-          "argument_type": "parameter",
-          "source_argument_name": "sample_names",
-          "scatter": 1
         }
       ]
     },
@@ -254,8 +195,9 @@
       },
       "custom_pf_fields": {
           "recalibrated_bam": {
-              "file_type": "alignments",
-              "description": "processed output from cgap upstream pipeline"
+              "file_type": "analysis-ready bam",
+              "description": "analysis-ready aligned reads in bam format",
+              "linkto_location": ["Sample"]
           }
       },
       "input": [
@@ -280,7 +222,7 @@
       ]
     },
     {
-      "name": "cgap-bamqc-3",
+      "name": "cgap-bamqc-1",
       "workflow": "9ff0c046-9352-4ec4-9a34-bf3f547bde61",
       "config": {
         "instance_type": "c5a.2xlarge",
@@ -306,7 +248,7 @@
           "argument_name": "sample",
           "argument_type": "parameter",
           "source_argument_name": "sample_names",
-          "scatter": 1
+          "input_dimension": 1
         }
       ]
     }
