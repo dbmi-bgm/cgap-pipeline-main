@@ -1,5 +1,5 @@
 ===============================
-News and Updates - SNV Germline
+News and Updates - CNV Germline
 ===============================
 
 
