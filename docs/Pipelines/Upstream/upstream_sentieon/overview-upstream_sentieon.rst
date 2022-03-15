@@ -15,8 +15,8 @@ The Dockerfile provided in this GitHub repository can be used to build a public 
 
 The image contains (but is not limited to) the following software packages:
 
-- sentieon (202010.02)
-
+- Sentieon (202112.01)
+- Samtools samtools-1.9
 
 Pipeline Flow
 #############
