@@ -46,7 +46,7 @@ The output is a filtered ``vcf`` file containing a lot fewer entries compared to
 20 Unrelated Filtering
 ++++++++++++++++++++++
 
-This step uses ``20_unrelated_SV_filter.py`` (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) to assess common and artefactual SVs in 20 unrelated samples and allows us to filter them from our sample ``vcf`` file. The 20 unrelated reference files (SV ``vcf`` files) were each generated using ``Manta`` for a single diploid individual (see: https://cgap-annotations.readthedocs.io/en/latest/20_unrelated.html#sv-pipeline-manta).
+This step uses ``20_unrelated_SV_filter.py`` (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) to assess common and artefactual SVs in 20 unrelated samples and allows us to filter them from our sample ``vcf`` file. The 20 unrelated reference files (SV ``vcf`` files) were each generated using ``Manta`` for a single diploid individual (see: https://cgap-annotations.readthedocs.io/en/latest/unrelated_references.html).
 
 * CWL: workflow_20_unrelated_SV_filter_plus_vcf-integrity-check.cwl
 

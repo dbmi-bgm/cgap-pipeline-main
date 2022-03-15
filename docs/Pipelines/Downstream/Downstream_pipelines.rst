@@ -21,6 +21,9 @@ Germline pipelines focus on discovery of rare variants inherited from parents, e
 Somatic
 +++++++
 
-Somatic pipelines focus on discovery of variants in a tumor sample or between matched tumor-normal samples in somatic cells.
+Somatic pipelines focus on discovery of somatic variants, often in matched tumor-normal samples.
 
-Currently under development.
+.. toctree::
+   :maxdepth: 2
+
+   somatic_sentieon/index-somatic_sentieon

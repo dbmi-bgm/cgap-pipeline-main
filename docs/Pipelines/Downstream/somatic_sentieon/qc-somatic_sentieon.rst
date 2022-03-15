@@ -1,5 +1,5 @@
-=================
-QC - CNV Germline
-=================
+=====================
+QC - Somatic Sentieon
+=====================
 
 In development.

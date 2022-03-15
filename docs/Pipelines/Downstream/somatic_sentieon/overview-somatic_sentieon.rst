@@ -12,8 +12,9 @@ The Dockerfile provided in this GitHub repository can be used to build a public 
 The image contains (but is not limited to) the following software packages:
 
 - Sentieon (202112.01)
+- Samtools samtools-1.9
 
 Pipeline Flow
 #############
 
-Our implementation offers a one step end-to-end solution to carry out a Tumor-Normal analysis as described `here <https://support.sentieon.com/manual/TNscope_usage/tnscope/>`_.
+Our implementation offers a one step end-to-end solution to carry out a Tumor-Normal analysis using the Sentieon TNscope algorithm as described `here <https://support.sentieon.com/manual/TNscope_usage/tnscope/>`_. We are making use of a Panel of Normals (PON) generated from 20 UGRP samples as described here (https://cgap-annotations.readthedocs.io/en/latest/unrelated_references.html).
