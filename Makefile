@@ -8,8 +8,16 @@ pull:
 build:
 	poetry install
 
+build-image:
+	docker build base_images/ubuntu2104-py-generic -t cgap-ubuntu2104-py-38
+
+build-image-37:
+	docker build base_images/ubuntu2104-py-generic --build-arg PYTHON_VERSION=3.7 -t cgap-ubuntu2104-py-37
+
 info:
 	@: $(info Here are some 'make' options:)
 	   $(info - Use 'make configure' to configure the repo by installing poetry.)
 	   $(info - Use 'make pull' to initialize/pull the submodules.)
 	   $(info - Use 'make build' to install entry point commands.)
+	   $(info - Use 'make build-image' to build the base Docker image for pipeline images with Python 3.8.)
+	   $(info - Use 'make build-image-37' to build the base Docker image for pipeline images with Python 3.7.)

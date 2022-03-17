@@ -1,0 +1,2 @@
+The directories in this folder each contain a Dockerfile specifying how to build the base image. 
+CGAP pipeline images use a common base image built from these files and uploaded to the cgap Dockerhub.
