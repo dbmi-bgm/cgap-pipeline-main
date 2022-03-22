@@ -1,4 +1,7 @@
-FROM ubuntu:21.04
+ARG UBUNTU_VER=20.04
+
+FROM ubuntu:${UBUNTU_VER}
+
 MAINTAINER William Ronchetti (william_ronchetti@hms.harvard.edu)
 
 # use latest conda, build for x86_64 and Python 3.8 (default)
