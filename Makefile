@@ -9,10 +9,10 @@ build:
 	poetry install
 
 build-image:
-	docker build base_images/ubuntu2104-py-generic -t cgap-ubuntu2104-py-38
+	docker build base_images/ubuntu-py-generic -t cgap-ubuntu2004-py-38
 
 build-image-37:
-	docker build base_images/ubuntu2104-py-generic --build-arg PYTHON_VERSION=3.7 -t cgap-ubuntu2104-py-37
+	docker build base_images/ubuntu-py-generic --build-arg PYTHON_VERSION=3.7 -t cgap-ubuntu2004-py-37
 
 info:
 	@: $(info Here are some 'make' options:)
