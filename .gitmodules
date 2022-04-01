@@ -17,3 +17,9 @@
 [submodule "cgap-pipeline-SNV-germline"]
 	path = cgap-pipeline-SNV-germline
 	url = https://github.com/dbmi-bgm/cgap-pipeline-SNV-germline
+[submodule "cgap-pipeline-SNV-somatic"]
+	path = cgap-pipeline-SNV-somatic
+	url = https://github.com/dbmi-bgm/cgap-pipeline-SNV-somatic
+[submodule "cgap-pipeline-somatic-sentieon"]
+	path = cgap-pipeline-somatic-sentieon
+	url = https://github.com/dbmi-bgm/cgap-pipeline-somatic-sentieon
