@@ -94,7 +94,7 @@
     },
     {
       "name": "cgap-bamqc",
-      "workflow": "9ff0c046-9352-4ec4-9a34-bf3f547bde61",
+      "workflow": "943d51c2-1c44-4536-b65d-aa750d5c51d1",
       "config": {
         "instance_type": "c5a.2xlarge",
         "ebs_size": "3.5x",
@@ -125,7 +125,7 @@
     },
     {
       "name": "workflow_add-readgroups-check",
-      "workflow": "d554d59b-e709-4c35-a81f-68a0cb3dd38a",
+      "workflow": "e187247b-d7f1-405b-b2a3-7a99fec06554",
       "config": {
         "instance_type": "c5a.2xlarge",
         "ebs_size": "3.5x",
@@ -157,7 +157,7 @@
     },
     {
       "name": "workflow_merge-bam-check",
-      "workflow": "4853a03a-8c0c-4624-a45d-c5206a72907b",
+      "workflow": "d77d1c53-c524-4689-bb21-d1e5f805f83e",
       "config": {
         "instance_type": "c5a.2xlarge",
         "ebs_size": "3x",
@@ -223,7 +223,7 @@
     },
     {
       "name": "cgap-bamqc-1",
-      "workflow": "9ff0c046-9352-4ec4-9a34-bf3f547bde61",
+      "workflow": "943d51c2-1c44-4536-b65d-aa750d5c51d1",
       "config": {
         "instance_type": "c5a.2xlarge",
         "ebs_size": "3.5x",

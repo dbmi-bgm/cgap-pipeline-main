@@ -149,7 +149,7 @@
     },
     {
       "name": "workflow_vep-annot-check",
-      "workflow": "5b9412d0-7bca-49f3-9b8f-e02497b693a5",
+      "workflow": "2f997f5f-d334-4c2b-873c-e4392d6b83f5",
       "config": {
         "instance_type": "c5n.18xlarge",
         "ebs_size": "1.35x",

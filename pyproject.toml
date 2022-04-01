@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "cgap-pipeline-main"
-version = "0.0.3"
+version = "1.0.0"
 description = "Main repository for deploying pipelines that impelement the CGAP-pipeline specification."
 authors = ["CGAP Team"]
 
 [tool.poetry.dependencies]
 
-python = ">=3.6.10,<3.7"
+python = ">=3.6.10,<3.9"
 dcicutils = "^3.1.0"
 magma-suite = "^0.2.1"
 boto3 = "^1.20.15"
