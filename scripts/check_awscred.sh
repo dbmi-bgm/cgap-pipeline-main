@@ -12,10 +12,19 @@ check_vars()
     return 0
 }
 
-# Check variables
+# Check general variables
 check_vars AWS_ACCOUNT_NUMBER TIBANNA_AWS_REGION GLOBAL_BUCKET_ENV S3_ENCRYPT_KEY AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
 
 echo "AWS_ACCOUNT_NUMBER: $AWS_ACCOUNT_NUMBER"
+
+# Check S3_ENCRYPT_KEY_ID
+if [ -z ${S3_ENCRYPT_KEY_ID+x} ];
+then
+  echo "S3_ENCRYPT_KEY_ID variable is NOT set"
+else
+  echo "S3_ENCRYPT_KEY_ID variable is set"
+fi
+
 echo
 
 # Check confirmation
