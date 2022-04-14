@@ -262,7 +262,8 @@
               "file_type": "HiGlass vcf",
               "variant_type": "SNV",
               "description": "output in vcf format with metrics for HiGlass",
-              "linkto_location": ["SampleProcessing"]
+              "linkto_location": ["SampleProcessing"],
+              "higlass_file": true
           }
       },
       "input": [
