@@ -48,6 +48,6 @@ info:
 	   $(info - Use 'make configure' to configure the repo by installing poetry.)
 	   $(info - Use 'make pull' to initialize/pull the submodules.)
 	   $(info - Use 'make build' to install entry point commands.)
-		 $(info - Use 'make deploy-all' to deploy all the available pipelines.)
+	   $(info - Use 'make deploy-all' to deploy all the available pipelines.)
 	   $(info - Use 'make build-image' to build the base Docker image for pipeline images with Python 3.8.)
 	   $(info - Use 'make build-image-37' to build the base Docker image for pipeline images with Python 3.7.)
