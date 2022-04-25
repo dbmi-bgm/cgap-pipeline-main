@@ -1,10 +1,10 @@
 {
-  "name": "WGS_upstream_sentieon_proband",
-  "title": "WGS Upstream Sentieon Proband VERSION",
+  "name": "WGS_upstream_sentieon",
+  "title": "WGS Upstream Sentieon VERSION",
   "version": "VERSION",
-  "accession": "GAPLWFK3DFZA",
-  "description": "WGS upstream pipeline (paired-fastqs to bam) using Sentieon for proband only",
-  "uuid": "019ab95e-78eb-41b3-8a59-ccc49a083d60",
+  "accession": "GAPLQFK3AF1L",
+  "description": "WGS upstream pipeline (paired-fastqs to bam) using Sentieon for trio or family",
+  "uuid": "33decf3c-03ec-405c-a506-08d5c0b4af82",
   "project": "PROJECT_UUID",
   "institution": "INSTITUTION_UUID",
   "input": [

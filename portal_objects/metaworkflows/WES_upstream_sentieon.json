@@ -1,10 +1,10 @@
 {
-  "name": "WES_upstream_sentieon_proband",
-  "title": "WES Upstream Sentieon Proband VERSION",
+  "name": "WES_upstream_sentieon",
+  "title": "WES Upstream Sentieon VERSION",
   "version": "VERSION",
-  "accession": "GAPMWPXZ1AQ1",
-  "description": "WES upstream pipeline (paired-fastqs to bam) using Sentieon for proband only",
-  "uuid": "3167c022-81e8-44ad-ad23-353d159b75eb",
+  "accession": "GAPMPPXL121W",
+  "description": "WES upstream pipeline (paired-fastqs to bam) using Sentieon for trio or family",
+  "uuid": "80a06133-61aa-455f-b9fe-eeb9161a5ac8",
   "project": "PROJECT_UUID",
   "institution": "INSTITUTION_UUID",
   "input": [
