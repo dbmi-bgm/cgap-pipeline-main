@@ -4,6 +4,7 @@ export
 .PHONY: build
 
 configure:
+	pip install --upgrade pip
 	pip install poetry
 
 pull:
@@ -23,9 +24,12 @@ deploy-all:
 	scripts/check_awscred.sh
 	poetry run pipeline_utils deploy_pipeline \
 		--ff-env $ENV_NAME \
+		--keydicts-json $KEYDICTS_JSON \
 		--cwl-bucket $CWL_BUCKET \
 		--account $ACCOUNT_NUMBER \
 		--region $AWS_DEFAULT_REGION \
+		--project-uuid $PROJECT_UUID \
+		--institution-uuid $INSTITUTION_UUID \
 		--post-software \
 		--post-file-format \
 		--post-file-reference \
@@ -41,7 +45,8 @@ deploy-all:
 			cgap-pipeline-SNV-germline \
 			cgap-pipeline-SV-germline \
 			cgap-pipeline-SNV-somatic \
-			cgap-pipeline-somatic-sentieon
+			cgap-pipeline-somatic-sentieon \
+			.
 
 info:
 	@: $(info Here are some 'make' options:)
