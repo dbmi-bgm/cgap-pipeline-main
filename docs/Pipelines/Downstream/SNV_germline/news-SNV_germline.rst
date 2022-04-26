@@ -6,6 +6,8 @@ News and Updates - SNV Germline
 Version Updates
 +++++++++++++++
 
+  **Feb 1, 2022** CGAP Pipeline SNV Germline v27 is released as part of the v0.0.27 of CGAP Pipeline Main!
+
   **Nov 3, 2021** CGAP SNV (WGS/WES) pipeline v26 is released!
 
   **Oct 14, 2021**  CGAP (WGS) pipeline v25 is released!

@@ -13,10 +13,10 @@ Docker Image
 
 The Dockerfile provided in this GitHub repository can be used to build a public docker image, or if built through ``cgap-pipeline-utils`` ``deploy_pipeline.py`` (https://github.com/dbmi-bgm/cgap-pipeline-utils) a private ECR image will be created for the AWS account provided.
 
-The image contains (but is not limited to) the following software packages:
+The ``upstream_sentieon`` image contains (but is not limited to) the following software packages:
 
 - Sentieon (202112.01)
-- Samtools samtools-1.9
+- samtools (1.9)
 
 Pipeline Flow
 #############

@@ -80,3 +80,11 @@ Note, for all ``rst`` file names, the ``<folder_name>`` (which is the short form
         │   ├── overview-SV_germline.rst
         │   └── qc-SV_germline.rst
         └── Downstream_pipelines.rst
+
+================
+Section 4 - News
+================
+
+Currently, each pipeline has its own ``news-<pipeline>.rst`` file, which must be manually updated with new releases. There is also a ``news-main.rst`` file that should contain information on major releases (e.g., v0.0.27, v1.0.0).
+
+It has not been decided how minor updates will be recorded in the pipeline-specific news files at this point, but a decision should be made and it should remain consistent between pipelines.

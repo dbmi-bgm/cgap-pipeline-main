@@ -2,7 +2,6 @@
 Part 2. Copy Number Variant Annotation
 ======================================
 
-
 sansa and VEP
 +++++++++++++
 

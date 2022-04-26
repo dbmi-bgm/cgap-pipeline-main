@@ -22,21 +22,26 @@ Docker Images
 
 The Dockerfiles provided in this GitHub repository can be used to build public docker images, or if built through ``cgap-pipeline-utils`` ``deploy_pipeline.py`` (https://github.com/dbmi-bgm/cgap-pipeline-utils), private ECR images will be created for the provided AWS account.
 
-The ``manta`` image is primarily for **SV identification**. This image contains (but is not limited to) the following software packages:
+The ``manta`` image is primarily for **SV identification**. This image is one of the few that does not use the base image provided in the CGAP Pipeline Main repository due to requiring an older version of python. This image contains (but is not limited to) the following software packages:
 
+- python (2.7.13)
 - manta (1.6.0)
-- samtools (1.7)
-- bcftools (1.9)
-- vcftools (0.1.17)
+- samtools (1.9)
 
-The ``sv_germline`` image is for **annotation and filtering of SVs**. This image contains (but is not limited to) the following software packages:
+The ``sv_germline_granite`` image is for **annotation and filtering of SVs**. This image contains (but is not limited to) the following software packages:
 
-- granite (0.1.13)
-- bcftools (1.11)
-- vep (101)
-- sansa (0.0.8, a30e1a7)
+- granite (0.2.0)
+- pyliftover (0.4)
+
+The ``sv_germline_tools`` image is for **annotation of SVs**. This image contains (but is not limited to) the following software packages:
+
 - vcftools (0.1.17, 954e607)
+- bcftools (1.11)
+- sansa (0.0.8, a30e1a7)
 
+The ``sv_germline_vep`` image is for **annotation of SVs**. This image contains (but is not limited to) the following software packages:
+
+- vep (101)
 
 Pipeline Flow
 #############

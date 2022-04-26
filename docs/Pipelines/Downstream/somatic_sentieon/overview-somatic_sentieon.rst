@@ -2,7 +2,7 @@
 Overview - Somatic Sentieon
 ===========================
 
-CGAP Pipeline Somatic Sentieon (https://github.com/dbmi-bgm/cgap-pipeline-somatic-sentieon) is our *license-based* option for processing Tumor-Normal Whole Genome Sequencing (WGS) samples. The pipeline begins with a single ``bam`` file from a Tumor sample and a corresponding ``bam`` file from Normal (non-Tumor) tissue. Both ``bam`` files must be from the same individual, and they must be mapped to **hg38**. These ``bam`` files can be generated using either of the `CGAP WGS Upstream Pipelines <https://cgap-pipeline-main.readthedocs.io/en/latest/Pipelines/Upstream/Upstream_pipelines.html>`_. The output of this pipeline is a ``vcf`` file that contains Single Nucleotide Variants (SNVs), short INsertions and DELetions (INDELs), and Structural Variants (SVs).
+CGAP Pipeline Somatic Sentieon (https://github.com/dbmi-bgm/cgap-pipeline-somatic-sentieon) is our *license-based* option for calling variants from Tumor-Normal Whole Genome Sequencing (WGS) samples. The pipeline begins with a single ``bam`` file from a Tumor sample and a corresponding ``bam`` file from Normal (non-Tumor) tissue. Both ``bam`` files must be from the same individual, and they must be mapped to **hg38**. These ``bam`` files can be generated using either of the `CGAP WGS Upstream Pipelines <https://cgap-pipeline-main.readthedocs.io/en/latest/Pipelines/Upstream/Upstream_pipelines.html>`_. The output of this pipeline is a ``vcf`` file that contains Single Nucleotide Variants (SNVs), short INsertions and DELetions (INDELs), and Structural Variants (SVs).
 
 Docker Image
 ############
@@ -12,7 +12,7 @@ The Dockerfile provided in this GitHub repository can be used to build a public 
 The image contains (but is not limited to) the following software packages:
 
 - Sentieon (202112.01)
-- Samtools samtools-1.9
+- samtools (1.9)
 
 Pipeline Flow
 #############

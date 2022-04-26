@@ -18,18 +18,29 @@ Docker Image
 
 The Dockerfile provided in this GitHub repository can be used to build a public docker image, or if built through ``cgap-pipeline-utils`` ``deploy_pipeline.py`` (https://github.com/dbmi-bgm/cgap-pipeline-utils) a private ECR image will be created for the provided AWS account.
 
-The image contains (but is not limited to) the following software packages:
+The ``snv_germline_gatk`` image is primarily for **genotyping variants**. This image contains (but is not limited to) the following software packages:
 
-- gatk4 (4.1.2.0)
-- picard (2.20.2)
-- granite (0.1.12)
+- gatk (4.2.6.1)
+
+The ``snv_germline_granite`` image is primarily for **filtering and annotating variants**. This image contains (but is not limited to) the following software packages:
+
+- granite (0.2.0)
+- samtools (1.9)
+
+The ``snv_germline_misc`` image is primarily for **pipeline utilities**. This image is one of the few that does not use the base image provided in the CGAP Pipeline Main repository due to requiring an older version of python. This image contains (but is not limited to) the following software packages:
+
+- python (3.6.8)
 - bamsnap-cgap (0.3.0)
-- bcftools (1.11)
-- vcftools (954e607)
-- pigz (2.6)
-- pbgzip (2b09f97)
-- vep (101)
 - peddy (0.4.7)
+
+The ``snv_germline_tools`` image is primarily for **pipeline utilities**. This image contains (but is not limited to) the following software packages:
+
+- vcftools (0.1.17, 954e607)
+- bcftools (1.11)
+
+The ``snv_germline_vep`` image is primarily for **annotating variants**. This image contains (but is not limited to) the following software packages:
+
+- vep (101)
 
 
 Pipeline Flow

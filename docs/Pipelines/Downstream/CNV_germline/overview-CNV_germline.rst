@@ -23,20 +23,10 @@ The ``cnv_germline`` image is primarily for **CNV identification**. This image c
 
 - BICseq2 normalization (0.2.6)
 - BICseq2 segmentation (0.7.3)
-- R (3.2.3)
+- R (4.1.0)
 - granite (0.1.13)
-- picard (2.20.2)
-- samtools (1.7)
-- vcftools (0.1.17, 954e607)
-
-The ``sv_germline`` image is shared with the CGAP Pipeline for Germline SVs, and is used for **annotation and filtering of CNVs**. This image contains (but is not limited to) the following software packages:
-
-- granite (0.1.13)
-- bcftools (1.11)
-- vep (101)
-- sansa (0.0.8, a30e1a7)
-- vcftools (0.1.17, 954e607)
-
+- picard (2.26.11)
+- samtools (1.9)
 
 Pipeline Flow
 #############

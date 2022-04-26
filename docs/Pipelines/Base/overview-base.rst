@@ -18,11 +18,11 @@ The ``fastqc`` image contains (but is not limited to) the following software pac
 
 - fastqc (0.11.9)
 
-The ``cram2fastq`` image contains (but is not limited to) the following software packages:
+The ``base`` image contains (but is not limited to) the following software packages:
 
 - samtools (1.9)
 - cramtools (0b5c9ec)
-- pigz (2.4)
+- pigz (2.6)
 - pbgzip (2b09f97)
 
 Pipeline Parts and Runtimes

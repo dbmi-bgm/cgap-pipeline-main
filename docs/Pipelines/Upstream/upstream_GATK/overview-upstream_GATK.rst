@@ -16,15 +16,12 @@ Docker Image
 
 The Dockerfile provided in this GitHub repository can be used to build a public docker image, or if built through ``cgap-pipeline-utils`` ``deploy_pipeline.py`` (https://github.com/dbmi-bgm/cgap-pipeline-utils) a private ECR image will be created for the AWS account provided.
 
-The image contains (but is not limited to) the following software packages:
+The ``upstream_gatk`` image is primarily for **mapping reads and identifying variants**. This image contains (but is not limited to) the following software packages:
 
-- bwa (0.7.17)
-- gatk4 (4.1.2.0)
-- picard (2.20.2)
+- gatk (4.2.6.1)
+- picard (2.26.11)
 - samtools (1.9)
-- pigz (2.4)
-- pbgzip (2b09f97)
-
+- bwa (0.7.17)
 
 Pipeline Flow
 #############
