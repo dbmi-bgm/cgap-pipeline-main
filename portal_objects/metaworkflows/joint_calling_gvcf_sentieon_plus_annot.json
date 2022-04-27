@@ -15,8 +15,8 @@
     },
     {
       "argument_name": "probands",
-      "argument_type": "file",
-      "dimensionality": 1
+      "argument_type": "parameter",
+      "value_type": "json"
     },
     {
       "argument_name": "reference_fa",
@@ -274,8 +274,8 @@
           "source_argument_name": "annotated_jc_vcf"
         },
         {
-          "argument_name": "proband_list",
-          "argument_type": "file"
+          "argument_name": "probands",
+          "argument_type": "parameter"
         },
         {
           "argument_name": "gnomAD",
