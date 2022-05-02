@@ -159,7 +159,7 @@
         "behavior_on_capacity_limit": "wait_and_retry"
       },
       "custom_pf_fields": {
-          "annotated_jc_vcf": {
+          "annotated_vcf": {
               "file_type": "vep-annotated vcf",
               "variant_type": "SNV",
               "description": "output from VEP in vcf format",
@@ -271,7 +271,7 @@
           "argument_name": "input_vcf",
           "argument_type": "file",
           "source": "workflow_vep-annot-check",
-          "source_argument_name": "annotated_jc_vcf"
+          "source_argument_name": "annotated_vcf"
         },
         {
           "argument_name": "probands",
