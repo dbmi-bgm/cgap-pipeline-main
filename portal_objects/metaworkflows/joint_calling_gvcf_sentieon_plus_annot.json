@@ -251,7 +251,7 @@
       "workflow": "e71ec718-b2be-497a-9a4b-55ceb941b2bf",
       "config": {
         "instance_type": "t3.small",
-        "ebs_size": "2x",
+        "ebs_size": "3x",
         "EBS_optimized": true,
         "spot_instance": true,
         "run_name": "run_workflow_reformat_jc_fisher",
