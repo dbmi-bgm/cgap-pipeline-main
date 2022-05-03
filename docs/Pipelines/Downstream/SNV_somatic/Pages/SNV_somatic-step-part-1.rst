@@ -6,7 +6,7 @@ Part 1. Filtering and Splitting the VCF
 Somatic Sentieon VCF Splitter
 +++++++++++++++++++++++++++++
 
-This step carries out filtering and splitting of the initial input ``vcf``, resulting in four output files. This is carried out through ``somatic_sentieon_vcf_splitter.py`` (https://github.com/dbmi-bgm/cgap-pipeline-SNV-somatic).
+This step filters and splits the initial input ``vcf``, resulting in four output files. This is carried out through ``somatic_sentieon_vcf_splitter.py`` (https://github.com/dbmi-bgm/cgap-pipeline-SNV-somatic).
 
 * CWL: workflow_somatic_filter_split_plus-vcf-integrity-check.cwl
 
@@ -21,12 +21,16 @@ Filtering and output
 During the CGAP Somatic Sentieon Pipeline, variants are identified in the tumor sample and the normal sample for a single individual, they are also compared to a Panel of Normals (PON). If a given tumor variant is of high quality, does not appear in the germline genome (the normal sample),  or in the PON in more than 2 samples, it might receive ``PASS`` in the filter column.
 
 This produces four output files that contain only the ``PASS`` variants, as follows:
+
 1. ``vcf`` file with all ``PASS`` variants of all types
+
 2. ``vcf`` file with all ``PASS`` SNVs
+
 3. ``vcf`` file with all ``PASS`` INDELs
+
 4. ``vcf`` file with all ``PASS`` SVs in bnd format
 
-The each ```vcf`` file is also checked for integrity.
+The each ``vcf`` file is also checked for integrity individually.
 
 
 SV bnd conversion

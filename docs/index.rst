@@ -17,6 +17,8 @@ Contents
 .. toctree::
  :maxdepth: 1
 
+ overview-main
+ news-main
  Pipelines/Base/index-base
 
 .. toctree::
@@ -34,4 +36,3 @@ Contents
 
  Pipelines/Other/Other_pipelines
  Pipelines/Support/Support_repos
- news-main

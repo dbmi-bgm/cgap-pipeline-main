@@ -7,7 +7,9 @@ CGAP Pipeline Upstream GATK (https://github.com/dbmi-bgm/cgap-pipeline-upstream-
 The CGAP Pipeline Upstream GATK supports both WGS and WES input files. The WGS configuration is optimized for data with 30x coverage and has been tested with data up to 80-90x coverage.
 The WES configuration is a recent extension of the WGS pipeline, which allows for the processing of WES data. We are currently optimizing for 90x coverage and testing from 20x-200x.
 
-Both the WES and WGS configurations of the CGAP Pipeline Upstream GATK are mostly based on ``bwa`` and ``gatk4`` and follow GATK Best Practice (https://gatk.broadinstitute.org/hc/en-us/articles/360035535912-Data-pre-processing-for-variant-discovery).
+`Fisher's exact test <https://en.wikipedia.org/wiki/Fisher%27s_exact_test#>`_
+
+Both the WES and WGS configurations of the CGAP Pipeline Upstream GATK are mostly based on ``bwa`` and ``gatk4`` and follow `GATK Best Practice <https://gatk.broadinstitute.org/hc/en-us/articles/360035535912-Data-pre-processing-for-variant-discovery>`_.
 Users can select the correct pipeline configuration for their input data through the use of the corresponding *MetaWorkflow* (e.g. ``WES_upstream_gatk_proband.json`` for a single sample of WES data or ``WGS_upstream_gatk.json`` for a trio (mother, father, and proband) with WGS library preparation).
 
 
