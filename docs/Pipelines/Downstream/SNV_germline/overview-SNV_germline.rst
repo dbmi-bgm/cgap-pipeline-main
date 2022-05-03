@@ -13,8 +13,8 @@ The WES configuration is a recent extension of the WGS pipeline, which allows fo
 Both the WES and WGS configurations of the CGAP Pipeline SNV Germline are mostly based on ``gatk4`` (https://gatk.broadinstitute.org/hc/en-us), ``granite`` (https://github.com/dbmi-bgm/granite), ``ensembl-vep`` (https://github.com/Ensembl/ensembl-vep) and ``bamsnap`` (https://github.com/dbmi-bgm/bamsnap). The pipelines perform joint-sample variant calling within a family, perform annotation and filtering, call *de novo* mutations and compound heterozygous variants (comHet), and generate snapshot images for the filtered set of variants. ``vcf`` files are checked for integrity using ``vcftools`` ``vcf-validator`` at the end of any step during which they are created or modified.
 
 
-Docker Image
-############
+Docker Images
+#############
 
 The Dockerfile provided in this GitHub repository can be used to build a public docker image, or if built through ``cgap-pipeline-utils`` ``deploy_pipeline.py`` (https://github.com/dbmi-bgm/cgap-pipeline-utils) a private ECR image will be created for the provided AWS account.
 
@@ -32,6 +32,7 @@ The ``snv_germline_misc`` image is primarily for **pipeline utilities**. This im
 - python (3.6.8)
 - bamsnap-cgap (0.3.0)
 - peddy (0.4.7)
+- granite (0.2.0)
 
 The ``snv_germline_tools`` image is primarily for **pipeline utilities**. This image contains (but is not limited to) the following software packages:
 

@@ -27,3 +27,4 @@ Somatic pipelines focus on discovery of somatic variants, often in matched tumor
    :maxdepth: 2
 
    somatic_sentieon/index-somatic_sentieon
+   SNV_somatic/index-SNV_somatic
