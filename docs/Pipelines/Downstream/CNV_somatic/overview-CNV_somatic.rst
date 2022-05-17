@@ -51,7 +51,7 @@ The major steps of the ASCAT algorithm:
 Others
 ######
 
-In order to reproduce the obtained results, the `ascat` objects are stored in an `Rdata` file, which stores the following instances:
+In order to reproduce the obtained results, some of `ascat` objects are stored in an `Rdata` file, which stores the following instances:
 
 - `ascat.bc` -  an object returned from the `ascat.aspcf` function 
 - `ascat.output` - an object returned from the `ascat.RunAscat` function 
