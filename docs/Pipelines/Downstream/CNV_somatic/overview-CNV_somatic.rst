@@ -14,7 +14,7 @@ The user should provide the following files and parameters:
 - `nthreads` parameter for the number of threads to run Ascat, default value: 23
 
 
-ASCAT requires other input files that are reused in each run. They include loci, alleles and, GC correction files. For more deteils on these input files, see (https://cgap-annotations.readthedocs.io/en/latest/ascat.html) 
+ASCAT requires other input files that are reused in each run. They include loci, alleles and, GC correction files. For more details on these input files, see (https://cgap-annotations.readthedocs.io/en/latest/ascat.html) 
 
 Running ASCAT
 #############
