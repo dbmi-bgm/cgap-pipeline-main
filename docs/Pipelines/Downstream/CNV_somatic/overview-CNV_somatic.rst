@@ -40,11 +40,11 @@ The major steps of the ASCAT algorithm:
 
 - generates `png` files presenting BAF and LogR for the normal and tumor samples after the GC correction
 
-5. Run Allele Specific Piecewise Constant Fitting (ASPCF) 
+5. Run Allele Specific Piecewise Constant Fitting (ASPCF)
 
-- it is a preprocessing step that fits piecewise constant regression functions to both the Log R and the BAF data at the same time. This method identifies regions (segments), which are genomics regions between two consecutive change points. Each segment have assigned a single LogR value and either one or two BAF values (a single BAF equal to 0.5 is assigned if the aberrant cells are discovered as balanced). The segmented data are saved to a `png` file. Partial results after this operation are saved to a `tsv` file containing the information about: LogR and BAF for both germline and somatic samples, LogR and BAF segmented for the tumor sample.
+- it is a preprocessing step that fits piecewise constant regression functions to both the Log R and the BAF data at the same time. This method identifies regions (segments), which are genomics regions between two consecutive change points. Each segment has assigned a single LogR value and either one or two BAF values (a single BAF equal to 0.5 is assigned if the aberrant cells are discovered as balanced). The segmented data are saved to a `png` file. After this operation, partial results are saved to a `tsv` file containing the information about: LogR and BAF for both germline and somatic samples, LogR and BAF segmented for the tumor sample.
 
-6. Run allele specific copy number analysis of tumors (ASCAT) 
+6. Run allele specific copy number analysis of tumors (ASCAT)
 
 - determines estimated values of aberrant cell fractions, tumor ploidy, and allele specific copy number calls. Minor and major copy numbers for the segments are obtained. The results of this step are saved to a `tsv` file that contains start and end positions of the segments with the assigned minor and major copy numbers and their sum. A plot presenting ASCAT profiles of the sample is saved to a `png` file, and a plot showing ASCAT raw profiles. ASCAT evaluates the ploidy of the tumor cells and the fraction of abberant cells considering all their possible values, and finally selects the optimal solution. A graphical representation of these values is saved to a `png` file.
 
