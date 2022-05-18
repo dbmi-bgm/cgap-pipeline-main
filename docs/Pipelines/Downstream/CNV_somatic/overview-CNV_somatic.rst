@@ -4,6 +4,17 @@ This workflow utilizes ASCAT to reveal correct copy numbers to all loci in the r
 
 -   CWL: workflow_ascat.cwl
 
+Docker Image
+#############
+
+The Dockerfiles provided in this GitHub repository can be used to build public docker images, or if built through ``cgap-pipeline-utils`` ``deploy_pipeline.py`` (https://github.com/dbmi-bgm/cgap-pipeline-utils), private ECR images will be created for the provided AWS account.
+
+The ``ascat`` image is primarily for **CNV identification**. This image contains (but is not limited to) the following software packages:
+
+- R (4.1.0)
+- ascat (3.0.0)
+- alleleCount (4.3.0)
+
 Input
 #####
 The user should provide the following files and parameters:
