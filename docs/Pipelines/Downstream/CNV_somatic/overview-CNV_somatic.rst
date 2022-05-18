@@ -14,7 +14,7 @@ The user should provide the following files and parameters:
 - `nthreads` parameter for the number of threads to run Ascat, default value: 23
 
 
-ASCAT requires other input files that are reused in each run. They include loci, alleles and, GC correction files. For more details on these input files, see (https://cgap-annotations.readthedocs.io/en/latest/ascat.html) 
+ASCAT requires other input files that are reused in each run. They include loci, allele and, GC correction files. For more details on these input files, see (https://cgap-annotations.readthedocs.io/en/latest/ascat.html) 
 
 Running ASCAT
 #############
@@ -23,7 +23,7 @@ Running ASCAT
 
 The major steps of the ASCAT algorithm: 
 
-1. Prepare High Throughput Sequencing (HTS)
+1. Calculate allele counts and allele fractions
 
 - runs `allelecounter.exe` to collect allele counts at specific loci for normal and tumor samples.
 - obtains B-allele Fraction (BAF) and LogR from the raw allele counts
@@ -34,7 +34,7 @@ The major steps of the ASCAT algorithm:
 
 3. Correct LogR
 
-- corrects logR of the tumor sample with genomic GC content
+- corrects LogR of the tumor sample with genomic GC content
 
 4. Plot corrected data
 
