@@ -1,6 +1,6 @@
 Ascat based CNV identifcation 
 
-This workflow utilizes ASCAT to reveal correct copy numbers to all loci in the reference genome. This is carried out through the `ascat.R` script. 
+This workflow utilizes ASCAT to reveal correct copy numbers at all loci in the reference genome. This is carried out through the `ascat.R` script. 
 
 The main workflow is defined in CWL in the `workflow_ascat.cwl` file.
 
@@ -62,7 +62,7 @@ The major steps of the ASCAT algorithm:
 Others
 ######
 
-In order to reproduce the obtained results, some of the `ascat` objects are saved in an `Rdata` file, which stores the following instances:
+In order to reproduce the obtained results, some of the `ascat` objects are saved in an `Rdata` file, which stores the following objects:
 
 - `ascat.bc` -  an object returned from the `ascat.aspcf` function 
 - `ascat.output` - an object returned from the `ascat.RunAscat` function 
