@@ -2,7 +2,7 @@ Ascat based CNV identifcation
 
 This workflow utilizes ASCAT to reveal correct copy numbers to all loci in the reference genome. This is carried out through the `ascat.R` script. 
 
--   CWL: workflow_ascat.cwl
+The main workflow is defined in CWL in the `workflow_ascat.cwl` file.
 
 Docker Image
 #############
@@ -19,8 +19,8 @@ Input
 #####
 The user should provide the following files and parameters:
 
-- `bam` file containing sequences of a tumor sample
-- `bam` file containing sequences of a normal sample
+- `bam` file containing aligned sequencing reads of a tumor sample
+- `bam` file containing aligned sequencing reads of a normal sample
 - `gender` parameter for the gender information, accepted values: XX (female), XY (male)
 - `nthreads` parameter for the number of threads to run Ascat, default value: 23
 
@@ -36,7 +36,7 @@ The major steps of the ASCAT algorithm:
 
 1. Calculate allele counts and allele fractions
 
-- runs `allelecounter.exe` to collect allele counts at specific loci for normal and tumor samples.
+- runs `alleleCount` to collect allele counts at specific loci for normal and tumor samples.
 - obtains B-allele Fraction (BAF) and LogR from the raw allele counts
 
 2. Plot raw data 
@@ -53,7 +53,7 @@ The major steps of the ASCAT algorithm:
 
 5. Run Allele Specific Piecewise Constant Fitting (ASPCF)
 
-- it is a preprocessing step that fits piecewise constant regression functions to both the Log R and the BAF data at the same time. This method identifies regions (segments), which are genomics regions between two consecutive change points. Each segment has assigned a single LogR value and either one or two BAF values (a single BAF equal to 0.5 is assigned if the aberrant cells are discovered as balanced). The segmented data are saved to a `png` file. After this operation, partial results are saved to a `tsv` file containing the information about: LogR and BAF for both germline and somatic samples, LogR and BAF segmented for the tumor sample.
+- it is a preprocessing step that fits piecewise constant regression to both the Log R and the BAF data at the same time. This method identifies regions (segments), which are genomics regions between two consecutive change points. Each segment has assigned a single LogR value and either one or two BAF values (a single BAF equal to 0.5 is assigned if the aberrant cells are discovered as balanced). The segmented data are saved to a `png` file. After this operation, partial results are saved to a `tsv` file containing the information about: LogR and BAF for both germline and somatic samples, LogR and BAF segmented for the tumor sample.
 
 6. Run allele specific copy number analysis of tumors (ASCAT)
 
