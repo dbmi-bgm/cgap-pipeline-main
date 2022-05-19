@@ -11,6 +11,9 @@ pull:
 	git submodule init
 	git submodule update
 
+update:
+	poetry update
+
 build:
 	poetry install
 
@@ -52,6 +55,7 @@ info:
 	@: $(info Here are some 'make' options:)
 	   $(info - Use 'make configure' to configure the repo by installing poetry.)
 	   $(info - Use 'make pull' to initialize/pull the submodules.)
+	   $(info - Use 'make update' to update dependencies and the lock file.)
 	   $(info - Use 'make build' to install entry point commands.)
 	   $(info - Use 'make deploy-all' to deploy all the available pipelines.)
 	   $(info - Use 'make build-image' to build the base Docker image for pipeline images with Python 3.8.)

@@ -32,7 +32,9 @@ Populate the submodules.
 
 Install the repository.
 
-    make configure && make build
+    make configure
+    make update
+    make build
 
 See `make info` for more info on make targets.
 
