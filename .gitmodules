@@ -23,3 +23,6 @@
 [submodule "cgap-pipeline-somatic-sentieon"]
 	path = cgap-pipeline-somatic-sentieon
 	url = https://github.com/dbmi-bgm/cgap-pipeline-somatic-sentieon
+[submodule "cgap-pipeline-SV-somatic"]
+	path = cgap-pipeline-SV-somatic
+	url = https://github.com/dbmi-bgm/cgap-pipeline-SV-somatic
