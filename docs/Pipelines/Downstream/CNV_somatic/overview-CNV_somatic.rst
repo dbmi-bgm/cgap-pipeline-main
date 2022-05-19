@@ -12,7 +12,7 @@ The Dockerfiles provided in this GitHub repository can be used to build public d
 The ``ascat`` image is primarily for **CNV identification**. This image contains (but is not limited to) the following software packages:
 
 - R (4.1.0)
-- `ascat https://github.com/VanLoo-lab/ascat/`__ (3.0.0)
+- `ascat <https://github.com/VanLoo-lab/ascat/>`__ (3.0.0)
 - `alleleCount <https://anaconda.org/bioconda/cancerit-allelecount>`__ (4.3.0)
 
 Input
