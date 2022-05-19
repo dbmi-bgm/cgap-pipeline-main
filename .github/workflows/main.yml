@@ -36,4 +36,5 @@ jobs:
       - name: Test build
         run: |
           make configure
+          make pull
           make build
