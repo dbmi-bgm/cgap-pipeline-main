@@ -1,6 +1,6 @@
-=====================================
-Part 1. Manta-Based SV Identification
-=====================================
+===============================
+Part 1. Manta SV Identification
+===============================
 
 
 Manta
@@ -24,4 +24,4 @@ Running Manta
 
 A ``callRegions`` region file containing the main chromosome names limits the ``Manta`` run to chr1-chr22, chrX and chrY.
 
-The script ``convertInversion.py`` (https://github.com/Illumina/manta/) is also called within ``manta.sh`` to separate (SVTYPE=INV) from other translocations (SVTYPE=BND). The output file is a ``vcf`` file which is checked for integrity.
+The script ``convertInversion.py`` (https://github.com/Illumina/manta) is also called within ``manta.sh`` to separate (SVTYPE=INV) from other translocations (SVTYPE=BND). The output file is a ``vcf`` file and is checked for integrity.

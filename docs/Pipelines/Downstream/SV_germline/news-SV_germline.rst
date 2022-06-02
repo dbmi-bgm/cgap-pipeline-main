@@ -2,7 +2,6 @@
 News and Updates - SV Germline
 ==============================
 
-
 Version Updates
 +++++++++++++++
 

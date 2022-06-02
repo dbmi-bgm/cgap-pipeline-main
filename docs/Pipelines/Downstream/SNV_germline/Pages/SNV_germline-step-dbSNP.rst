@@ -2,7 +2,7 @@
 dbSNP rsID Update
 =================
 
-This step uses ``parallel_dbSNP_ID_fixer.sh`` to run ``dbSNP_ID_fixer.py`` and update dbSNP rsIDs in a sample ``vcf`` file's ID column. The output ``vcf`` file is checked for integrity.
+This step uses ``parallel_dbSNP_ID_fixer.sh`` to run ``dbSNP_ID_fixer.py`` (https://github.com/dbmi-bgm/cgap-pipeline-SNV-germline) and update dbSNP rsIDs in a sample ``vcf`` file ID column. The output ``vcf`` file is checked for integrity.
 
 * CWL: workflow_parallel_dbSNP_ID_fixer_plus_vcf-integrity-check.cwl
 
@@ -16,7 +16,7 @@ Must be run on input ``vcf`` following ``bcftools norm`` since it only allows on
 Output
 ++++++
 
-This process follows the following rules:
+This process follows these rules:
 
   1. Variants in the input ``vcf`` are matched to the reference dbSNP ``vcf`` by CHROM, POS, REF, and ALT columns.
   2. All rsIDs in the input ``vcf`` ID column are discarded and replaced by the IDs found in the reference dbSNP ``vcf``.

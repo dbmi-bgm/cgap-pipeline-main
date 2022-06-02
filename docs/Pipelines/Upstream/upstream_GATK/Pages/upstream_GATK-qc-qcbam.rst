@@ -6,7 +6,7 @@ BAM Quality Control
 Overview
 ++++++++
 
-To evaluate the quality of a ``bam`` file, different metrics are calculated using a custom script ``bamqc.py``.
+To evaluate the quality of a ``bam`` file, different metrics are calculated using a custom script ``bamqc.py`` (https://github.com/dbmi-bgm/cgap-pipeline-upstream-GATK).
 
 The metrics currently available are:
 

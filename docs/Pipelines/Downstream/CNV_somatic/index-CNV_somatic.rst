@@ -8,3 +8,4 @@ This is the documentation for the CGAP Pipeline for Copy Number Variants (https:
    :maxdepth: 2
 
    overview-CNV_somatic
+   news-CNV_somatic

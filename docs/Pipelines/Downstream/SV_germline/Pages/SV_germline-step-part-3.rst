@@ -25,12 +25,12 @@ The genelist step uses ``granite geneList`` to clean VEP annotations for transcr
 Inclusion List
 --------------
 
-The Inclusion list steps use ``granite`` function to filter-in exonic and functionally relevant variant based on VEP annotations. This step removes a large number of SVs from the initial call set.
+The Inclusion list steps use ``granite`` command to filter-in exonic and functionally relevant variant based on VEP annotations. This step removes a large number of SVs from the initial call set.
 
 Exclusion List
 --------------
 
-The Exclusion list step uses ``granite`` function to filter-out common variants based on gnomAD SV population allele frequency (AF > 0.01). Variants without gnomAD SV annotations are retained.
+The Exclusion list step uses ``granite`` command to filter-out common variants based on gnomAD SV population allele frequency (AF > 0.01). Variants without gnomAD SV annotations are retained.
 
 SV Type Selection
 -----------------
@@ -40,13 +40,13 @@ This step uses ``SV_type_selector.py`` (https://github.com/dbmi-bgm/cgap-pipelin
 Output
 ------
 
-The output is a filtered ``vcf`` file containing a lot fewer entries compared to the input ``vcf``. The content of the remaining entries are identical to the input (no additional information added or removed). The resulting ``vcf`` file is checked for integrity.
+The output is a filtered ``vcf`` file containing fewer entries compared to the input ``vcf``. The content of the remaining entries are identical to the input (no additional information added or removed). The resulting ``vcf`` file is checked for integrity.
 
 
 20 Unrelated Filtering
 ++++++++++++++++++++++
 
-This step uses ``20_unrelated_SV_filter.py`` (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) to assess common and artefactual SVs in 20 unrelated samples and allows us to filter them from our sample ``vcf`` file. The 20 unrelated reference files (SV ``vcf`` files) were each generated using ``Manta`` for a single diploid individual (see: https://cgap-annotations.readthedocs.io/en/latest/unrelated_references.html).
+This step uses ``20_unrelated_SV_filter.py`` (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) to assess common and artefactual SVs in 20 unrelated samples and allows to filter them out. The 20 unrelated reference files (SV ``vcf`` files) were each generated using ``Manta`` for a single diploid individual (see: https://cgap-annotations.readthedocs.io/en/latest/unrelated_references.html).
 
 * CWL: workflow_20_unrelated_SV_filter_plus_vcf-integrity-check.cwl
 
@@ -76,7 +76,7 @@ The filtering step reads through the sample SV ``vcf`` file a final time and wri
 Output
 ------
 
-The output is a filtered ``vcf`` file containing a lot fewer entries compared to the input ``vcf``.  The variants that remain after filtering will receive an additional annotation, ``UNRELATED=n``, where n is the number of matches found within the 20 unrelated SV ``vcf`` files.
+The output is a filtered ``vcf`` file containing fewer entries compared to the input ``vcf``.  The variants that remain after filtering will receive an additional annotation, ``UNRELATED=n``, where n is the number of matches found within the 20 unrelated SV ``vcf`` files.
 
 
 Secondary Annotation
@@ -130,7 +130,7 @@ Each variant will receive a ``Cyto1`` annotation which corresponds to the cytoba
 Output
 ------
 
-The output is an annotated SV ``vcf`` file.  No variants are removed, but secondary annotations are added to qualifying variants as described above.
+The output is an annotated SV ``vcf`` file where secondary annotations are added to qualifying variants as described above. Some variants may be lost as described.
 
 
 Length Filtering

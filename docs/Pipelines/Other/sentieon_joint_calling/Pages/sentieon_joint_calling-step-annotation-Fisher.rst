@@ -2,11 +2,15 @@
 Joint Calling Annotation and Fisher Test
 ========================================
 
-These optional metaworkflows use workflows from the CGAP's Upstream Sentieon Pipeline and SNV Germline Pipeline to generate and annotate a jointly called ``vcf`` and carry out statistics (including a `Fisher's Exact Test <https://en.wikipedia.org/wiki/Fisher%27s_exact_test#>`_) used for viewing in the ``HiGlass`` genome browser.
+This optional pipeline uses components from either CGAP Upstream Sentieon Pipeline and/or CGAP SNV Germline Pipeline to generate and annotate a jointly called ``vcf``, and calculate statistics used for visualization in the ``HiGlass`` genome browser (e.g., `Fisher's Exact Test <https://en.wikipedia.org/wiki/Fisher%27s_exact_test#>`_).
 
-The ``joint_calling_gvcf_sentieon_plus_annot.json`` metaworkflow (https://github.com/dbmi-bgm/cgap-pipeline-main/blob/main/portal_objects/metaworkflows/) makes use of both CGAP Pipelines, beginning with  ``g.vcf`` files and producing both a jointly called ``vcf`` file and an annotated file for ``HiGlass`` viewing.
+The pipeline currently has two slightly different implementations (metaworkflows) that can be used:
 
-The ``joint_calling_annot.json`` metaworkflow (https://github.com/dbmi-bgm/cgap-pipeline-SNV-germline) takes a jointly called ``vcf`` file as input and produces an annotated file for ``HiGlass`` viewing using workflows contained solely within the CGAP SNV Germline Pipeline. Apart from the joint calling step, these two metaworkflows are identical.
+  - The ``joint_calling_gvcf_sentieon_plus_annot.json`` metaworkflow (https://github.com/dbmi-bgm/cgap-pipeline-main/blob/main/portal_objects/metaworkflows/) makes use of components from both repositories mentioned above, beginning with  ``g.vcf`` files and producing both a jointly called ``vcf`` file and an annotated file for ``HiGlass`` viewing.
+
+  - The ``joint_calling_annot.json`` metaworkflow (https://github.com/dbmi-bgm/cgap-pipeline-SNV-germline) starts from a jointly called ``vcf`` file as input and only produces an annotated file for ``HiGlass`` visualization, using components contained solely within the CGAP SNV Germline Pipeline.
+
+Apart from the joint calling step, these two metaworkflows are identical.
 
 GVCFtyper
 ---------

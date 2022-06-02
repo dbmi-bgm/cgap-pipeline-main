@@ -2,7 +2,7 @@
 hg19 LiftOver and HGVSG
 =======================
 
-This step uses ``liftover_hg19.py`` (https://github.com/dbmi-bgm/cgap-scripts) and ``hgvsg_creator.py`` to add **hg19** coordinates and hgvsg entries to qualifying variants from a filtered input ``vcf`` file. The output ``vcf`` file is checked for integrity.
+This step uses ``liftover_hg19.py`` (https://github.com/dbmi-bgm/cgap-scripts) and ``hgvsg_creator.py`` (https://github.com/dbmi-bgm/cgap-pipeline-SNV-germline) to add **hg19** coordinates and hgvsg entries to qualifying variants from a filtered input ``vcf`` file. The output ``vcf`` file is checked for integrity.
 
 * CWL: workflow_hg19lo_hgvsg_plus_vcf-integrity-check.cwl
 

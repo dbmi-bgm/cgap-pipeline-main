@@ -2,7 +2,6 @@
 News and Updates - CNV Germline
 ===============================
 
-
 Version Updates
 +++++++++++++++
 

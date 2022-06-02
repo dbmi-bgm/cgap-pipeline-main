@@ -4,7 +4,6 @@ Overview - Base Module
 
 The CGAP Pipeline Base Module (https://github.com/dbmi-bgm/cgap-pipeline-base) contains the CWL files, workflows, metaworkflows, Dockerfiles and CGAP Portal objects necessary to run ``md5``, ``FastQC``, and format conversion from ``cram`` to ``fastq``. This module is necessary for general CGAP Portal functionality and should always be included when deploying a new CGAP account.
 
-
 Docker Images
 #############
 

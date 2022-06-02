@@ -13,6 +13,8 @@ Docker Image
 
 The Dockerfile provided in this GitHub repository is the base image for most CGAP Bioinformatics Pipelines.
 
-The image contains (but is not limited to) the following software packages:
+The image is based on Ubuntu 20.04 and contains (but is not limited to) the following software packages:
 
 - python (3.8.12)
+- OpenJDK (8.0.312)
+- Miniconda3

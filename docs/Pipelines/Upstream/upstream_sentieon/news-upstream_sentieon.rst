@@ -2,7 +2,6 @@
 News and Updates - Upstream Sentieon
 ====================================
 
-
 Version Updates
 +++++++++++++++
 

@@ -2,7 +2,6 @@
 News and Updates - Somatic Sentieon
 ===================================
 
-
 Version Updates
 +++++++++++++++
 

@@ -30,7 +30,7 @@ This produces four output files that contain only the ``PASS`` variants, as foll
 
 4. ``vcf`` file with all ``PASS`` SVs in bnd format
 
-The each ``vcf`` file is also checked for integrity individually.
+Each ``vcf`` file is also checked for integrity individually.
 
 
 SV bnd conversion

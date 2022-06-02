@@ -2,7 +2,6 @@
 News and Updates - Sentieon Joint Calling
 =========================================
 
-
 Version Updates
 +++++++++++++++
 

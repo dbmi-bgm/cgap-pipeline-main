@@ -2,7 +2,6 @@
 News and Updates - SNV Germline
 ===============================
 
-
 Version Updates
 +++++++++++++++
 

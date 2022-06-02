@@ -36,7 +36,7 @@ Section 2 - Text formatting
 
 3. Links should be provided to the repo for all scripts, especially those that exist outside of the Docker folder for the repo in question. E.g., ``hg19_liftover.py`` (https://github.com/dbmi-bgm/cgap-scripts) in both the CGAP SV and SNV Germline Pipelines.
 
-4. Long links and external (non-CGAP) links can be hidden. E.g., `Fisher's exact test <https://en.wikipedia.org/wiki/Fisher%27s_exact_test#>`_). Try not to hide CGAP links to increase visibility for our repositories and scripts in the documentation.
+4. Long links and external (non-CGAP) links can be hidden. E.g., `Fisher's exact test <https://en.wikipedia.org/wiki/Fisher%27s_exact_test#>`_. Try not to hide CGAP links to increase visibility for our repositories and scripts in the documentation.
 
 5. For pipeline steps, after a short description, the CWL line should be placed above all subsequent sections (i.e., Input, Requirements, etc.)
 

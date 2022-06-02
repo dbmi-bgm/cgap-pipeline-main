@@ -1,8 +1,13 @@
-Ascat based CNV identifcation 
+======================
+Overview - CNV Somatic
+======================
 
-This workflow utilizes ASCAT to reveal correct copy numbers at all loci in the reference genome. This is carried out through the `ascat.R` script. 
+The CGAP Pipeline for Somatic Copy Number Variants (CNVs) (https://github.com/dbmi-bgm/cgap-pipeline-SV-somatic) identifies CNVs starting from short read sequencing alignment files (``bam``) and produces ``vcf`` files as output.
 
-The main workflow is defined in CWL in the `workflow_ascat.cwl` file.
+CNVs are a class of large genomic variants that result in a change in copy number, including deletions (also referred to as losses) and duplications (also referred to as gains). CNVs are identified by algorithms that seek out aberrant differences in sequencing coverage.
+
+The CGAP Somatic CNV Pipeline is mostly based on the CNV calling algorithm ``ASCAT`` (https://github.com/VanLoo-lab/ascat), and calls variants from Whole Genome Sequencing (WGS) Tumor-Normal paired samples. It can receive the initial analysis ready ``bam`` files from either of the `CGAP WGS Upstream Pipelines <https://cgap-pipeline-main.readthedocs.io/en/latest/Pipelines/Upstream/Upstream_pipelines.html>`_.
+
 
 Docker Image
 #############
@@ -12,58 +17,14 @@ The Dockerfiles provided in this GitHub repository can be used to build public d
 The ``ascat`` image is primarily for **CNV identification**. This image contains (but is not limited to) the following software packages:
 
 - R (4.1.0)
-- `ascat <https://github.com/VanLoo-lab/ascat/>`__ (3.0.0)
+- `ascat <https://github.com/VanLoo-lab/ascat>`__ (3.0.0)
 - `alleleCount <https://anaconda.org/bioconda/cancerit-allelecount>`__ (4.3.0)
 
-Input
-#####
-The user should provide the following files and parameters:
 
-- `bam` file containing aligned sequencing reads of a tumor sample
-- `bam` file containing aligned sequencing reads of a normal sample
-- `gender` parameter for the gender information, accepted values: XX (female), XY (male)
-- `nthreads` parameter for the number of threads to run Ascat, default value: 23
+Pipeline Steps
+##############
 
+.. toctree::
+   :maxdepth: 4
 
-ASCAT requires other input files that are reused in each run. They include loci, allele and, GC correction files. For more details on these input files, see (https://cgap-annotations.readthedocs.io/en/latest/ascat.html) 
-
-Running ASCAT
-#############
-
-`run_ascat.sh` calls `ascat.R` to run CNV analysis.  
-
-The major steps of the ASCAT algorithm: 
-
-1. Calculate allele counts and allele fractions
-
-- runs `alleleCount` to collect allele counts at specific loci for normal and tumor samples.
-- obtains B-allele Fraction (BAF) and LogR from the raw allele counts
-
-2. Plot raw data 
-
-- generates `png` files presenting the BAF and LogR for the normal and tumor samples
-
-3. Correct LogR
-
-- corrects LogR of the tumor sample with genomic GC content
-
-4. Plot corrected data
-
-- generates `png` files presenting BAF and LogR for the normal and tumor samples after the GC correction
-
-5. Run Allele Specific Piecewise Constant Fitting (ASPCF)
-
-- it is a preprocessing step that fits piecewise constant regression to both the Log R and the BAF data at the same time. This method identifies regions (segments), which are genomics regions between two consecutive change points. Each segment has assigned a single LogR value and either one or two BAF values (a single BAF equal to 0.5 is assigned if the aberrant cells are discovered as balanced). The segmented data are saved to a `png` file. After this operation, partial results are saved to a `tsv` file containing the information about: LogR and BAF for both germline and somatic samples, LogR and BAF segmented for the tumor sample.
-
-6. Run allele specific copy number analysis of tumors (ASCAT)
-
-- determines estimated values of aberrant cell fractions, tumor ploidy, and allele specific copy number calls. Minor and major copy numbers for the segments are obtained. The results of this step are saved to a `tsv` file that contains start and end positions of the segments with the assigned minor and major copy numbers and their sum. A plot presenting ASCAT profiles of the sample is saved to a `png` file, and a plot showing ASCAT raw profiles. ASCAT evaluates the ploidy of the tumor cells and the fraction of abberant cells considering all their possible values, and finally selects the optimal solution. A graphical representation of these values is saved to a `png` file.
-
-Others
-######
-
-In order to reproduce the obtained results, some of the `ascat` objects are saved in an `Rdata` file, which stores the following objects:
-
-- `ascat.bc` -  an object returned from the `ascat.aspcf` function 
-- `ascat.output` - an object returned from the `ascat.RunAscat` function 
-- `QC` - an object that stores various ascat metrics returned from the `ascat.metrics` function
+   Pages/ascat

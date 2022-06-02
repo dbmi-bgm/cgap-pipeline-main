@@ -1,8 +1,8 @@
 ==============================
-News and Updates - SNV Somatic
+News and Updates - CNV Somatic
 ==============================
 
 Version Updates
 +++++++++++++++
 
-  **Apr 26, 2022** Coming soon ...
+  **June 1, 2022** Coming soon ...
