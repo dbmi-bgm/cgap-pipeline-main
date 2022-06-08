@@ -21,8 +21,8 @@ The Dockerfiles provided in this GitHub repository can be used to build public d
 
 The ``cnv_germline`` image is primarily for **CNV identification**. This image contains (but is not limited to) the following software packages:
 
-- BICseq2 normalization (0.2.6)
-- BICseq2 segmentation (0.7.3)
+- BIC-seq2 normalization (0.2.6)
+- BIC-seq2 segmentation (0.7.3)
 - R (4.1.0)
 - granite (0.2.0)
 - picard (2.26.11)
