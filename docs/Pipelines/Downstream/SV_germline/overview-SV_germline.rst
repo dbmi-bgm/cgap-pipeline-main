@@ -10,7 +10,7 @@ The CGAP Germline SV Pipeline is mostly based on an SV calling algorithm: ``Mant
 
 The CGAP Pipeline SV Germline is designed for proband-only or trio analysis, with the proband diagnosed with a likely monogenic disease. It can receive the initial analysis ready ``bam`` file(s) from either of the `CGAP WGS Upstream Pipelines <https://cgap-pipeline-main.readthedocs.io/en/latest/Pipelines/Upstream/Upstream_pipelines.html>`_.
 
-**Note**: CGAP Pipeline SV Germline is not optimized for Whole Exome Sequencing (WES) data. Also, if the user is providing their own ``bam`` file(s) as input, the ``bam`` file(s) must be mapped to **hg38** for compatibility with the annotation steps.
+**Note**: CGAP Pipeline SV Germline is not optimized for Whole Exome Sequencing (WES) data. Also, if the user is providing their own ``bam`` file(s) as input, the ``bam`` file(s) must be mapped to **hg38** for compatibility with the annotation steps. ``Manta`` requires standard paired-end sequencing data and can't run on mate-pair data or data produced with more complex library preparation protocols.
 
 For proband-only analysis, a single ``bam`` file is provided to ``Manta`` and ``Single Diploid Sample Analysis`` is carried out, resulting in a ``vcf`` file containing SVs with genotypes for the proband. For trio analysis, three ``bam`` files are provided to ``Manta`` and ``Joint Diploid Sample Analysis`` is carried out, resulting in a single ``vcf`` file containing SVs with genotypes for all three individuals.
 
