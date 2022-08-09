@@ -10,7 +10,6 @@
   "previous_version": [
     "f0b87c91-a3f8-487c-a513-64a61cf85ad1"
   ],
-  "version_upgrade_log": "foursight update re-format",
   "input": [
     {
       "argument_name": "input_vcf",
