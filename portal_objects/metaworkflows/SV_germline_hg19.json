@@ -141,7 +141,7 @@
         "instance_type": "m5.4xlarge",
         "ebs_size": "7x",
         "EBS_optimized": true,
-        "spot_instance": false,
+        "spot_instance": true,
         "run_name": "run_liftovervcf",
         "behavior_on_capacity_limit": "wait_and_retry"
       },
