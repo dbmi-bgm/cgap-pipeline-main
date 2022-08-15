@@ -43,3 +43,43 @@ Finally, the outputs from ``sansa`` and ``VEP`` are combined using ``combine_san
 **Note**: CNV is a variant class in gnomAD SV, but not in the ``BIC-seq2`` output. Since DELs and DUPs are types of CNVs, we prioritize as follows: we first search for type-matches between DEL and DEL or DUP and DUP.  If a type-match is not found for the variant, we then search for type-matches between DEL and CNV or DUP and CNV. All other combinations (e.g., INV and CNV, or DEL and DUP) are considered to **not** be type-matched.
 
 These rules were set given limitations on the number of values the gnomAD SV fields can have for filtering in the CGAP Portal and to avoid loss of rare variants in the upcoming filtering steps. The final output is a ``vcf`` file with annotations for both gene/transcript and gnomAD SV population frequencies. The resulting ``vcf`` file is checked for integrity.
+
+
+Confidence classes
+------------------
+
+This step calculates the level of confidence of the discovered variants for each sample available in the annotated VCF and combines the outputs into a single vcf file.
+
+* CWL: BICseq2_add_confidence.cwl
+
+Input 
+
+A single annotated VCF is required as input. The annotations should include the annotations from BIC-seq2. 
+
+The ``add_confidence.py`` script calculates the level of confidence for each sample available in the provided VCF.  The possible levels of confidence: 
+
+-	HIGH
+-	LOW
+
+The confidence classes are calculated based on the given parameters:
+
+-	length: the length of the call calculated as an absolute value of the SVLEN parameter assigned to the call
+-	log-ratio: the BICseq2_log2_copyRatio parameter calculated by BIC-Seq2
+
+For each variant, all the samples are categorized according to the following criteria: 
+
+**High Confidence Calls** 
+
+.. code-block:: python
+
+  length > 1 Mbp & (log-ratio > 0.4 || log-ratio < -0.8)
+
+**Low Confidence Calls** 
+
+All the other variants.
+
+
+The calculated confidence classes are stored under a new ``FROMAT`` field ``CF`` for each sample stored in the VCF file with the following line added to the header:
+.. code-block:: python
+
+  ##FORMAT=<ID=CF,Number=.,Type=String,Description="Confidence class based on length and copy ratio (HIGH, LOW)">
