@@ -48,25 +48,25 @@ These rules were set given limitations on the number of values the gnomAD SV fie
 Confidence classes
 ------------------
 
-This step calculates the level of confidence of the discovered variants for each sample available in an annotated VCF.
+This step assigns a confidence class to each of the CNVs identified by the pipeline.
 
 * CWL: BICseq2_add_confidence.cwl
 
-Input 
 
-A single annotated VCF is required as input. The annotations should include the annotations from BIC-seq2. 
+Confidence classes are calculated and assigned using the ``add_confidence.py`` script.
+A single VCF is required as input for the script. The file must store the information supporting each of the calls that is provided by ``BIC-seq2``.
+The possible confidence classes are:
 
-The ``add_confidence.py`` script calculates the level of confidence for each sample available in the provided VCF.  The possible levels of confidence: 
 
 -	HIGH
 -	LOW
 
-The confidence classes are calculated based on the given parameters:
+The confidence classes are calculated based on the following parameters:
 
 -	length: the length of the call calculated as an absolute value of the SVLEN parameter assigned to the call
 -	log-ratio: the BICseq2_log2_copyRatio parameter calculated by BIC-Seq2
 
-For each variant, all the samples are categorized according to the following criteria: 
+Each variant is classified based on the following criteria: 
 
 **High Confidence Calls** 
 
@@ -79,7 +79,7 @@ For each variant, all the samples are categorized according to the following cri
 All the other variants.
 
 
-The calculated confidence classes are stored under a new ``FROMAT`` field ``CF`` for each sample stored in the VCF file with the following line added to the header:
+The calculated confidence classes are added as the new ``FORMAT`` field ``CF`` to the sample. The definition is added to the header:
 .. code-block:: python
 
   ##FORMAT=<ID=CF,Number=.,Type=String,Description="Confidence class based on length and copy ratio (HIGH, LOW)">

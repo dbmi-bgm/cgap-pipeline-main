@@ -49,23 +49,23 @@ These rules were set given limitations on the number of values the gnomAD SV fie
 Confidence classes
 ------------------
 
-This step calculates the level of confidence of the discovered variants for each sample available in an annotated VCF.
+This step assigns a confidence class to each of the SVs identified by the pipeline. If the analysis involves multiple samples, a confidence class is assigned per variant to each of the samples available.
 
 * CWL: manta_add_confidence.cwl
 
-Input 
-
-A single annotated VCF is required as input. The annotations should include annotations from manta. 
 
 
-The ``add_confidence.py`` script calculates the level of confidence for each sample available in the provided VCF.  The possible levels of confidence: 
+
+Confidence classes are calculated and assigned using the ``add_confidence.py`` script.
+A single VCF is required as input for the script. The file must store the information supporting each of the calls that is provided by ``manta``. 
+The possible confidence classes are:
 
 -	HIGH
 -	MEDIUM 
 -	LOW
 -	NA (not available): assigned only to insertions, which are currently not ingested into the portal. 
 
-The confidence classes are calculated based on the given parameters:
+Confidence classes are calculated based on the following parameters:
 
 -	length: the length of the call calculated as an absolute value of the assigned SVLEN parameter
 -	split-reads: the number of alternative split reads based on the SR field 
@@ -73,7 +73,7 @@ The confidence classes are calculated based on the given parameters:
 -	split-read-ratio: proportion of the alternative split reads out of sum of reference and alternative split reads based on the SR field 
 -	spanning-read-ratio: proportion of the alternative spanning reads out of sum of reference and alternative spanning reads based on the PR field 
 
-For each variant, all the samples are categorized according to the following criteria: 
+For each variant, all the samples are classified according to the following criteria: 
 
 **High Confidence Calls** 
 
@@ -98,7 +98,7 @@ For each variant, all the samples are categorized according to the following cri
 All the other variants.
 
 
-The calculated confidence classes are stored under a new ``FROMAT`` field ``CF`` for each sample stored in the VCF file with the following line added to the header:
+The calculated confidence classes are added as the new ``FORMAT`` field ``CF`` to each sample. The definition is added to the header:
 
 .. code-block:: python
 
