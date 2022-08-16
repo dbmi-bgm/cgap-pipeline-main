@@ -9,7 +9,7 @@
   "institution": "INSTITUTION_UUID",
   "input": [
     {
-      "argument_name": "input_vcf",
+      "argument_name": "input_vcfs",
       "argument_type": "file",
       "dimensionality": 1
     },
@@ -242,7 +242,7 @@
         {
           "argument_name": "input_vcf",
           "argument_type": "file",
-          "source_argument_name": "input_vcf",
+          "source_argument_name": "input_vcfs",
           "scatter": 1
         },
         {
