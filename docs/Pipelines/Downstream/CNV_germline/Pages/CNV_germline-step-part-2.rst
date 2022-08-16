@@ -48,7 +48,7 @@ These rules were set given limitations on the number of values the gnomAD SV fie
 Confidence classes
 ------------------
 
-This step calculates the level of confidence of the discovered variants for each sample available in the annotated VCF and combines the outputs into a single vcf file.
+This step calculates the level of confidence of the discovered variants for each sample available in an annotated VCF.
 
 * CWL: BICseq2_add_confidence.cwl
 
