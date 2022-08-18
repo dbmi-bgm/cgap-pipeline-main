@@ -52,7 +52,7 @@ This step assigns a confidence class to each of the SVs identified by the pipeli
 
 * CWL: manta_add_confidence.cwl
 
-Confidence classes are calculated and assigned using the ``add_confidence.py`` script.
+Confidence classes are calculated and assigned using the ``SV_confidence.py`` (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) script.
 A single ``vcf`` is required as input for the script. The file must store the information supporting each of the calls that is provided by ``manta``. 
 The possible confidence classes are:
 
@@ -63,11 +63,11 @@ The possible confidence classes are:
 
 Confidence classes are calculated based on the following parameters:
 
--	length: the length of the call calculated as an absolute value of the assigned ``SVLEN`` parameter
--	split-reads: the number of alternative split reads based on the ``SR`` field 
--	spanning-reads: the number of alternative spanning reads based on the ``PR`` field
--	split-read-ratio: proportion of the alternative split reads out of sum of reference and alternative split reads based on the ``SR`` field 
--	spanning-read-ratio: proportion of the alternative spanning reads out of sum of reference and alternative spanning reads based on the ``PR`` field 
+-	*length*: the length of the call calculated as an absolute value of the assigned ``SVLEN`` parameter
+-	*split-reads*: the number of alternative split reads based on the ``SR`` field 
+-	*spanning-reads*: the number of alternative spanning reads based on the ``PR`` field
+-	*split-read-ratio*: proportion of the alternative split reads out of sum of reference and alternative split reads based on the ``SR`` field 
+-	*spanning-read-ratio*: proportion of the alternative spanning reads out of sum of reference and alternative spanning reads based on the ``PR`` field 
 
 For each variant, all the samples are classified according to the following criteria: 
 
