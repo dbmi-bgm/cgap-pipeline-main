@@ -45,7 +45,7 @@ Finally, the outputs from ``sansa`` and ``VEP`` are combined using ``combine_san
 These rules were set given limitations on the number of values the gnomAD SV fields can have for filtering in the CGAP Portal and to avoid loss of rare variants in the upcoming filtering steps. The final output is a ``vcf`` file with annotations for both genes/transcripts and gnomAD SV population frequencies. The resulting ``vcf`` file is checked for integrity.
 
 
-Confidence classes
+Confidence Classes
 ++++++++++++++++++
 
 This step assigns a confidence class to each of the SVs identified by the pipeline. If the analysis involves multiple samples, a confidence class is assigned per variant to each of the samples available.
