@@ -1,5 +1,5 @@
 {
-  "name": "SV_germline_hg19",
+  "name": "SV_germline_hg19_vcf",
   "title": "SV Germline (hg19 based VCF input) VERSION",
   "version": "VERSION",
   "accession": "GAPMWF15HC8A",
@@ -15,15 +15,6 @@
       "argument_name": "input_vcfs",
       "argument_type": "file",
       "dimensionality": 1
-    },
-    {
-      "argument_name": "chainfile_hg19_hg38",
-      "argument_type": "file",
-      "files": [
-        {
-          "file": "47e4b517-d81c-4184-a4d2-e69b10197e9d"
-        }
-      ]
     },
     {
       "argument_name": "sample_names",
@@ -131,6 +122,15 @@
       "argument_type": "parameter",
       "value": "[\"DEL\", \"DUP\"]",
       "value_type": "json"
+    },
+    {
+      "argument_name": "chainfile_hg19_hg38",
+      "argument_type": "file",
+      "files": [
+        {
+          "file": "47e4b517-d81c-4184-a4d2-e69b10197e9d"
+        }
+      ]
     }
   ],
   "workflows": [
@@ -144,6 +144,18 @@
         "spot_instance": true,
         "run_name": "run_liftovervcf",
         "behavior_on_capacity_limit": "wait_and_retry"
+      },
+      "custom_pf_fields": {
+        "vcf_lifted": {
+          "file_type": "liftOver vcf",
+          "variant_type": "SV",
+          "description": "lifted over variants in vcf format"
+        },
+        "reject" : {
+          "file_type": "liftOver-reject vcf",
+          "variant_type": "SV",
+          "description": "variants that failed to liftover in vcf format"
+        }
       },
       "input": [
         {

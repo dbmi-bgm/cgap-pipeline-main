@@ -1,5 +1,5 @@
 {
-  "name": "WGS_SNV_germline_family_hg19",
+  "name": "WGS_SNV_germline_family_hg19_vcf",
   "title": "WGS SNV Germline Family (hg19 based VCF input) VERSION",
   "version": "VERSION",
   "accession": "GAPMKF1LL70K",
@@ -12,15 +12,6 @@
       "argument_name": "input_vcfs",
       "argument_type": "file",
       "dimensionality": 1
-    },
-    {
-      "argument_name": "chainfile_hg19_hg38",
-      "argument_type": "file",
-      "files": [
-        {
-          "file": "47e4b517-d81c-4184-a4d2-e69b10197e9d"
-        }
-      ]
     },
     {
       "argument_name": "sample_names",
@@ -205,6 +196,15 @@
       ]
     },
     {
+      "argument_name": "chainfile_hg19_hg38",
+      "argument_type": "file",
+      "files": [
+        {
+          "file": "47e4b517-d81c-4184-a4d2-e69b10197e9d"
+        }
+      ]
+    },
+    {
       "argument_name": "chainfile_hg38_hg19",
       "argument_type": "file",
       "files": [
@@ -237,6 +237,18 @@
         "spot_instance": true,
         "run_name": "run_liftovervcf",
         "behavior_on_capacity_limit": "wait_and_retry"
+      },
+      "custom_pf_fields": {
+        "vcf_lifted": {
+          "file_type": "liftOver vcf",
+          "variant_type": "SNV",
+          "description": "lifted over variants in vcf format"
+        },
+        "reject" : {
+          "file_type": "liftOver-reject vcf",
+          "variant_type": "SNV",
+          "description": "variants that failed to liftover in vcf format"
+        }
       },
       "input": [
         {
