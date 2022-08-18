@@ -44,19 +44,16 @@ Finally, the outputs from ``sansa`` and ``VEP`` are combined using ``combine_san
 
 These rules were set given limitations on the number of values the gnomAD SV fields can have for filtering in the CGAP Portal and to avoid loss of rare variants in the upcoming filtering steps. The final output is a ``vcf`` file with annotations for both gene/transcript and gnomAD SV population frequencies. The resulting ``vcf`` file is checked for integrity.
 
-
 Confidence classes
-------------------
+++++++++++++++++++
 
 This step assigns a confidence class to each of the CNVs identified by the pipeline.
 
 * CWL: BICseq2_add_confidence.cwl
 
-
 Confidence classes are calculated and assigned using the ``add_confidence.py`` script.
 A single VCF is required as input for the script. The file must store the information supporting each of the calls that is provided by ``BIC-seq2``.
 The possible confidence classes are:
-
 
 -	HIGH
 -	LOW
@@ -68,13 +65,15 @@ The confidence classes are calculated based on the following parameters:
 
 Each variant is classified based on the following criteria: 
 
-**High Confidence Calls** 
+High Confidence Calls
+---------------------
 
 .. code-block:: python
 
   length > 1 Mbp & (log-ratio > 0.4 || log-ratio < -0.8)
 
-**Low Confidence Calls** 
+Low Confidence Calls
+--------------------
 
 All the other variants.
 
