@@ -44,3 +44,62 @@ Finally, the outputs from ``sansa`` and ``VEP`` are combined using ``combine_san
 **Note**: CNV is a variant class in gnomAD SV, but not in the ``Manta`` output. Since DELs and DUPs are types of CNVs, we prioritize as follows: we first search for type-matches between DEL and DEL or DUP and DUP.  If a type-match is not found for the variant, we then search for type-matches between DEL and CNV or DUP and CNV. All other combinations (e.g., INV and CNV, or DEL and DUP) are considered to **not** be type-matched.
 
 These rules were set given limitations on the number of values the gnomAD SV fields can have for filtering in the CGAP Portal and to avoid loss of rare variants in the upcoming filtering steps. The final output is a ``vcf`` file with annotations for both genes/transcripts and gnomAD SV population frequencies. The resulting ``vcf`` file is checked for integrity.
+
+
+Confidence classes
+------------------
+
+This step assigns a confidence class to each of the SVs identified by the pipeline. If the analysis involves multiple samples, a confidence class is assigned per variant to each of the samples available.
+
+* CWL: manta_add_confidence.cwl
+
+
+
+
+Confidence classes are calculated and assigned using the ``add_confidence.py`` script.
+A single VCF is required as input for the script. The file must store the information supporting each of the calls that is provided by ``manta``. 
+The possible confidence classes are:
+
+-	HIGH
+-	MEDIUM 
+-	LOW
+-	NA (not available): assigned only to insertions, which are currently not ingested into the portal. 
+
+Confidence classes are calculated based on the following parameters:
+
+-	length: the length of the call calculated as an absolute value of the assigned SVLEN parameter
+-	split-reads: the number of alternative split reads based on the SR field 
+-	spanning-reads: the number of alternative spanning reads based on the PR field
+-	split-read-ratio: proportion of the alternative split reads out of sum of reference and alternative split reads based on the SR field 
+-	spanning-read-ratio: proportion of the alternative spanning reads out of sum of reference and alternative spanning reads based on the PR field 
+
+For each variant, all the samples are classified according to the following criteria: 
+
+**High Confidence Calls** 
+
+.. code-block:: python
+
+  length > 250bp & split-reads >= 5 & split-read-ratio >= 0.3 & spanning-reads >= 5 & spanning-read-ratio >= 0.3
+  or 
+  length =< 250bp & split-reads > 5 & split-read-ratio > 0.3
+
+**Note**: In the case of translocations, the length parameter is not taken into consideration. These SVs are examined based on the number of split reads and spanning reads and have the same priority as variants which are greater than 250 bp.
+
+**Medium Confidence Calls** 
+
+.. code-block:: python
+
+  length > 250bp & split-reads >= 3 & split-read-ratio >= 0.3 & spanning-reads >= 3 & spanning-read-ratio >= 0.3
+  or
+  length =< 250bp & split-reads > 3 & split-read-ratio > 0.3
+
+**Low Confidence Calls** 
+
+All the other variants.
+
+
+The calculated confidence classes are added as the new ``FORMAT`` field ``CF`` to each sample. The definition is added to the header:
+
+.. code-block:: python
+
+  ##FORMAT=<ID=CF,Number=.,Type=String,Description="Confidence class based on length and copy ratio (HIGH, LOW)">
