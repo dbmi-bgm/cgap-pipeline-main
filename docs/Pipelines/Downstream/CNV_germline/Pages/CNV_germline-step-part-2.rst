@@ -51,7 +51,7 @@ This step assigns a confidence class to each of the CNVs identified by the pipel
 
 * CWL: BICseq2_add_confidence.cwl
 
-Confidence classes are calculated and assigned using the ``add_confidence.py`` script.
+Confidence classes are calculated and assigned using the ``SV_confidence.py`` (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline) script.
 A single ``vcf`` is required as input for the script. The file must store the information supporting each of the calls that is provided by ``BIC-seq2``.
 The possible confidence classes are:
 
@@ -60,8 +60,8 @@ The possible confidence classes are:
 
 The confidence classes are calculated based on the following parameters:
 
--	length: the length of the call calculated as an absolute value of the ``SVLEN`` parameter assigned to the call
--	log-ratio: the BICseq2_log2_copyRatio parameter calculated by ``BIC-Seq2``
+-	*length*: the length of the call calculated as an absolute value of the ``SVLEN`` parameter assigned to the call
+-	*log-ratio*: the BICseq2_log2_copyRatio parameter calculated by ``BIC-Seq2``
 
 Each variant is classified based on the following criteria: 
 
