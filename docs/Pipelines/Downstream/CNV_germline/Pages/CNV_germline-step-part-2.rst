@@ -36,9 +36,9 @@ Combine sansa and VEP
 
 Finally, the outputs from ``sansa`` and ``VEP`` are combined using ``combine_sansa_and_VEP_vcf.py`` (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline). The ``VEP`` ``vcf`` file is used as a scaffold, and gnomAD SV annotations from ``sansa`` are added. The current goal is to select the most appropriate (and rarest) match using the following rules when multiple matches are identified in the gnomAD SV database:
 
-1. Select a type-matched CNV (if possible), and the rarest type-matched variant from gnomAD SV (using AF) if there are multiple that match.
+1. Select a type-matched CNV (if possible), and the rarest type-matched variant from gnomAD SV (using ``AF``) if there are multiple that match.
 
-2. If none of the options are a type-match, select the rarest variant from gnomAD SV (using AF).
+2. If none of the options are a type-match, select the rarest variant from gnomAD SV (using ``AF``).
 
 **Note**: CNV is a variant class in gnomAD SV, but not in the ``BIC-seq2`` output. Since DELs and DUPs are types of CNVs, we prioritize as follows: we first search for type-matches between DEL and DEL or DUP and DUP.  If a type-match is not found for the variant, we then search for type-matches between DEL and CNV or DUP and CNV. All other combinations (e.g., INV and CNV, or DEL and DUP) are considered to **not** be type-matched.
 
@@ -52,7 +52,7 @@ This step assigns a confidence class to each of the CNVs identified by the pipel
 * CWL: BICseq2_add_confidence.cwl
 
 Confidence classes are calculated and assigned using the ``add_confidence.py`` script.
-A single VCF is required as input for the script. The file must store the information supporting each of the calls that is provided by ``BIC-seq2``.
+A single ``vcf`` is required as input for the script. The file must store the information supporting each of the calls that is provided by ``BIC-seq2``.
 The possible confidence classes are:
 
 -	HIGH
@@ -60,8 +60,8 @@ The possible confidence classes are:
 
 The confidence classes are calculated based on the following parameters:
 
--	length: the length of the call calculated as an absolute value of the SVLEN parameter assigned to the call
--	log-ratio: the BICseq2_log2_copyRatio parameter calculated by BIC-Seq2
+-	length: the length of the call calculated as an absolute value of the ``SVLEN`` parameter assigned to the call
+-	log-ratio: the BICseq2_log2_copyRatio parameter calculated by ``BIC-Seq2``
 
 Each variant is classified based on the following criteria: 
 
@@ -77,8 +77,8 @@ Low Confidence Calls
 
 All the other variants.
 
-
 The calculated confidence classes are added as the new ``FORMAT`` field ``CF`` to the sample. The definition is added to the header:
+
 .. code-block:: python
 
   ##FORMAT=<ID=CF,Number=.,Type=String,Description="Confidence class based on length and copy ratio (HIGH, LOW)">
