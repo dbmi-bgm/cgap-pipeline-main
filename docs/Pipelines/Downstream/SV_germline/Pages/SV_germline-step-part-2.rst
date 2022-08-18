@@ -36,9 +36,9 @@ Combine sansa and VEP
 
 Finally, the outputs from ``sansa`` and ``VEP`` are combined using ``combine_sansa_and_VEP_vcf.py`` (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline). The ``VEP`` ``vcf`` file is used as a scaffold, and gnomAD SV annotations from ``sansa`` are added. The current goal is to select the most appropriate (and rarest) match using the following rules when multiple matches are identified in the gnomAD SV database:
 
-1. Select a type-matched SV (if possible), and the rarest type-matched variant from gnomAD SV (using AF) if there are multiple that match.
+1. Select a type-matched SV (if possible), and the rarest type-matched variant from gnomAD SV (using ``AF``) if there are multiple that match.
 
-2. If none of the options are a type-match, select the rarest variant from gnomAD SV (using AF).
+2. If none of the options are a type-match, select the rarest variant from gnomAD SV (using ``AF``).
 
 **Note**: CNV is a variant class in gnomAD SV, but not in the ``Manta`` output. Since DELs and DUPs are types of CNVs, we prioritize as follows: we first search for type-matches between DEL and DEL or DUP and DUP.  If a type-match is not found for the variant, we then search for type-matches between DEL and CNV or DUP and CNV. All other combinations (e.g., INV and CNV, or DEL and DUP) are considered to **not** be type-matched.
 
@@ -53,7 +53,7 @@ This step assigns a confidence class to each of the SVs identified by the pipeli
 * CWL: manta_add_confidence.cwl
 
 Confidence classes are calculated and assigned using the ``add_confidence.py`` script.
-A single VCF is required as input for the script. The file must store the information supporting each of the calls that is provided by ``manta``. 
+A single ``vcf`` is required as input for the script. The file must store the information supporting each of the calls that is provided by ``manta``. 
 The possible confidence classes are:
 
 -	HIGH
@@ -63,11 +63,11 @@ The possible confidence classes are:
 
 Confidence classes are calculated based on the following parameters:
 
--	length: the length of the call calculated as an absolute value of the assigned SVLEN parameter
--	split-reads: the number of alternative split reads based on the SR field 
--	spanning-reads: the number of alternative spanning reads based on the PR field
--	split-read-ratio: proportion of the alternative split reads out of sum of reference and alternative split reads based on the SR field 
--	spanning-read-ratio: proportion of the alternative spanning reads out of sum of reference and alternative spanning reads based on the PR field 
+-	length: the length of the call calculated as an absolute value of the assigned ``SVLEN`` parameter
+-	split-reads: the number of alternative split reads based on the ``SR`` field 
+-	spanning-reads: the number of alternative spanning reads based on the ``PR`` field
+-	split-read-ratio: proportion of the alternative split reads out of sum of reference and alternative split reads based on the ``SR`` field 
+-	spanning-read-ratio: proportion of the alternative spanning reads out of sum of reference and alternative spanning reads based on the ``PR`` field 
 
 For each variant, all the samples are classified according to the following criteria: 
 
