@@ -2,7 +2,6 @@
 Part 2. Structural Variant Annotation
 =====================================
 
-
 sansa and VEP
 +++++++++++++
 
@@ -47,14 +46,11 @@ These rules were set given limitations on the number of values the gnomAD SV fie
 
 
 Confidence classes
-------------------
+++++++++++++++++++
 
 This step assigns a confidence class to each of the SVs identified by the pipeline. If the analysis involves multiple samples, a confidence class is assigned per variant to each of the samples available.
 
 * CWL: manta_add_confidence.cwl
-
-
-
 
 Confidence classes are calculated and assigned using the ``add_confidence.py`` script.
 A single VCF is required as input for the script. The file must store the information supporting each of the calls that is provided by ``manta``. 
@@ -75,7 +71,8 @@ Confidence classes are calculated based on the following parameters:
 
 For each variant, all the samples are classified according to the following criteria: 
 
-**High Confidence Calls** 
+High Confidence Calls
+---------------------
 
 .. code-block:: python
 
@@ -85,7 +82,8 @@ For each variant, all the samples are classified according to the following crit
 
 **Note**: In the case of translocations, the length parameter is not taken into consideration. These SVs are examined based on the number of split reads and spanning reads and have the same priority as variants which are greater than 250 bp.
 
-**Medium Confidence Calls** 
+Medium Confidence Calls
+-----------------------
 
 .. code-block:: python
 
@@ -93,10 +91,10 @@ For each variant, all the samples are classified according to the following crit
   or
   length =< 250bp & split-reads > 3 & split-read-ratio > 0.3
 
-**Low Confidence Calls** 
+Low Confidence Calls
+--------------------
 
 All the other variants.
-
 
 The calculated confidence classes are added as the new ``FORMAT`` field ``CF`` to each sample. The definition is added to the header:
 
