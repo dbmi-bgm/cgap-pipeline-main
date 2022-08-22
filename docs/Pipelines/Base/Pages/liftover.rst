@@ -16,4 +16,6 @@ This extra step uses ``preprocess_liftover.py`` (https://github.com/dbmi-bgm/cga
   - Exclude non-standard chromosomes and contigs (i.e, GL000225.1)
   - Format chromosome names by adding ``chr`` prefix if missing (i.e., **hg19** only uses numbers for the main chromosomes)
 
+The step uses the ``hg19ToHg38.over.chain.gz`` chain file (https://cgap-annotations.readthedocs.io/en/latest/liftover_hg19_hg38.html).
+
 * CWL: workflow_gatk_liftover.cwl
