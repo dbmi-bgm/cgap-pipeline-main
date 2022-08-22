@@ -41,3 +41,4 @@ Pipeline Steps
    Pages/md5
    Pages/fastqc
    Pages/cram2fastq
+   Pages/liftover

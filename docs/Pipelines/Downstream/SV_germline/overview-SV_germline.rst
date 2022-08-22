@@ -9,6 +9,7 @@ SVs are a class of large genomic variants that includes deletions, duplications,
 The CGAP Germline SV Pipeline is mostly based on an SV calling algorithm: ``Manta`` (https://github.com/Illumina/manta), annotation programs:  ``ensembl-vep`` (https://github.com/Ensembl/ensembl-vep) and  ``sansa`` (https://github.com/dellytools/sansa), and a ``vcf`` filtering program: ``granite`` (https://github.com/dbmi-bgm/granite).
 
 The CGAP Pipeline SV Germline is designed for proband-only or trio analysis, with the proband diagnosed with a likely monogenic disease. It can receive the initial analysis ready ``bam`` file(s) from either of the `CGAP WGS Upstream Pipelines <https://cgap-pipeline-main.readthedocs.io/en/latest/Pipelines/Upstream/Upstream_pipelines.html>`_.
+The pipeline can also receive ``vcf`` file(s) directly as initial input. **hg38** ``vcf`` file(s) are supported out-of-the box. **hg19/GRCh37** ``vcf`` file(s) require an extra step to lift-over the coordinates to **hg38** genome reference build (https://github.com/dbmi-bgm/cgap-pipeline-base).
 
 **Note**: CGAP Pipeline SV Germline is not optimized for Whole Exome Sequencing (WES) data. Also, if the user is providing their own ``bam`` file(s) as input, the ``bam`` file(s) must be mapped to **hg38** for compatibility with the annotation steps. ``Manta`` requires standard paired-end sequencing data and can't run on mate-pair data or data produced with more complex library preparation protocols.
 
