@@ -24,6 +24,15 @@ The ``base`` image contains (but is not limited to) the following software packa
 - pigz (2.6)
 - pbgzip (2b09f97)
 
+The ``gatk_picard`` image contains (but is not limited to) the following software packages:
+
+- gatk4 (4.2.6.1)
+- picard (2.26.11)
+
+The ``granite`` image contains (but is not limited to) the following software packages:
+
+- granite-suite (0.2.0)
+
 Pipeline Parts and Runtimes
 ###########################
 
@@ -41,3 +50,4 @@ Pipeline Steps
    Pages/md5
    Pages/fastqc
    Pages/cram2fastq
+   Pages/liftover
