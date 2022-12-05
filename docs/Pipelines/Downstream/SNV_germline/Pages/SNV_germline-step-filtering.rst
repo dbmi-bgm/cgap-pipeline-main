@@ -3,6 +3,7 @@ Variant Filtering
 =================
 
 This step performs an annotation-based filtering of the variants in the input ``vcf``.
+The filtering is mostly done by ``granite`` (https://github.com/dbmi-bgm/granite).
 
 * CWL: workflow_granite-filtering_plus_vcf-integrity-check.cwl
 
@@ -12,7 +13,7 @@ Requirements
 
 The input is a single, annotated ``vcf`` file. Annotation must include VEP, ClinVar and SpliceAI.
 
-This step can optionally use a panel of unrelated samples in ``.big`` format to filter-out variants with reads supporting an ALTernate allele in the panel. This option is currently not used in the pipeline.
+This step can optionally use a panel of unrelated samples in ``.big`` format to filter-out variants with reads supporting an ALTernate allele in the panel. This option is currently not used in the pipeline. Check granite documentation for more information on ``.big`` format.
 
 
 Steps

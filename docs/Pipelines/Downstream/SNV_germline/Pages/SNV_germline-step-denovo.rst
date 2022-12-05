@@ -5,6 +5,7 @@
 This step uses ``granite novoCaller`` to call *de novo* mutations for a trio (**proband**, mother and father).
 The software uses allele counts information for the trio and a panel of unrelated samples to assigning a posterior probability to each variant called.
 The output ``vcf`` file is checked for integrity to ensure the format is correct and the file is not truncated.
+See granite repository and documentation for more information (https://github.com/dbmi-bgm/granite).
 
 * CWL: workflow_granite-novoCaller-rck_plus_vcf-integrity-check.cwl
 

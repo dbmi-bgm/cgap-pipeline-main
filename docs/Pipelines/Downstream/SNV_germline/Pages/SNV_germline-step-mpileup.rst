@@ -2,7 +2,7 @@
 mpileupCounts
 =============
 
-This step uses ``granite mpileupCounts`` to create a ``.rck`` (Read Count Keeper) file from a ``bam`` input file. This is a pre-requisite step for calling *de novo* mutations.
+This step uses ``granite mpileupCounts`` (https://github.com/dbmi-bgm/granite) to create a ``.rck`` (Read Count Keeper) file from a ``bam`` input file. This is a pre-requisite step for calling *de novo* mutations.
 
 * CWL: granite-mpileupCounts.cwl
 

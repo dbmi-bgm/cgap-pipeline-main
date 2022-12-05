@@ -19,10 +19,10 @@
 
 project = 'cgap-pipeline-main'
 copyright = '2021, Michele Berselli, Phil Grayson, CGAP team, HMS DBMI'
-author = 'Michele Berselli, Phil Grayson, CGAP team, HMS DBMI'
+author = 'Michele Berselli, Phil Grayson, Dominika Maziec, CGAP team, HMS DBMI'
 
 # The full version, including alpha/beta/rc tags
-release = '2021'
+release = '2022'
 
 
 # -- General configuration ---------------------------------------------------

@@ -2,7 +2,7 @@
 Other Pipelines
 ===============
 
-Other pipelines benefit from the modular nature of CGAP Bioinformatics Pipelines and repositories to allow for open-source collaboration or pipelines that are tailored specifically to our clients' needs. These pipelines can begin from final output files or intermediate files from other pipelines in production to carry out additional analyses not present in the standard base, upstream, or downstream CGAP Pipelines.
+The modular nature of CGAP pipelines and repositories allows for open-source contribution and the addition of other algorithms and pipelines on top of our current offering. These pipelines can begin from final output or intermediate files of our current pipelines and provide additional analyses to extend the standard base, upstream, or downstream CGAP Pipelines.
 
 .. toctree::
    :maxdepth: 2

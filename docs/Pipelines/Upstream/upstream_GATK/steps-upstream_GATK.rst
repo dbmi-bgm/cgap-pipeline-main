@@ -6,7 +6,7 @@ Steps - Upstream GATK
 Alignment
 +++++++++
 
-This step uses ``bwa mem`` to align a set of paired ``fastq`` files to the genome reference. The ``bwa mem`` step was updated in ``v24`` to use additional index files for alternate contigs. This procedure is described for GRCH38 here (https://gatk.broadinstitute.org/hc/en-us/articles/360037498992) and the 6 reference files ``Homo_sapiens_assembly38.fasta.64.xxx`` were downloaded here (https://console.cloud.google.com/storage/browser/genomics-public-data/resources/broad/hg38/v0).
+This step uses ``bwa mem`` to align a set of paired ``fastq`` files to the genome reference. The ``bwa mem`` alignment uses an additional index file for alternate contigs as described for GRCH38 here (https://gatk.broadinstitute.org/hc/en-us/articles/360037498992). The 6 reference files ``Homo_sapiens_assembly38.fasta.64.xxx`` were downloaded here (https://console.cloud.google.com/storage/browser/genomics-public-data/resources/broad/hg38/v0).
 The output ``bam`` file is checked for integrity to ensure the file has a header and it is not truncated.
 
 * CWL: workflow_bwa-mem-to-bam_no_unzip_plus_integrity-check.cwl
@@ -61,7 +61,7 @@ This step uses ``GATK BaseRecalibrator`` to create a base quality score recalibr
 Apply BQSR and Indexing
 +++++++++++++++++++++++
 
-This step uses ``GATK ApplyBQSR`` to apply a base quality score recalibration report to the input ```bam``` file.
+This step uses ``GATK ApplyBQSR`` to apply the base quality score recalibration report to the input ``bam`` file.
 This step creates a recalibrated ``bam`` file and its index.
 The output ``bam`` file is checked for integrity to ensure the file has a header and it is not truncated.
 

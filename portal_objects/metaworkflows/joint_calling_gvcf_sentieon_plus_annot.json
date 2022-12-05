@@ -14,9 +14,9 @@
       "dimensionality": 1
     },
     {
-      "argument_name": "proband_list",
-      "argument_type": "file",
-      "dimensionality": 1
+      "argument_name": "probands",
+      "argument_type": "parameter",
+      "value_type": "json"
     },
     {
       "argument_name": "reference_fa",
@@ -149,7 +149,7 @@
     },
     {
       "name": "workflow_vep-annot-check",
-      "workflow": "2f997f5f-d334-4c2b-873c-e4392d6b83f5",
+      "workflow": "c1c3c327-cd25-49fb-a6f6-aa14ea7af13f",
       "config": {
         "instance_type": "c5n.18xlarge",
         "ebs_size": "1.35x",
@@ -159,7 +159,7 @@
         "behavior_on_capacity_limit": "wait_and_retry"
       },
       "custom_pf_fields": {
-          "annotated_jc_vcf": {
+          "annotated_vcf": {
               "file_type": "vep-annotated vcf",
               "variant_type": "SNV",
               "description": "output from VEP in vcf format",
@@ -248,10 +248,10 @@
     },
     {
       "name": "workflow_reformat_jc_fisher",
-      "workflow": "f0748e63-f57c-4b57-b0ba-bbb295281a65",
+      "workflow": "e71ec718-b2be-497a-9a4b-55ceb941b2bf",
       "config": {
         "instance_type": "t3.small",
-        "ebs_size": "2x",
+        "ebs_size": "3x",
         "EBS_optimized": true,
         "spot_instance": true,
         "run_name": "run_workflow_reformat_jc_fisher",
@@ -271,11 +271,11 @@
           "argument_name": "input_vcf",
           "argument_type": "file",
           "source": "workflow_vep-annot-check",
-          "source_argument_name": "annotated_jc_vcf"
+          "source_argument_name": "annotated_vcf"
         },
         {
-          "argument_name": "proband_list",
-          "argument_type": "file"
+          "argument_name": "probands",
+          "argument_type": "parameter"
         },
         {
           "argument_name": "gnomAD",

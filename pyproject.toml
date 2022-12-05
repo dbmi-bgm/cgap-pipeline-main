@@ -6,11 +6,11 @@ authors = ["CGAP Team"]
 
 [tool.poetry.dependencies]
 
-python = ">=3.6.10,<3.9"
-dcicutils = "^3.1.0"
-magma-suite = "^0.2.1"
+python = ">=3.7,<3.10"
+dcicutils = "^3.2.0"
 boto3 = "^1.20.15"
 awscli = "^1.22.15"
+#magma-suite = "^0.2.1", disabled for now until the release of the new one
 
 cgap-pipeline-utils = { path = "./cgap-pipeline-utils", develop = true }
 

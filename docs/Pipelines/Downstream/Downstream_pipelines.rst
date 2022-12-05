@@ -9,7 +9,7 @@ An analysis ready ``bam`` undergoes some additional cleanup operations after the
 Germline
 ++++++++
 
-Germline pipelines focus on discovery of rare variants inherited from parents, either mutations already present in parents or *de novo* mutations acquired in a germ cell in one of the parent.
+Germline pipelines focus on discovery of rare variants inherited from parents. These mutations can be already present in the parents, or can be acquired as *de novo* mutations in a germ cell in one of the parents.
 
 .. toctree::
    :maxdepth: 2
@@ -27,3 +27,5 @@ Somatic pipelines focus on discovery of somatic variants, often in matched tumor
    :maxdepth: 2
 
    somatic_sentieon/index-somatic_sentieon
+   SNV_somatic/index-SNV_somatic
+   CNV_somatic/index-CNV_somatic

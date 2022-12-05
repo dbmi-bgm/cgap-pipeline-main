@@ -11,8 +11,17 @@ This is the documentation for the Clinical Genome Analysis Platform (CGAP) Pipel
 
 The CGAP Pipeline Main repo (https://github.com/dbmi-bgm/cgap-pipeline-main) contains the latest production versions of all CGAP bioinformatics pipelines!
 
-Contents
-########
+CGAP Pipeline Main Repo
+#######################
+
+.. toctree::
+ :maxdepth: 1
+
+ overview-main
+ news-main
+
+CGAP Pipelines
+##############
 
 .. toctree::
  :maxdepth: 1
@@ -34,4 +43,3 @@ Contents
 
  Pipelines/Other/Other_pipelines
  Pipelines/Support/Support_repos
- news-main
