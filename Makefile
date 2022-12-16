@@ -25,7 +25,7 @@ build-image-37:
 
 deploy-all:
 	scripts/check_awscred.sh
-	poetry run pipeline_utils deploy_pipeline \
+	poetry run pipeline_utils pipeline_deploy \
 		--ff-env $ENV_NAME \
 		--keydicts-json $KEYDICTS_JSON \
 		--cwl-bucket $CWL_BUCKET \
