@@ -6,17 +6,19 @@ BAM Quality Control
 Overview
 ++++++++
 
-To evaluate the quality of a ``bam`` file, different metrics are calculated using a custom script ``bamqc.py`` (https://github.com/dbmi-bgm/cgap-pipeline-upstream-GATK).
+To evaluate the quality of a ``bam`` file, different metrics are calculated using the custom script ``bamqc.py``.
 
 The metrics currently available are:
 
-  - mapping stats
-    - total reads
-    - reads w/ both mates mapped
-    - reads w/ one mate mapped
-    - reads w/ neither mate mapped
-  - read length
-  - coverage
+  - Mapping stats
+
+      - Total reads
+      - Reads with both mates mapped
+      - Reads with one mate mapped
+      - Reads with neither mate mapped
+
+  - Read length
+  - Coverage
 
 
 Definitions
@@ -25,7 +27,7 @@ Definitions
 Mapping Statistics
 ------------------
 
-The number of reads (not alignments) are counted as number unique read pairs, i.e. if a read pair is mapped to multiple locations, it is counted once.
+The number of reads (not alignments) are counted as the number of unique read pairs (i.e., if a read pair is mapped to multiple locations it is only counted once).
 
 
 Coverage

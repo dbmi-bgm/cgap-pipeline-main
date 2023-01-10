@@ -2,8 +2,8 @@
 Upstream Pipelines
 ==================
 
-Upstream pipelines are designed to take raw sequencing data as paired ``fastq`` files, align the reads to the reference genome and prepare the resulting analysis ready ``bam`` file for use in variant calling.
-An analysis ready ``bam`` undergo some additional cleanup operations after the alignment to remove duplicate reads and recalibrate base quality scores.
+Upstream pipelines start from raw paired-end sequencing data as ``fastq`` files, align the reads to the reference genome and produce analysis-ready ``bam`` files for use in downstream variant calling pipelines.
+Analysis-ready ``bam`` files are standard alignment files that undergo additional processing to remove duplicate reads and recalibrate base quality scores.
 
 
 .. toctree::

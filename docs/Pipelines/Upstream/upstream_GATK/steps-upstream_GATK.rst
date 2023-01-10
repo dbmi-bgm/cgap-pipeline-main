@@ -6,8 +6,9 @@ Steps - Upstream GATK
 Alignment
 +++++++++
 
-This step uses ``bwa mem`` to align a set of paired ``fastq`` files to the genome reference. The ``bwa mem`` alignment uses an additional index file for alternate contigs as described for GRCH38 here (https://gatk.broadinstitute.org/hc/en-us/articles/360037498992). The 6 reference files ``Homo_sapiens_assembly38.fasta.64.xxx`` were downloaded here (https://console.cloud.google.com/storage/browser/genomics-public-data/resources/broad/hg38/v0).
-The output ``bam`` file is checked for integrity to ensure the file has a header and it is not truncated.
+This step uses bwa ``mem`` algorithm to align a set of paired-end ``fastq`` files to the reference genome.
+We currently use build **hg38/GRCh38**, more information `here <https://cgap-annotations.readthedocs.io/en/latest/hg38_genome.html>`_.
+The output ``bam`` file is checked for integrity to ensure there is a properly formatted header and the file is not truncated.
 
 * CWL: workflow_bwa-mem-to-bam_no_unzip_plus_integrity-check.cwl
 
@@ -15,9 +16,10 @@ The output ``bam`` file is checked for integrity to ensure the file has a header
 Add Read Groups
 +++++++++++++++
 
-This step uses ``AddReadGroups.py`` (https://github.com/dbmi-bgm/cgap-scripts) to add read groups information to the input ``bam`` file, according to lanes and flow-cells.
-The script parses the ``bam`` file that contains a mix of multiple lanes and flow-cells, extracts read groups information from read headers and adds the proper read group to individual reads, unlike ``picard AddOrReplaceReadGroups`` which assumes a single read group throughout the file.
-The output ``bam`` file is checked for integrity to ensure the file has a header and it is not truncated.
+This step uses ``AddReadGroups.py`` (https://github.com/dbmi-bgm/cgap-scripts) to add read groups information to the input ``bam`` file based on lanes and flow-cells identifiers.
+The script extracts read groups information from read names and tags the reads accordingly.
+Unlike Picard ``AddOrReplaceReadGroups``, which assumes a single read group throughout the file, the script can handle files that contains a mix of multiple lanes and flow-cells.
+The output ``bam`` file is checked for integrity to ensure there is a properly formatted header and the file is not truncated.
 
 * CWL: workflow_add-readgroups_plus_integrity-check.cwl
 
@@ -25,9 +27,9 @@ The output ``bam`` file is checked for integrity to ensure the file has a header
 Merge BAMs
 ++++++++++
 
-This step uses ``samtools merge`` to merge multiple ``bam`` files when data comes in multiple replicates.
+This step uses Samtools ``merge`` to merge multiple ``bam`` files when data comes in replicates.
 If there are no replicates, this step is skipped.
-The output ``bam`` file is checked for integrity to ensure the file has a header and it is not truncated.
+The output ``bam`` file is checked for integrity to ensure there is a properly formatted header and the file is not truncated.
 
 * CWL: workflow_merge-bam_plus_integrity-check.cwl
 
@@ -35,17 +37,18 @@ The output ``bam`` file is checked for integrity to ensure the file has a header
 Mark Duplicates
 +++++++++++++++
 
-This step uses ``picard MarkDuplicates`` to detect and mark PCR duplicates. It creates a duplicate-marked ``bam`` file and a report with duplicate stats.
-The output ``bam`` file is checked for integrity to ensure the file has a header and it is not truncated.
+This step uses Picard ``MarkDuplicates`` to detect and mark PCR duplicates.
+It creates a duplicate-marked ``bam`` file and a report with duplicate stats.
+The output ``bam`` file is checked for integrity to ensure there is a properly formatted header and the file is not truncated.
 
 * CWL: workflow_picard-MarkDuplicates_plus_integrity-check.cwl
 
 
-Sort
-++++
+Sort BAM
+++++++++
 
-This step uses ``samtools sort`` to sort the input ``bam`` file by genomic coordinates.
-The output ``bam`` file is checked for integrity to ensure the file has a header and it is not truncated.
+This step uses Samtools ``sort`` to sort the input ``bam`` file by genomic coordinates.
+The output ``bam`` file is checked for integrity to ensure there is a properly formatted header and the file is not truncated.
 
 * CWL: workflow_sort-bam_plus_integrity-check.cwl
 
@@ -53,7 +56,7 @@ The output ``bam`` file is checked for integrity to ensure the file has a header
 Base Recalibration Report (BQSR)
 ++++++++++++++++++++++++++++++++
 
-This step uses ``GATK BaseRecalibrator`` to create a base quality score recalibration report for the input ``bam`` file.
+This step uses GATK ``BaseRecalibrator`` to create a base quality score recalibration report for the input ``bam`` file.
 
 * CWL: gatk-BaseRecalibrator.cwl
 
@@ -61,8 +64,16 @@ This step uses ``GATK BaseRecalibrator`` to create a base quality score recalibr
 Apply BQSR and Indexing
 +++++++++++++++++++++++
 
-This step uses ``GATK ApplyBQSR`` to apply the base quality score recalibration report to the input ``bam`` file.
-This step creates a recalibrated ``bam`` file and its index.
-The output ``bam`` file is checked for integrity to ensure the file has a header and it is not truncated.
+This step uses GATK ``ApplyBQSR`` to apply the base quality score recalibration report to the input ``bam`` file.
+This step creates a recalibrated ``bam`` file and a corresponding index.
+The output ``bam`` file is checked for integrity to ensure there is a properly formatted header and the file is not truncated.
 
 * CWL: workflow_gatk-ApplyBQSR_plus_integrity-check.cwl
+
+
+References
+##########
+
+`bwa <https://github.com/lh3/bwa>`__.
+`GATK & Picard Tools <https://gatk.broadinstitute.org/hc/en-us/articles/5358824293659--Tool-Documentation-Index>`__.
+`Samtools <http://www.htslib.org>`__.
