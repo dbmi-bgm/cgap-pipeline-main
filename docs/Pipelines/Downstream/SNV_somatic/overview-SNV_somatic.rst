@@ -2,12 +2,14 @@
 Overview - SNV Somatic
 ======================
 
-CGAP Pipeline SNV Somatic (https://github.com/dbmi-bgm/cgap-pipeline-SNV-somatic) is our pipeline for parsing the output ``vcf`` file from the `CGAP Somatic Sentieon Pipeline <https://cgap-pipeline-main.readthedocs.io/en/latest/Pipelines/Downstream/somatic_sentieon/index-somatic_sentieon.html>`_. The input ``vcf`` contains Single Nucleotide Variants (SNVs), short INsertions and DELetions (INDELs), and Structural Variants (SVs), which must be filtered, split and reformatted for use in the somatic browser.
+The CGAP Pipelines module for somatic Single Nucleotide Variants (SNVs) (https://github.com/dbmi-bgm/cgap-pipeline-SNV-somatic) is our solution to filter and annotate the variants called by `CGAP Somatic Sentieon module <https://cgap-pipeline-main.readthedocs.io/en/latest/Pipelines/Downstream/somatic_sentieon/index-somatic_sentieon.html>`_.
+The input ``vcf`` contains SNVs, short Insertions and Deletions (INDELs), and Structural Variants (SVs), which are filtered, annotated and reformatted for use in the somatic browser.
 
 Docker Image
 ############
 
-The Dockerfile provided in this GitHub repository can be used to build a public docker image, or if built through ``cgap-pipeline-utils`` ``deploy_pipeline.py`` (https://github.com/dbmi-bgm/cgap-pipeline-utils) a private ECR image will be created for the AWS account provided.
+The Dockerfiles provided in this GitHub repository can be used to build public docker images.
+If built through ``cgap-pipeline-utils`` ``pipeline_deploy`` command (https://github.com/dbmi-bgm/cgap-pipeline-utils), private ECR images will be created for the target AWS account.
 
 The image contains (but is not limited to) the following software packages:
 
@@ -21,3 +23,9 @@ Pipeline Steps
    :maxdepth: 4
 
    Pages/SNV_somatic-step-part-1
+
+
+References
+##########
+
+`Sentieon <https://www.sentieon.com>`__.

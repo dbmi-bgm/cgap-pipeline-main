@@ -2,7 +2,8 @@
 Compound Heterozygous Mutations
 ===============================
 
-This step uses ``granite comHet`` (https://github.com/dbmi-bgm/granite) to call compound heterozygous mutations by genes and transcripts, assigning the associate risk based on available annotations. The output ``vcf`` file is checked for integrity to ensure the format is correct and the file is not truncated.
+This step uses granite ``comHet`` to call compound heterozygous mutations by genes and transcripts, assigning the associate risk based on available annotations.
+The output ``vcf`` file is checked for integrity to ensure the format is correct and the file is not truncated.
 
 * CWL: workflow_granite-comHet_plus_vcf-integrity-check.cwl
 
@@ -10,7 +11,9 @@ This step uses ``granite comHet`` (https://github.com/dbmi-bgm/granite) to call 
 Requirements
 ++++++++++++
 
-The input ``vcf`` must have annotations from VEP (consequence, gene and transcript are required). If the annotations also include impact, the software uses it. If not, an existing table calculated for consequences is used instead (https://m.ensembl.org/info/genome/variation/prediction/predicted_data.html).
+The input ``vcf`` must have annotations from VEP (consequence, gene and transcript are required).
+If the annotations also include impact, the software uses it.
+If not, an existing table calculated for consequences is used instead (https://m.ensembl.org/info/genome/variation/prediction/predicted_data.html).
 
 
 Specifications
@@ -19,10 +22,11 @@ Specifications
 Gene Assignments
 ----------------
 
-To determine compound heterozygous pairs, variants must be first assigned to genes and transcripts. For consistent and inclusive gene assignment, the rules are as follow:
+To determine compound heterozygous pairs, variants must be first assigned to genes and transcripts.
+For consistent and inclusive gene assignment, the rules are as follow:
 
-  1. Intronic variants are not assigned to the corresponding gene or transcript, with the exception of variants predicted as potential splice sites (SpliceAI) or ClinVar variants.
-  2. Variants that are upstream or downstream of the coding region are not assigned to the corresponding gene or a transcript, with the exception of ClinVar variants.
+  1. Intronic variants are not assigned to the corresponding gene or transcript, with the exception of variants predicted as potential splice sites (SpliceAI) or ClinVar variants
+  2. Variants that are upstream or downstream of the coding region are not assigned to the corresponding gene or a transcript, with the exception of ClinVar variants
 
 .. image:: ../../../../images/gene_assignment_v14.png
 
@@ -34,7 +38,8 @@ This calling step assumes that VEP annotations in the input ``vcf`` already resp
 Output
 ++++++
 
-The output ``vcf`` contains the same variants as the input file (no line is removed), but with additional information added by the caller to variants that are potentially compound heterozygous. This additional information is in the following format:
+The output ``vcf`` contains the same variants as the input file (no line is removed), but with additional information added by the caller to variants that are potentially compound heterozygous.
+This additional information is in the following format:
 
 ::
 
@@ -72,11 +77,9 @@ Impact
 The predicted impact of a compound heterozygous pair is calculated as follows:
 
 
-    1. If VEP impact for both variants is HIGH ('H') or MODERATE ('M'), SpliceAI score >=0.8 ('S') or ClinVar Pathogenic or Likely Pathogenic ('C'), the pair is called a STRONG_PAIR.
-
-    2. If only one of the variants is H, M, S or C, the pair is called a MEDIUM_PAIR.
-
-    3. If none of the above, the pair is called a WEAK_PAIR.
+    1. If VEP impact for both variants is HIGH (H) or MODERATE (M), SpliceAI score >= 0.8 (S) or ClinVar Pathogenic or Likely Pathogenic (C), the pair is called a ``STRONG_PAIR``
+    2. If only one of the variants is H, M, S or C, the pair is called a ``MEDIUM_PAIR``
+    3. If none of the above, the pair is called a ``WEAK_PAIR``
 
 The impact is calculated both at the gene level (gene impact) and at the transcript level (transcript impact).
 
@@ -84,7 +87,8 @@ The impact is calculated both at the gene level (gene impact) and at the transcr
 Report
 ++++++
 
-This step also generates a report that provides additional information on the compound heterozygous pairs that are called. The report contains statistics on the total number of pairs and their distribution by genes, transcripts, and predicted impact.
+This step also generates a report that provides additional information on the compound heterozygous pairs that are called.
+The report contains statistics on the total number of pairs and their distribution by genes, transcripts, and predicted impact.
 
 By Genes
 --------
@@ -167,3 +171,9 @@ In each category, it is reported the total number of elements that are involved 
         },
         ...
       ]
+
+
+References
+++++++++++
+
+`granite <https://github.com/dbmi-bgm/granite>`__.

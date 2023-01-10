@@ -1,19 +1,22 @@
-=============================
-Overview - CGAP Pipeline Main
-=============================
+===============
+Main Repository
+===============
 
-This is the main repository for the CGAP Bioinformatics Pipelines (https://github.com/dbmi-bgm/cgap-pipeline-main). Each pipeline is present in a submodule, which links to a specific version of that individual pipeline's GitHub repository.
+This is the main GitHub repository for the CGAP bioinformatics pipelines (https://github.com/dbmi-bgm/cgap-pipeline-main).
+The repository bundles the latest stable version for each of the currently available modules.
 
-CGAP Pipeline Main contains information on how to install the repository in the ``README.md``.
+The repository also contains:
 
-CGAP Pipeline Main is also the home for the CGAP Bioinformatics base Docker images.
+- *MetaWorkflow* objects to describe pipelines that use components from multiple modules
+- Basic Docker images that are used as template for most of the module specific images
 
-Docker Image
-############
+Finally, there is a README that documents how to install and set up the repository to deploy the pipeline components.
 
-The Dockerfile provided in this GitHub repository is the base image for most CGAP Bioinformatics Pipelines.
 
-The image is based on Ubuntu 20.04 and contains (but is not limited to) the following software packages:
+Docker images
+#############
+
+The image ``ubuntu-py-generic`` is based on Ubuntu 20.04 and contains (but is not limited to) the following software packages:
 
 - python (3.8.12)
 - OpenJDK (8.0.312)

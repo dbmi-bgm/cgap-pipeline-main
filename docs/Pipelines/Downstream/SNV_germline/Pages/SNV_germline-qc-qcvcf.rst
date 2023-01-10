@@ -6,23 +6,23 @@ VCF Quality Control
 Overview
 ++++++++
 
-To evaluate the quality of a ``vcf`` file, different metrics are calculated using ``granite qcVCF``.
-The software calculates both sample-based, as well as, family-based metrics.
+To evaluate the quality of a ``vcf`` file, different metrics are calculated using granite ``qcVCF``.
+The software calculates both sample-based, as well as, family-based statistics.
 
 The metrics currently available for sample are:
 
-  - variant types distribution
-  - base substitutions
-  - transition-transversion ratio
-  - heterozygosity ratio
-  - depth of coverage (GATK)
-  - depth of coverage (raw)
+  - Variant types distribution
+  - Base substitutions
+  - Transition-transversion ratio
+  - Heterozygosity ratio
+  - Depth of coverage (GATK)
+  - Depth of coverage (raw)
 
 The metrics currently available for family are:
 
-  - mendelian errors in trio
+  - Mendelian errors in trio
 
-For each sample, ancestry and sex are also predicted using ``peddy`` [1]_.
+For each sample, ancestry and sex are also predicted using peddy [1]_.
 The predicted values allow to identify errors in sample labeling, contaminations events, and other errors that can occur during handling and processing of the sample.
 
 
@@ -43,7 +43,7 @@ Total number of variants classified by type as:
 Base Substitutions
 ------------------
 
-Total number of SNVs classified by the type of substitution (e.g. C>T).
+Total number of SNVs classified by the type of substitution (e.g., C>T).
 
 Transition-Transversion Ratio
 -----------------------------
@@ -63,7 +63,7 @@ Depth of Coverage
 
 Average depth of all variant sites called in the sample.
 
-Depth of coverage (GATK) is calculated based on DP values as assigned by GATK.
+Depth of coverage (GATK) is calculated based on ``DP`` values as assigned by GATK.
 Depth of coverage (raw) is calculated based on raw read counts calculated directly from the bam file.
 
 Mendelian Errors in Trio
@@ -75,17 +75,17 @@ Mendelian errors are counted by variant type and classified based on genotype co
 +------------+------------+-----------+---------------------+
 | Proband    | Father     | Mother    | Type                |
 +============+============+===========+=====================+
-| 0/1        | 0/0        | 0/0       | de novo             |
+| 0/1        | 0/0        | 0/0       | *de novo*           |
 +------------+------------+-----------+---------------------+
-| 0/1        | 1/1        | 1/1       | error               |
+| 0/1        | 1/1        | 1/1       | Error               |
 +------------+------------+-----------+---------------------+
-| 1/1        | 0/0        | (any)     | error               |
+| 1/1        | 0/0        | [any]     | Error               |
 +------------+------------+-----------+---------------------+
-| 1/1        | (any)      | 0/0       | error               |
+| 1/1        | [any]      | 0/0       | Error               |
 +------------+------------+-----------+---------------------+
-| 1/1 \| 0/1 | ./.        | (any)     | missing in parent   |
+| 1/1 \| 0/1 | ./.        | [any]     | Missing in parent   |
 +------------+------------+-----------+---------------------+
-| 1/1 \| 0/1 | (any)      | ./.       | missing in parent   |
+| 1/1 \| 0/1 | [any]      | ./.       | Missing in parent   |
 +------------+------------+-----------+---------------------+
 
 Ancestry and Sex Prediction
@@ -93,6 +93,13 @@ Ancestry and Sex Prediction
 
 Ancestry prediction is based on projection onto the thousand genomes principal components.
 Sex is predicted by using the genotypes observed outside the pseudo-autosomal region on X chromosome.
+
+
+References
+++++++++++
+
+`granite <https://github.com/dbmi-bgm/granite>`__.
+`peddy <https://github.com/brentp/peddy>`__.
 
 ---------------------------
 
