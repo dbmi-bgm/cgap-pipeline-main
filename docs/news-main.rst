@@ -1,6 +1,6 @@
-=======================================
-News and Updates - CGAP Pipeline Main
-=======================================
+================
+News and Updates
+================
 
 **Feb 1, 2022** CGAP Pipeline Main v0.0.27 released!
 

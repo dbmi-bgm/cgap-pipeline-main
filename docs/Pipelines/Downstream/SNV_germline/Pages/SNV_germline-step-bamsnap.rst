@@ -2,7 +2,7 @@
 Bamsnap
 =======
 
-This step uses ``bamsnap`` (reference: https://academic.oup.com/bioinformatics/article-abstract/37/2/263/6069566) to generate a zip archive of bamsnap images for all the variants in the given ``vcf`` file and its associated ``bam`` files.
+This step uses bamsnap to generate a zip archive of IGV-like snapshots with reads information for all the variants and the samples in the target ``vcf`` file.
 
 * CWL: bamsnap.cwl
 
@@ -10,6 +10,12 @@ This step uses ``bamsnap`` (reference: https://academic.oup.com/bioinformatics/a
 Output
 ++++++
 
-An example output ``png`` file looks as below:
+An example output for a snapshot (``png``):
 
 .. image:: ../../../../images/bamsnap_example_chr12_49053606.png
+
+
+References
+++++++++++
+
+`bamsnap <https://github.com/dbmi-bgm/bamsnap>`__.
