@@ -1,0 +1,293 @@
+## Pipeline information #####################################
+#     General information for the pipeline
+#############################################################
+name: WES_upstream_sentieon_proband
+description: Pipeline to process paired-end FASTQ files using Sentieon for Whole Exome Sequencing data. |
+             Produce an analysis-ready BAM file. |
+             Proband.
+
+## General arguments ########################################
+#     Pipeline input, reference files, and general arguments
+#       define all arguments for the pipeline here
+#############################################################
+input:
+
+  # File argument
+  fastqs_R1:
+    argument_type: file.fastq
+    dimensionality: 1
+
+  fastqs_R2:
+    argument_type: file.fastq
+    dimensionality: 1
+
+  reference_bwa:
+    argument_type: file.bwt
+    files:
+      - complete-reference-bwt@hg38
+
+  reference_fa:
+    argument_type: file.fa
+    files:
+      - complete-reference-fasta@hg38
+
+  known-sites-indels:
+    argument_type: file.vcf
+    files:
+      - mills-1000g-gold-standard-indel@hg38
+
+  known-sites-snp:
+    argument_type: file.vcf_gz
+    files:
+      - dbsnp-common@151
+
+  # Parameter argument
+  sample_names:
+    argument_type: parameter.json
+
+  eff_genome_size:
+    argument_type: parameter.integer
+    value: "62847115"
+
+## Workflows and dependencies ###############################
+#     Information for the workflows and their dependencies
+#############################################################
+workflows:
+
+  ## Workflow definition #####################
+  #   sentieon_bwa-mem
+  ############################################
+  sentieon_bwa-mem:
+
+    ## Specific arguments ##############
+    ####################################
+    input:
+
+      # File argument
+      fastq_R1:
+        argument_type: file.fastq
+        source_argument_name: fastqs_R1
+        scatter: 1
+
+      fastq_R2:
+        argument_type: file.fastq
+        source_argument_name: fastqs_R2
+        scatter: 1
+
+      reference_fa:
+        argument_type: file.fa
+
+      reference_bwt:
+        argument_type: file.bwt
+        source_argument_name: reference_bwa
+
+    ## Output ##########################
+    #     Output files for the workflow
+    ####################################
+    output:
+
+      # File output
+      raw_bam:
+        file_type: raw BAM
+        description: output from bwa-mem in BAM format
+
+    ## EC2 Configuration to use ########
+    ####################################
+    config:
+      instance_type: c5n.9xlarge
+      ebs_size: "6.3x"
+      EBS_optimized: True
+      spot_instance: True
+      run_name: run_sentieon_bwa-mem
+      behavior_on_capacity_limit: wait_and_retry
+
+  ## Workflow definition #####################
+  #   bamqc@1
+  ############################################
+  bamqc@1:
+
+    ## Specific arguments ##############
+    ####################################
+    input:
+
+      # File argument
+      input_bam:
+        argument_type: file.bam
+        source: sentieon_bwa-mem
+        source_argument_name: raw_bam
+
+      # Parameter argument
+      sample:
+        argument_type: parameter.json
+        source_argument_name: sample_names
+        input_dimension: 1
+
+      eff_genome_size:
+        argument_type: parameter.integer
+
+    ## EC2 Configuration to use ########
+    ####################################
+    config:
+      instance_type: c5a.2xlarge
+      ebs_size: "3.5x"
+      EBS_optimized: True
+      spot_instance: True
+      run_name: run_bamqc
+      behavior_on_capacity_limit: wait_and_retry
+
+  ## Workflow definition #####################
+  #   add-readgroups-check
+  ############################################
+  add-readgroups-check:
+
+    ## Specific arguments ##############
+    ####################################
+    input:
+
+      # File argument
+      input_bam:
+        argument_type: file.bam
+        source: sentieon_bwa-mem
+        source_argument_name: raw_bam
+
+      # Parameter argument
+      sample_name:
+        argument_type: parameter.json
+        source_argument_name: sample_names
+        input_dimension: 1
+
+    ## Output ##########################
+    #     Output files for the workflow
+    ####################################
+    output:
+
+      # File output
+      bam_w_readgroups:
+        file_type: intermediate BAM
+        description: output from AddReadGroups in BAM format
+
+    ## EC2 Configuration to use ########
+    ####################################
+    config:
+      instance_type: c5a.2xlarge
+      ebs_size: "3.5x"
+      EBS_optimized: True
+      spot_instance: True
+      run_name: run_add-readgroups-check
+      behavior_on_capacity_limit: wait_and_retry
+
+  ## Workflow definition #####################
+  #   merge-bam-check
+  ############################################
+  merge-bam-check:
+
+    ## Specific arguments ##############
+    ####################################
+    input:
+
+      # File argument
+      input_bams:
+        argument_type: file.bam
+        source: add-readgroups-check
+        source_argument_name: bam_w_readgroups
+        gather: 1
+
+    ## Output ##########################
+    #     Output files for the workflow
+    ####################################
+    output:
+
+      # File output
+      merged_bam:
+        file_type: intermediate BAM
+        description: output from merging step in BAM format
+
+    ## EC2 Configuration to use ########
+    ####################################
+    config:
+      instance_type: c5a.2xlarge
+      ebs_size: "3x"
+      EBS_optimized: True
+      spot_instance: True
+      run_name: run_merge-bam-check
+      behavior_on_capacity_limit: wait_and_retry
+
+  ## Workflow definition #####################
+  #   sentieon_dedup-recal
+  ############################################
+  sentieon_dedup-recal:
+
+    ## Specific arguments ##############
+    ####################################
+    input:
+
+      # File argument
+      input_bam:
+        argument_type: file.bam
+        source: merge-bam-check
+        source_argument_name: merged_bam
+
+      reference_fa:
+        argument_type: file.fa
+
+      known-sites-snp:
+        argument_type: file.vcf_gz
+
+      known-sites-indels:
+        argument_type: file.vcf
+
+    ## Output ##########################
+    #     Output files for the workflow
+    ####################################
+    output:
+
+      # File output
+      recalibrated_bam:
+        file_type: analysis-ready BAM
+        description: output from Sentieon dedup-recal in BAM format
+        linkto_location:
+          - Sample
+
+    ## EC2 Configuration to use ########
+    ####################################
+    config:
+      instance_type: c5n.9xlarge
+      ebs_size: "5x"
+      EBS_optimized: True
+      spot_instance: True
+      run_name: run_sentieon_dedup-recal
+      behavior_on_capacity_limit: wait_and_retry
+
+  ## Workflow definition #####################
+  #   bamqc@2
+  ############################################
+  bamqc@2:
+
+    ## Specific arguments ##############
+    ####################################
+    input:
+
+      # File argument
+      input_bam:
+        argument_type: file.bam
+        source: sentieon_dedup-recal
+        source_argument_name: recalibrated_bam
+
+      # Parameter argument
+      sample:
+        argument_type: parameter.json
+        source_argument_name: sample_names
+        input_dimension: 1
+
+      eff_genome_size:
+        argument_type: parameter.integer
+
+    ## EC2 Configuration to use ########
+    ####################################
+    config:
+      instance_type: c5a.2xlarge
+      ebs_size: "3.5x"
+      EBS_optimized: True
+      spot_instance: True
+      run_name: run_bamqc
+      behavior_on_capacity_limit: wait_and_retry
