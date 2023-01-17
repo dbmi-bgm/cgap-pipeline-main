@@ -3,7 +3,7 @@
 #############################################################
 name: WGS_SNV_germline_family_hg19_vcf
 description: Downstream pipeline to call SNV and small Indel for Whole Genome Sequencing, Family. |
-             The pipeline requires an hg19/hg37 based VCF file as input and lifts it over to hg38/hg38. |  
+             The pipeline requires an hg19/GRCh37 based VCF file as input and lifts it over to hg38/GRCh38. |  
              Based on GATK.
 
 ## General arguments ########################################
