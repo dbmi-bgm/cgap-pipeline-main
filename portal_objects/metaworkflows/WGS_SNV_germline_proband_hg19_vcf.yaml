@@ -1,7 +1,7 @@
 ## Pipeline information #####################################
 #     General information for the pipeline
 #############################################################
-name: WGS_SNV_germline_proband_hg19
+name: WGS_SNV_germline_proband_hg19_vcf
 description: Downstream pipeline to call SNV and small Indel for Whole Genome Sequencing, Proband. |
              The pipeline requires an hg19/GRCh37 based VCF file as input and lifts it over to hg38/GRCh38. |  
              Based on GATK.
@@ -150,7 +150,7 @@ workflows:
       input_vcf:
         argument_type: file.vcf_gz
         source_argument_name: input_snv_vcfs
-        scatter: 1
+        input_dimension: 1
 
       chain:
         argument_type: file.chain
@@ -172,7 +172,7 @@ workflows:
       EBS_optimized: True
       spot_instance: True
       run_name: run_liftover_vcf
-      behavior_on_capacity_limit": wait_and_retry
+      behavior_on_capacity_limit: wait_and_retry
 
   ## Workflow definition #####################
   #   granite-qcVCF@1
@@ -217,7 +217,7 @@ workflows:
       EBS_optimized: True
       spot_instance: True
       run_name: run_granite-qcVCF@1
-      behavior_on_capacity_limit": wait_and_retry
+      behavior_on_capacity_limit: wait_and_retry
 
   ## Workflow definition #####################
   #   samplegeno
@@ -420,7 +420,7 @@ workflows:
       EBS_optimized: True
       spot_instance: True
       run_name: run_granite-qcVCF@2
-      behavior_on_capacity_limit": wait_and_retry
+      behavior_on_capacity_limit: wait_and_retry
 
   ## Workflow definition #####################
   #   granite-filtering-check
@@ -638,4 +638,4 @@ workflows:
       EBS_optimized: True
       spot_instance: True
       run_name: run_granite-qcVCF@3
-      behavior_on_capacity_limit": wait_and_retry
+      behavior_on_capacity_limit: wait_and_retry

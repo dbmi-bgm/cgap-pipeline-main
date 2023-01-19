@@ -104,7 +104,7 @@ workflows:
       input_vcf:
         argument_type: file.vcf_gz
         source_argument_name: input_sv_vcfs
-        scatter: 1
+        input_dimension: 1
 
       chain:
         argument_type: file.chain
@@ -112,7 +112,7 @@ workflows:
       
       reference:
         argument_type: file.fa
-        source_argument_name: ref_fa
+        source_argument_name: ref_fasta
       
       #Parameter argument
       sample_names:

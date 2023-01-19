@@ -173,7 +173,7 @@ workflows:
       EBS_optimized: True
       spot_instance: True
       run_name: run_liftover_vcf
-      behavior_on_capacity_limit": wait_and_retry
+      behavior_on_capacity_limit: wait_and_retry
 
   ## Workflow definition #####################
   #   granite-qcVCF@1
@@ -188,7 +188,7 @@ workflows:
       input_vcf:
         argument_type: file.vcf_gz
         source: liftover_vcf
-        source_argument_name: vcf
+        source_argument_name: vcf_lifted
 
       # Parameter argument
       pedigree:
@@ -218,7 +218,7 @@ workflows:
       EBS_optimized: True
       spot_instance: True
       run_name: run_granite-qcVCF@1
-      behavior_on_capacity_limit": wait_and_retry
+      behavior_on_capacity_limit: wait_and_retry
 
   ## Workflow definition #####################
   #   samplegeno
@@ -416,7 +416,7 @@ workflows:
       EBS_optimized: True
       spot_instance: True
       run_name: run_granite-qcVCF@2
-      behavior_on_capacity_limit": wait_and_retry
+      behavior_on_capacity_limit: wait_and_retry
 
   ## Workflow definition #####################
   #   granite-filtering-check
@@ -633,4 +633,4 @@ workflows:
       EBS_optimized: True
       spot_instance: True
       run_name: run_granite-qcVCF@3
-      behavior_on_capacity_limit": wait_and_retry
+      behavior_on_capacity_limit: wait_and_retry
