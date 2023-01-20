@@ -112,7 +112,7 @@ workflows:
       
       reference:
         argument_type: file.fa
-        source_argument_name: ref_fa
+        source_argument_name: ref_fasta
       
       #Parameter argument
       sample_names:
