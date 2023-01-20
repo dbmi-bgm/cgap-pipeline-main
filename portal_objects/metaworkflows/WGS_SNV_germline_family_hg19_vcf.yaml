@@ -164,6 +164,17 @@ workflows:
       #Parameter argument
       sample_names:
         argument_type: parameter.json
+      
+    output:
+
+      # File output
+      vcf_lifted:
+        file_type: raw VCF
+        description: output from LiftOver for the lifted over input VCF
+
+      reject:
+        file_type: raw VCF
+        description: output from LiftOver for the rejected variants
     
     ## EC2 Configuration to use ########
     ####################################
