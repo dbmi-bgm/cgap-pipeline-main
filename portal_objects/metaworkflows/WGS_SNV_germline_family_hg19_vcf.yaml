@@ -122,9 +122,6 @@ input:
   pedigree:
     argument_type: parameter.string
 
-  family_size:
-    argument_type: parameter.integer
-
   variant_filtering_aftag:
     argument_type: parameter.string
     value: gnomADg_AF
@@ -151,7 +148,7 @@ workflows:
       input_vcf:
         argument_type: file.vcf_gz
         source_argument_name: input_snv_vcfs
-        scatter: 1
+        input_dimension: 1
 
       chain:
         argument_type: file.chain
