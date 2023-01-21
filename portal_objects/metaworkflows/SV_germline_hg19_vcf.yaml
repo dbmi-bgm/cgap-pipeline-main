@@ -124,11 +124,13 @@ workflows:
       vcf_lifted:
         file_type: raw VCF
         description: output from LiftOver for the lifted over input VCF
+        variant_type: SV
 
       reject:
         file_type: raw VCF
         description: output from LiftOver for the rejected variants
-    
+        variant_type: SV
+
     ## EC2 Configuration to use ########
     ####################################
     config:

@@ -111,7 +111,7 @@ input:
     argument_type: file.chain
     files:
       - liftover-chain@hg19to38
-  
+
   # Parameter argument
   sample_names:
     argument_type: parameter.json
@@ -171,11 +171,13 @@ workflows:
       vcf_lifted:
         file_type: raw VCF
         description: output from LiftOver for the lifted over input VCF
+        variant_type: SNV
 
       reject:
         file_type: raw VCF
         description: output from LiftOver for the rejected variants
-    
+        variant_type: SNV
+
     ## EC2 Configuration to use ########
     ####################################
     config:

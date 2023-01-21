@@ -132,11 +132,6 @@ input:
 #############################################################
 workflows:
 
-  ## Workflows and dependencies ###############################
-#     Information for the workflows and their dependencies
-#############################################################
-workflows:
-
   ## Workflow definition #####################
   #   liftover_vcf
   ############################################
@@ -170,11 +165,13 @@ workflows:
       vcf_lifted:
         file_type: raw VCF
         description: output from LiftOver for the lifted over input VCF
+        variant_type: SNV
 
       reject:
         file_type: raw VCF
         description: output from LiftOver for the rejected variants
-    
+        variant_type: SNV
+
     ## EC2 Configuration to use ########
     ####################################
     config:
