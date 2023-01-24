@@ -1,27 +1,34 @@
-===============================
-Part 1. Manta SV Identification
-===============================
+================================================
+Part 1. Manta Structural Variants Identification
+================================================
 
 
 Manta
 +++++
 
-This step carries out SV identification using ``Manta`` through the script ``manta.sh`` (https://github.com/dbmi-bgm/cgap-pipeline-SV-germline).
+This step executes the ``manta.sh`` script, which runs the Manta algorithm to identify potential structural variations (SVs) in the input data.
+The output is a ``vcf`` file, which is then checked for integrity to confirm that the format is correct and the file is complete.
 
 * CWL: workflow_manta_integrity-check.cwl
 
 Input
 -----
 
-Input files are sequence alignment files in ``bam`` format, generated from either of the `CGAP WGS Upstream Pipelines <https://cgap-pipeline-main.readthedocs.io/en/latest/Pipelines/Upstream/Upstream_pipelines.html>`_. Analysis ready ``bam`` files can also be provided by the user.
+The script takes analysis-ready ``bam`` file(s), generated from either of the `CGAP Upstream modules <https://cgap-pipeline-main.readthedocs.io/en/latest/Pipelines/Upstream/Upstream_pipelines.html>`_.
+The input file(s) can also be provided directly by the user.
 
 Running Manta
 -------------
 
-``manta.sh`` carries out ``Joint Diploid Sample Analysis`` when more than one sample is provided and ``Single Diploid Sample Analysis`` when run with only the proband.
+Manta executes a *Joint Diploid Sample Analysis* when more than one sample is provided, and a *Single Diploid Sample Analysis* when run for a single sample (i.e., proband-only).
+The algorithm identifies deletions (``SVTYPE=DEL``), duplications (``SVTYPE=DUP``), insertions (``SVTYPE=INS``), and inversion/translocations (``SVTYPE=BND``).
 
-``manta.sh`` identifies Deletions (SVTYPE=DEL), Duplications (SVTYPE=DUP), Insertions (SVTYPE=INS), and Inversion/Translocations (SVTYPE=BND).
+A ``callRegions`` region file containing a list of chromosome names limits the search to canonical and sex chromosomes (i.e., chr1-chr22, chrX and chrY).
 
-A ``callRegions`` region file containing the main chromosome names limits the ``Manta`` run to chr1-chr22, chrX and chrY.
+The script ``convertInversion.py`` (https://github.com/Illumina/manta) is also run to separate (``SVTYPE=INV``) from other translocations (``SVTYPE=BND``).
 
-The script ``convertInversion.py`` (https://github.com/Illumina/manta) is also called within ``manta.sh`` to separate (SVTYPE=INV) from other translocations (SVTYPE=BND). The output file is a ``vcf`` file and is checked for integrity.
+
+References
+++++++++++
+
+`Manta <https://github.com/Illumina/manta>`__.

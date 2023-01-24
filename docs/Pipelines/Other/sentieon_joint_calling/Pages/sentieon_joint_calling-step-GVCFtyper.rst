@@ -2,7 +2,7 @@
 GVCFtyper
 =========
 
-This step uses Sentieon's `GVCFtyper <https://support.sentieon.com/manual/usages/general/#gvcftyper-algorithm>`_ to jointly call and genotype single nucleotide variants (SNVs) and small INDELs.
+This step uses Sentieon ``GVCFtyper`` algorithm to jointly call and genotype single nucleotide variants (SNVs) and small INDELs.
 
 * CWL: sentieon-GVCFtyper.cwl
 
@@ -10,13 +10,13 @@ This step uses Sentieon's `GVCFtyper <https://support.sentieon.com/manual/usages
 Requirements
 ++++++++++++
 
-Must be run on input ``g.vcf`` files generated through ``HaplotypeCaller``.
+Requires input file(s) in ``g.vcf`` format generated through GATK ``HaplotypeCaller`` algorithm.
 
 
 Parameters
 ++++++++++
 
-To mirror our SNV Germline Pipeline, which uses a GATK Best Practices ``--standard-min-confidence-threshold-for-calling`` default of ``10`` in the ``GenotypeGVCF`` step, we set the following parameters for Sentieon ``GVCFtyper``.
+To mirror our SNV Germline processing, which uses a ``--standard-min-confidence-threshold-for-calling`` default of ``10`` in the GATK ``GenotypeGVCFs`` step, we set the following parameters to run Sentieon ``GVCFtyper``.
 
 1. ``--call_conf`` is set to ``10``
 2. ``--emit_conf`` is set to ``10``
@@ -26,4 +26,12 @@ To mirror our SNV Germline Pipeline, which uses a GATK Best Practices ``--standa
 Output
 ++++++
 
-This step creates an output ``vcf`` that has variants called across all input samples provided, and variants genotyped for each sample with sufficient data at that site.
+This step creates an output ``vcf`` file that stores jointly genotyped variants for all samples that are called together.
+
+
+References
+++++++++++
+
+`Sentieon GVCFtyper <https://support.sentieon.com/manual/usages/general/#gvcftyper-algorithm>`__.
+`GATK HaplotypeCaller <https://gatk.broadinstitute.org/hc/en-us/articles/5358864757787-HaplotypeCaller>`__.
+`GATK GenotypeGVCFs <https://gatk.broadinstitute.org/hc/en-us/articles/5358906861083-GenotypeGVCFs>`__.

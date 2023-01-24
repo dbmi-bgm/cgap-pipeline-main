@@ -1,8 +1,10 @@
-=============================
-CGAP Pipeline - Support Repos
-=============================
+====================
+Support Repositories
+====================
 
-The following GitHub repositories offer scripts, functions, reference files, and documentation in addition to what is found here at CGAP Pipeline Main. These repos support an array of functions, including general tasks required across numerous pipelines, deployment of individual pipelines, and creation or parsing of reference files.
+Together with the main repositories for the pipeline modules, additional repositories are used to store components to create annotation and reference files, and deploy the pipelines in CGAP infrastructure.
+Dedicated documentation is also available.
+
 
 .. toctree::
    :maxdepth: 1

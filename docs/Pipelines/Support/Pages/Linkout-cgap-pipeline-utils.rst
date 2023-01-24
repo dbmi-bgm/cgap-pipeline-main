@@ -2,4 +2,6 @@
 CGAP Pipeline Utils
 ===================
 
-The cgap-pipeline-utils GitHub repository (https://github.com/dbmi-bgm/cgap-pipeline-utils) and the related documentation (https://cgap-pipeline-utils.readthedocs.io/en/latest) contain information about the ``deploy_pipeline`` function for pipeline deployment and other pipeline utilities.
+Pipelines can be automatically deployed to a target AWS account.
+More information is available in the `documentation <https://cgap-pipeline-utils.readthedocs.io/en/latest>`__ for pipeline utilities.
+The source code is stored in in the GitHub repository https://github.com/dbmi-bgm/cgap-pipeline-utils.

@@ -2,14 +2,15 @@
 Downstream Pipelines
 ====================
 
-Downstream pipelines begin from analysis ready ``bam`` files and end with filtered lists of variants.
-An analysis ready ``bam`` undergoes some additional cleanup operations after the alignment to remove duplicate reads and recalibrate base quality scores.
+Downstream pipelines use analysis-ready ``bam`` files to generate filtered lists of variants in ``vcf`` format.
+These ``bam`` files are standard alignment files that have been further processed to eliminate duplicate reads and recalibrate base quality scores as described `here <https://cgap-pipeline-main.readthedocs.io/en/latest/Pipelines/Upstream/Upstream_pipelines.html>`_.
 
 
 Germline
 ++++++++
 
-Germline pipelines focus on discovery of rare variants inherited from parents. These mutations can be already present in the parents, or can be acquired as *de novo* mutations in a germ cell in one of the parents.
+Germline pipelines are designed to identify rare inherited variations in an individual's genome.
+These mutations may be present in the individual's parents or may arise as new mutations in germ cells and be passed on as *de novo* mutations.
 
 .. toctree::
    :maxdepth: 2
@@ -18,10 +19,12 @@ Germline pipelines focus on discovery of rare variants inherited from parents. T
    SV_germline/index-SV_germline
    CNV_germline/index-CNV_germline
 
+
 Somatic
 +++++++
 
-Somatic pipelines focus on discovery of somatic variants, often in matched tumor-normal samples.
+Somatic pipelines are designed to identify somatic mutations, which are changes that occur in an individual's DNA during their lifetime and are present in certain cells only.
+These mutations are often associated with cancer and can be identified using matched tumor-normal samples or tumor-only data in order to discover mutations that may be related to cancer development or progression.
 
 .. toctree::
    :maxdepth: 2

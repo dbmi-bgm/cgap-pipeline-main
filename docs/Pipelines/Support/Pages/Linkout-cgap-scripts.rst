@@ -2,4 +2,5 @@
 CGAP Scripts
 ============
 
-The cgap-scripts GitHub repository (https://github.com/dbmi-bgm/cgap-scripts) contains general purpose scripts used across the pipelines.
+The pipelines use general purpose scripts that are shared by multiple steps.
+These scripts are stored in the GitHub repository https://github.com/dbmi-bgm/cgap-scripts.

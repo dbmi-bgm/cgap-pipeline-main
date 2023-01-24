@@ -1,18 +1,15 @@
-.. cgap-pipeline-main documentation main file, created by
-   sphinx-quickstart on Thu Nov  4 15:17:12 2021.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+==============
+CGAP Pipelines
+==============
 
-=======================
-CGAP Pipelines Overview
-=======================
+This is the main documentation for the Computational Genomic Analysis Platform (CGAP) bioinformatics pipelines.
+The pipelines are developed following a modular approach and different modules can be combined to run a specific set of analyses.
 
-This is the documentation for the Clinical Genome Analysis Platform (CGAP) Pipelines.
+.. image:: images/modules.png
+   :width: 600px
 
-The CGAP Pipeline Main repo (https://github.com/dbmi-bgm/cgap-pipeline-main) contains the latest production versions of all CGAP bioinformatics pipelines!
-
-CGAP Pipeline Main Repo
-#######################
+The latest stable version for each of the available modules is bundled in the main pipelines repository.
+Refer to this repository to deploy the pipeline components.
 
 .. toctree::
  :maxdepth: 1
@@ -20,8 +17,7 @@ CGAP Pipeline Main Repo
  overview-main
  news-main
 
-CGAP Pipelines
-##############
+The modules currently available:
 
 .. toctree::
  :maxdepth: 1

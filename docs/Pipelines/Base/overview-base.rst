@@ -1,13 +1,15 @@
-======================
-Overview - Base Module
-======================
+===============
+Overview - Base
+===============
 
-The CGAP Pipeline Base Module (https://github.com/dbmi-bgm/cgap-pipeline-base) contains the CWL files, workflows, metaworkflows, Dockerfiles and CGAP Portal objects necessary to run ``md5``, ``FastQC``, and format conversion from ``cram`` to ``fastq``. This module is necessary for general CGAP Portal functionality and should always be included when deploying a new CGAP account.
+The CGAP Pipelines base module (https://github.com/dbmi-bgm/cgap-pipeline-base) contains the CWL description files, Dockerfiles, *Workflow*, *MetaWorkflow* and other shared CGAP Portal objects necessary to run general pipelines (e.g., MD5 Hash and FastQC) and format conversions (e.g., ``cram`` or ``bam`` to paired-end ``fastq`` files).
+This module is necessary for general CGAP Portal functionality and should always be included when deploying pipelines to a new account.
 
 Docker Images
 #############
 
-The Dockerfiles provided in this GitHub repository can be used to build public docker images, or if built through ``cgap-pipeline-utils`` ``deploy_pipeline.py`` (https://github.com/dbmi-bgm/cgap-pipeline-utils), private ECR images will be created for the provided AWS account.
+The Dockerfiles provided in this GitHub repository can be used to build public docker images.
+If built through ``cgap-pipeline-utils`` ``pipeline_deploy`` command (https://github.com/dbmi-bgm/cgap-pipeline-utils), private ECR images will be created for the target AWS account.
 
 The ``md5`` image contains (but is not limited to) the following software packages:
 
@@ -21,6 +23,7 @@ The ``base`` image contains (but is not limited to) the following software packa
 
 - samtools (1.9)
 - cramtools (0b5c9ec)
+- bcftools (1.11)
 - pigz (2.6)
 - pbgzip (2b09f97)
 
@@ -33,16 +36,16 @@ The ``granite`` image contains (but is not limited to) the following software pa
 
 - granite-suite (0.2.0)
 
-Pipeline Parts and Runtimes
-###########################
+Pipelines Overview
+##################
 
-Below are the current runtimes for components of the CGAP Pipeline - Base Module.
+Pipelines currently available in the module.
 
-.. image:: ../../images/base.png
-  :width: 500
+.. image:: ../../images/base_pipelines.png
 
-Pipeline Steps
-##############
+
+Pipelines Description
+#####################
 
 .. toctree::
    :maxdepth: 1
@@ -50,4 +53,5 @@ Pipeline Steps
    Pages/md5
    Pages/fastqc
    Pages/cram2fastq
+   Pages/bam2fastq
    Pages/liftover
