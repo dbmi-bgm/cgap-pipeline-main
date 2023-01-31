@@ -3,7 +3,7 @@
 #############################################################
 name: WGS_SNV_germline_proband_hg19_vcf
 description: Downstream pipeline to call SNV and small Indel for Whole Genome Sequencing, Proband. |
-             The pipeline requires an hg19/GRCh37 based VCF file as input and lifts it over to hg38/GRCh38. |  
+             The pipeline requires an hg19/GRCh37 based VCF file as input and lifts it over to hg38/GRCh38. |
              Based on GATK.
 
 ## General arguments ########################################
@@ -106,7 +106,7 @@ input:
     argument_type: file.chain
     files:
       - liftover-chain@hg38to19
-  
+
   chainfile_hg19_hg38:
     argument_type: file.chain
     files:
@@ -150,15 +150,17 @@ workflows:
       chain:
         argument_type: file.chain
         source_argument_name: chainfile_hg19_hg38
-      
+
       reference:
         argument_type: file.fa
         source_argument_name: reference_fa
-      
+
       #Parameter argument
       sample_names:
         argument_type: parameter.json
-    
+
+    ## Output ##########################
+    ####################################
     output:
 
       # File output
@@ -176,7 +178,7 @@ workflows:
     ####################################
     config:
       instance_type: m5.4xlarge
-      ebs_size: 7x
+      ebs_size: "7x"
       EBS_optimized: True
       spot_instance: True
       run_name: run_liftover_vcf
@@ -256,7 +258,7 @@ workflows:
     ####################################
     config:
       instance_type: t3.small
-      ebs_size: 7x
+      ebs_size: "7x"
       EBS_optimized: True
       spot_instance: True
       run_name: run_samplegeno
@@ -345,7 +347,7 @@ workflows:
     config:
       instance_type:
         - c5n.18xlarge
-      ebs_size: 1.35x
+      ebs_size: "1.35x"
       EBS_optimized: True
       spot_instance: True
       run_name: run_vep-annot-check

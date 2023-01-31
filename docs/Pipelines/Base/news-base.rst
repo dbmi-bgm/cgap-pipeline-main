@@ -5,6 +5,15 @@ News and Updates - Base
 Version Updates
 +++++++++++++++
 
-  **Feb 1, 2022** CGAP Pipeline Base v0.0.27 released in CGAP Pipeline Main!
+  **v1.1.0**
 
-  **Nov 1, 2021** CGAP-pipeline-base repo created!
+  * Conversion to YAML format for portal objects
+  * Added ``sanitize_vcf.py`` script to clean ``vcf`` files
+  * Added BCFtools ``merge`` to merge multiple ``vcf`` files
+  * Added conversion from ``bam`` to ``fastq``
+  * Added GATK ``LiftoverVcf``
+  * *FileReference* objects shared by multiple pipelines have been centralized in Base
+
+  **v1.0.0**
+
+  * v27 -> v1.0.0, we are starting a new more comprehensive versioning system

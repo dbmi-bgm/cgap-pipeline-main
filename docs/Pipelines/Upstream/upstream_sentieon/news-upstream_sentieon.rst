@@ -5,6 +5,11 @@ News and Updates - Upstream Sentieon
 Version Updates
 +++++++++++++++
 
-  **Feb 1, 2022** CGAP Pipeline Upstream Sentieon v0.0.27 released in CGAP Pipeline Main!
+  **v1.1.0**
 
-  **Nov 5, 2021** Coming soon...
+  * Conversion to YAML format for portal objects
+  * *FileReference* objects shared by multiple pipelines have been centralized in Base
+
+  **v1.0.0**
+
+  * v27 -> v1.0.0, we are starting a new more comprehensive versioning system

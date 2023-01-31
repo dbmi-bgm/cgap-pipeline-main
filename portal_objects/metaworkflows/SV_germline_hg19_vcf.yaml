@@ -56,7 +56,7 @@ input:
     argument_type: file.vcf_tar
     files:
       - unrelated-sv-ugrp-manta-gatk@v24
-  
+
   chainfile_hg19_hg38:
     argument_type: file.chain
     files:
@@ -109,15 +109,18 @@ workflows:
       chain:
         argument_type: file.chain
         source_argument_name: chainfile_hg19_hg38
-      
+
       reference:
         argument_type: file.fa
         source_argument_name: ref_fasta
-      
+
       #Parameter argument
       sample_names:
         argument_type: parameter.json
-    
+
+    ## Output ##########################
+    #     Output files for the workflow
+    ####################################
     output:
 
       # File output
@@ -135,7 +138,7 @@ workflows:
     ####################################
     config:
       instance_type: m5.4xlarge
-      ebs_size: 7x
+      ebs_size: "7x"
       EBS_optimized: True
       spot_instance: True
       run_name: run_liftover_vcf
@@ -264,7 +267,7 @@ workflows:
       EBS_optimized: True
       spot_instance: True
       run_name: run_granite-filter_SV_selector_vcf-check
-      behavior_on_capacity_limit": wait_and_retry
+      behavior_on_capacity_limit: wait_and_retry
 
   ## Workflow definition #####################
   #   20_unrelated_SV_filter_vcf-check

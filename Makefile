@@ -28,19 +28,19 @@ deploy-all:
 	poetry run pipeline_utils pipeline_deploy \
 		--ff-env $ENV_NAME \
 		--keydicts-json $KEYDICTS_JSON \
-		--cwl-bucket $CWL_BUCKET \
-		--account $ACCOUNT_NUMBER \
+		--wfl-bucket $WFL_BUCKET \
+		--account $AWS_ACCOUNT_NUMBER \
 		--region $AWS_DEFAULT_REGION \
-		--project-uuid $PROJECT_UUID \
-		--institution-uuid $INSTITUTION_UUID \
+		--project $PROJECT \
+		--institution $INSTITUTION \
+		--sentieon-server $SENTIEON_LICENSE \
 		--post-software \
 		--post-file-format \
 		--post-file-reference \
 		--post-workflow \
 		--post-metaworkflow \
-		--post-cwl \
+		--post-wfl \
 		--post-ecr \
-		--del-prev-version \
 		--repos \
 			cgap-pipeline-base \
 			cgap-pipeline-upstream-GATK \
@@ -48,6 +48,7 @@ deploy-all:
 			cgap-pipeline-SNV-germline \
 			cgap-pipeline-SV-germline \
 			cgap-pipeline-SNV-somatic \
+			cgap-pipeline-SV-somatic \
 			cgap-pipeline-somatic-sentieon \
 			.
 

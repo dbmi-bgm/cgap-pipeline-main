@@ -5,24 +5,11 @@ News and Updates - Upstream GATK
 Version Updates
 +++++++++++++++
 
-  **Feb 1, 2022** CGAP Pipeline Upstream GATK v27 is released as part of the v0.0.27 release of CGAP Pipeline Main!
+  **v1.1.0**
 
-  **Nov 3, 2021** CGAP SNV (WGS/WES) pipeline v26 is released!
+  * Conversion to YAML format for portal objects
+  * *FileReference* objects shared by multiple pipelines have been centralized in Base
 
-  **Oct 14, 2021**  CGAP (WGS) pipeline v25 is released!
+  **v1.0.0**
 
-  **Aug 1, 2021**  CGAP (WGS) pipeline v24 is released!
-
-  **May 28, 2021**  CGAP (WGS) pipeline v22 is released!
-
-  **Mar 30, 2021**  CGAP (WGS) pipeline v21 is released!
-
-  **Jan 20, 2021**  CGAP (WGS) pipeline v20 is released!
-
-  **Jan 4, 2021**  CGAP (WGS) pipeline v19 is released!
-
-  **Sep 14, 2020**  CGAP (WGS) pipeline v16 is released!
-
-  **Aug 10, 2020**  CGAP (WGS) pipeline v15 is released!
-
-  **Jul 24, 2020**  CGAP (WGS) pipeline v14 is released!
+  * v27 -> v1.0.0, we are starting a new more comprehensive versioning system

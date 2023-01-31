@@ -3,7 +3,7 @@
 #############################################################
 name: WGS_SNV_germline_family_hg19_vcf
 description: Downstream pipeline to call SNV and small Indel for Whole Genome Sequencing, Family. |
-             The pipeline requires an hg19/GRCh37 based VCF file as input and lifts it over to hg38/GRCh38. |  
+             The pipeline requires an hg19/GRCh37 based VCF file as input and lifts it over to hg38/GRCh38. |
              Based on GATK.
 
 ## General arguments ########################################
@@ -153,15 +153,17 @@ workflows:
       chain:
         argument_type: file.chain
         source_argument_name: chainfile_hg19_hg38
-      
+
       reference:
         argument_type: file.fa
         source_argument_name: reference_fa
-      
+
       #Parameter argument
       sample_names:
         argument_type: parameter.json
-      
+
+    ## Output ##########################
+    ####################################
     output:
 
       # File output
@@ -179,7 +181,7 @@ workflows:
     ####################################
     config:
       instance_type: m5.4xlarge
-      ebs_size: 7x
+      ebs_size: "7x"
       EBS_optimized: True
       spot_instance: True
       run_name: run_liftover_vcf
@@ -234,22 +236,27 @@ workflows:
   #   samplegeno
   ############################################
   samplegeno:
+
     ## Specific arguments ##############
     ####################################
     input:
+
       # File argument
       input_vcf:
         argument_type: file.vcf_gz
         source: liftover_vcf
         source_argument_name: vcf_lifted
+
     ## Output ##########################
     ####################################
     output:
+
       # File output
       samplegeno_vcf:
         file_type: intermediate VCF
         description: output from samplegeno in VCF format
         variant_type: SNV
+
     ## EC2 Configuration to use ########
     ####################################
     config:
@@ -343,7 +350,7 @@ workflows:
     config:
       instance_type:
         - c5n.18xlarge
-      ebs_size: 1.35x
+      ebs_size: "1.35x"
       EBS_optimized: True
       spot_instance: True
       run_name: run_vep-annot-check
