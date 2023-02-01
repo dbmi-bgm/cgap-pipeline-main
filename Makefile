@@ -23,17 +23,38 @@ build-image:
 build-image-37:
 	docker build base_images/ubuntu-py-generic --build-arg PYTHON_VERSION=3.7 -t cgap-ubuntu2004-py-37
 
+deploy-base:
+	scripts/check_awscred.sh
+	poetry run pipeline_utils pipeline_deploy \
+		--ff-env ${ENV_NAME} \
+		--keydicts-json ${KEYDICTS_JSON} \
+		--wfl-bucket ${WFL_BUCKET} \
+		--account ${AWS_ACCOUNT_NUMBER} \
+		--region ${AWS_DEFAULT_REGION} \
+		--project ${PROJECT} \
+		--institution ${INSTITUTION} \
+		--sentieon-server ${SENTIEON_LICENSE} \
+		--post-software \
+		--post-file-format \
+		--post-file-reference \
+		--post-workflow \
+		--post-metaworkflow \
+		--post-wfl \
+		--post-ecr \
+		--repos \
+			cgap-pipeline-base
+
 deploy-all:
 	scripts/check_awscred.sh
 	poetry run pipeline_utils pipeline_deploy \
-		--ff-env $ENV_NAME \
-		--keydicts-json $KEYDICTS_JSON \
-		--wfl-bucket $WFL_BUCKET \
-		--account $AWS_ACCOUNT_NUMBER \
-		--region $AWS_DEFAULT_REGION \
-		--project $PROJECT \
-		--institution $INSTITUTION \
-		--sentieon-server $SENTIEON_LICENSE \
+		--ff-env ${ENV_NAME} \
+		--keydicts-json ${KEYDICTS_JSON} \
+		--wfl-bucket ${WFL_BUCKET} \
+		--account ${AWS_ACCOUNT_NUMBER} \
+		--region ${AWS_DEFAULT_REGION} \
+		--project ${PROJECT} \
+		--institution ${INSTITUTION} \
+		--sentieon-server ${SENTIEON_LICENSE} \
 		--post-software \
 		--post-file-format \
 		--post-file-reference \
