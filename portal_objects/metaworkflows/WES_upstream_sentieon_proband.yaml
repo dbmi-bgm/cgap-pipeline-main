@@ -99,7 +99,18 @@ workflows:
     ## EC2 Configuration to use ########
     ####################################
     config:
-      instance_type: c5n.9xlarge
+      instance_type:
+        - c5n.9xlarge
+        - c5.9xlarge
+        - c5a.8xlarge
+        - c5.12xlarge
+        - c5a.12xlarge
+        - c6i.8xlarge
+        - c6i.12xlarge
+        - m6a.8xlarge
+        - m6a.12xlarge
+        - m6i.8xlarge
+        - m6i.12xlarge
       ebs_size: "6.3x"
       EBS_optimized: True
       spot_instance: True
@@ -275,7 +286,18 @@ workflows:
     ## EC2 Configuration to use ########
     ####################################
     config:
-      instance_type: c5n.9xlarge
+      instance_type:
+        - c5n.9xlarge
+        - c5.9xlarge
+        - c5a.8xlarge
+        - c5.12xlarge
+        - c5a.12xlarge
+        - c6i.8xlarge
+        - c6i.12xlarge
+        - m6a.8xlarge
+        - m6a.12xlarge
+        - m6i.8xlarge
+        - m6i.12xlarge
       ebs_size: "5x"
       EBS_optimized: True
       spot_instance: True
