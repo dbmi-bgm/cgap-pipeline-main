@@ -2,47 +2,45 @@
 
 # CGAP Pipeline Main
 
-This is the main repository for the cgap bioinformatics pipeline.
+This is the main repository for the CGAP bioinformatics pipelines.
 
 ## Documentation
 
-Documentation for all CGAP Pipelines can now be found here:
-https://cgap-pipeline-main.readthedocs.io/en/latest/
+Documentation for all the pipelines can now be found here:
+https://cgap-pipeline-main.readthedocs.io/en/latest/.
 
 ## Initialize the Repository
 
-Clone the repository.
+Clone the main pipeline repository.
+The submodules will be empty and set to the current commits saved for the main branch.
 
-    # Clone the repository
-    # The submodules will be empty and set to the current commit
+        git clone https://github.com/dbmi-bgm/cgap-pipeline-main.git
 
-    git clone https://github.com/dbmi-bgm/cgap-pipeline-main.git
+Check out the desired version.
+This will set the submodules to the commits linked for that specific release.
 
-    # Check out the desired version
-    # This will set the submodules to the commit saved for that version
+        git checkout <version>
 
-    git checkout <version>
+Download the content for each submodule.
+The submodules will be set in detached state.
 
-Populate the submodules.
+        make pull
 
-    # Download the content for each submodule
-    # The submodules will be set in detached state on their current commit
+Build pipeline_utils (optional).
+This will build from source the latest version linked that specific release.
 
-    make pull
+        make configure
+        make update
+        make build
 
-Install the repository.
+## Deploy the Pipelines
 
-    make configure
-    make update
-    make build
+Set the credentials to authenticate to the target environment. A minimal set of credentials is required and can be defined in the `.env` file. Additional credentials can be required to authenticate to the environment, see [*here*](https://cgap-pipeline-utils.readthedocs.io/en/latest/deploy_pipelines.html) for more details.
 
-See `make info` for more info on make targets.
+Test the deployment using the base module only.
 
-## Deploy the Pipeline
+        make deploy-base
 
-To automatically deploy all the pipeline components in target environment:
+Deploy all the other modules.
 
-  - Set credentials to authenticate to target environment. A minimal set of credentials is required and can be defined in `.env` file. Additional credentials can be required to authenticate to the target environment, see [*here*](https://cgap-pipeline-utils.readthedocs.io/en/latest/deploy_pipelines.html) for more details.
-  - Run commad:
-
-        make deploy-all
+        makde deploy-all
