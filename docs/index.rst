@@ -5,7 +5,7 @@ CGAP Pipelines
 This is the main documentation for the Computational Genomic Analysis Platform (CGAP) bioinformatics pipelines.
 The pipelines are developed following a modular approach and different modules can be combined to run a specific set of analyses.
 
-.. image:: images/modules.png
+.. image:: images/pipeline_modules.png
    :width: 600px
 
 The latest stable version for each of the available modules is bundled in the main pipelines repository.
