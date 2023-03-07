@@ -26,7 +26,7 @@ The submodules will be set in detached state.
 
         make pull
 
-Build pipeline_utils (optional).
+Build `pipeline_utils` (optional).
 This will build from source the latest version linked for that specific release.
 
         make configure
