@@ -26,3 +26,6 @@
 [submodule "cgap-pipeline-SV-somatic"]
 	path = cgap-pipeline-SV-somatic
 	url = https://github.com/dbmi-bgm/cgap-pipeline-SV-somatic
+[submodule "portal-pipeline-utils"]
+	path = portal-pipeline-utils
+	url = https://github.com/dbmi-bgm/portal-pipeline-utils
