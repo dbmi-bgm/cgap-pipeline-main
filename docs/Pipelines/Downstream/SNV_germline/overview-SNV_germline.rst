@@ -21,7 +21,7 @@ Docker Images
 #############
 
 The Dockerfiles provided in this GitHub repository can be used to build public docker images.
-If built through ``cgap-pipeline-utils`` ``pipeline_deploy`` command (https://github.com/dbmi-bgm/cgap-pipeline-utils), private ECR images will be created for the target AWS account.
+If built through ``portal-pipeline-utils`` ``pipeline_deploy`` command (https://github.com/dbmi-bgm/portal-pipeline-utils), private ECR images will be created for the target AWS account.
 
 The ``snv_germline_gatk`` image is primarily for **calling and genotyping variants**.
 This image contains (but is not limited to) the following software packages:

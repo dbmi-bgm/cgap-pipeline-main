@@ -4,7 +4,7 @@ News and Updates
 
   **v1.1.0**
 
-  * Updated ``cgap-pipeline-utils`` (v2.0.0) to take the deployment code for the new YAML standard
+  * Updated ``portal-pipeline-utils`` (v2.0.0) to take the deployment code for the new YAML standard
   * Updated pipeline submodules:
 
     - cgap-pipeline-base: v1.1.0

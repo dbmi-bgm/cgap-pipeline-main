@@ -34,7 +34,7 @@ Docker Images
 #############
 
 The Dockerfiles provided in this GitHub repository can be used to build public docker images.
-If built through ``cgap-pipeline-utils`` ``pipeline_deploy`` command (https://github.com/dbmi-bgm/cgap-pipeline-utils), private ECR images will be created for the target AWS account.
+If built through ``portal-pipeline-utils`` ``pipeline_deploy`` command (https://github.com/dbmi-bgm/portal-pipeline-utils), private ECR images will be created for the target AWS account.
 
 The ``manta`` image is primarily for **SVs identification**.
 This image does not use the base image provided in the CGAP Pipelines main repository, as some of the software requires an older version of Python.

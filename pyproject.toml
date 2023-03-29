@@ -12,7 +12,7 @@ boto3 = "^1.20.15"
 awscli = "^1.22.15"
 magma-suite = "^1.0.1"
 
-cgap-pipeline-utils = { path = "./cgap-pipeline-utils", develop = true }
+portal-pipeline-utils = { path = "./portal-pipeline-utils", develop = true }
 
 [build-system]
 requires = ["poetry_core>=1.0.0"]

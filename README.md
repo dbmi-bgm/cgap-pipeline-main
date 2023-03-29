@@ -35,7 +35,7 @@ This will build from source the latest version linked for that specific release.
 
 ## Deploy the Pipelines
 
-Set the credentials to authenticate to the target environment. A minimal set of credentials is required and can be defined in the `.env` file. Additional credentials can be required to authenticate to the environment, see [*here*](https://cgap-pipeline-utils.readthedocs.io/en/latest/deploy_pipeline.html#set-up-credentials-and-environmental-variables) for more details.
+Set the credentials to authenticate to the target environment. A minimal set of credentials is required and can be defined in the `.env` file. Additional credentials can be required to authenticate to the environment, see [*here*](https://portal-pipeline-utils.readthedocs.io/en/latest/deploy_pipeline.html#set-up-credentials-and-environmental-variables) for more details.
 
 Test the deployment using the base module only.
 
