@@ -1,6 +1,9 @@
 ================
 News and Updates
 ================
+  **v1.1.1**
+
+  * Fixed dimensionality for upstream pipelines
 
   **v1.1.0**
 

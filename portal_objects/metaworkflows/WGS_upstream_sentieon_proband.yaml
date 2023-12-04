@@ -15,11 +15,11 @@ input:
   # File argument
   fastqs_R1:
     argument_type: file.fastq
-    dimensionality: 1
+    dimensionality: 2
 
   fastqs_R2:
     argument_type: file.fastq
-    dimensionality: 1
+    dimensionality: 2
 
   reference_bwa:
     argument_type: file.bwt
@@ -67,12 +67,12 @@ workflows:
       fastq_R1:
         argument_type: file.fastq
         source_argument_name: fastqs_R1
-        scatter: 1
+        scatter: 2
 
       fastq_R2:
         argument_type: file.fastq
         source_argument_name: fastqs_R2
-        scatter: 1
+        scatter: 2
 
       reference_fa:
         argument_type: file.fa

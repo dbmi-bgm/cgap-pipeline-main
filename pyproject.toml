@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "cgap-pipeline-main"
-version = "1.1.0"
+version = "1.1.1"
 description = "Main repository for deploying pipelines that impelement the CGAP-pipeline specification."
 authors = ["CGAP Team"]
 
